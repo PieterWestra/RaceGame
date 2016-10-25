@@ -1,0 +1,10 @@
+C:\Users\Gebruiker\Desktop\HBO informatica\Programmeren 1\Object Movement\Object Movement\bin\Debug\Object Movement.exe.config
+C:\Users\Gebruiker\Desktop\HBO informatica\Programmeren 1\Object Movement\Object Movement\bin\Debug\Object Movement.exe
+C:\Users\Gebruiker\Desktop\HBO informatica\Programmeren 1\Object Movement\Object Movement\bin\Debug\Object Movement.pdb
+C:\Users\Gebruiker\Desktop\HBO informatica\Programmeren 1\Object Movement\Object Movement\obj\Debug\Object Movement.csprojResolveAssemblyReference.cache
+C:\Users\Gebruiker\Desktop\HBO informatica\Programmeren 1\Object Movement\Object Movement\obj\Debug\Object_Movement.FormView.resources
+C:\Users\Gebruiker\Desktop\HBO informatica\Programmeren 1\Object Movement\Object Movement\obj\Debug\Object_Movement.Properties.Resources.resources
+C:\Users\Gebruiker\Desktop\HBO informatica\Programmeren 1\Object Movement\Object Movement\obj\Debug\Object Movement.csproj.GenerateResource.Cache
+C:\Users\Gebruiker\Desktop\HBO informatica\Programmeren 1\Object Movement\Object Movement\obj\Debug\Object Movement.exe
+C:\Users\Gebruiker\Desktop\HBO informatica\Programmeren 1\Object Movement\Object Movement\obj\Debug\Object Movement.pdb
+C:\Users\Gebruiker\Desktop\HBO informatica\Programmeren 1\Object Movement\Object Movement\bin\Debug\Car.png
