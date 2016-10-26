@@ -4,7 +4,6 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
-
 namespace Object_Movement
 {
     public partial class FormView : Form
@@ -13,13 +12,17 @@ namespace Object_Movement
         {
             Up, Down, Left, Right
         }
+        enum Rotation
+        {
+            Q, E
+        }
 
-        private int _x;
-        private int _y;
+        public int _x;
+        public int _y;
         private Position _objPosition;
         //public static object Keyboard { get; private set; }
         //public class KeyEventArgs : EventArgs 
-
+        public static Keys ModifierKeys { get; }
 
 
         public FormView()
@@ -34,67 +37,35 @@ namespace Object_Movement
         {
             
         }
-        
-        private void FormView_Paint(object sender, PaintEventArgs e)
+
+
+
+        public Graphics car = null;
+        public Bitmap image = new Bitmap(@"Car1.png");
+
+
+        public void FormView_Paint(object sender, PaintEventArgs e)
         {
-            //e.Graphics.FillRectangle(Brushes.Red, _x, _y, 100, 100);
-        
-            // Create image.
-            Image newImage = Image.FromFile("Car.png");
-
-            // of image and for size of image.
-            int height = 48;
-            int width = 96;
-
-            // Draw image to screen.
-            e.Graphics.DrawImage(newImage, _x, _y, width, height);
+            e.Graphics.DrawImage(new Bitmap("Car1.png"), _x, _y, 48, 24);
+            car = CreateGraphics();
         }
 
 
 
-        /*
-        public static IEnumerable<Key> FormView_KeysDown()
-        {
-            foreach (Key key in Enum.GetValues(typeof(Key)))
-            {
-                if (Keyboard.IsKeyDown(key))
-                    yield return key;
-            }
-        }
-        */
 
 
 
 
-        private void tmrMoving_Tick(object sender, EventArgs e)
-        {
-            
-            if (_objPosition == Position.Up)
-            {
-                _y -= 10;
-            }
-            else if (_objPosition == Position.Down)
-            {
-                _y += 10;
-            }
-            else if (_objPosition == Position.Right)
-            {
-                _x += 10;
-            }
-            else if (_objPosition == Position.Left)
-            {
-                _x -= 10;
-            }
-
-
-            Invalidate();
-        }
-
-        private void FormView_KeyDown(object sender, KeyEventArgs e)
+        private void FormView_KeyDown(object sender, KeyEventArgs e/*, PaintEventArgs g*/)
         {
             if (e.KeyCode == Keys.Up)
             {
                 _objPosition = Position.Up;
+                /*if (e.KeyCode == Keys.Q)
+                {
+                    g.Graphics.DrawImage(new Bitmap("Car.png"), _x, _y, 48, 24);
+                    g.Graphics.RotateTransform(10.0F);
+                }*/
             }
             else if (e.KeyCode == Keys.Down)
             {
@@ -109,5 +80,45 @@ namespace Object_Movement
                 _objPosition = Position.Right;
             }
         }
+
+
+        private void tmrMoving_Tick(object sender, EventArgs e)
+        {
+            bool vroom;
+            if (Control.ModifierKeys == Keys.Shift)
+            {
+                vroom = true;
+            }
+            else
+            {
+                vroom = false;
+            }
+
+            if (vroom == true)
+            {
+                if (_objPosition == Position.Up)
+                {
+                    _y -= 10;
+                }
+                else if (_objPosition == Position.Down)
+                {
+                    _y += 10;
+                }
+                else if (_objPosition == Position.Right)
+                {
+                    _x += 10;
+                }
+                else if (_objPosition == Position.Left)
+                {
+                    _x -= 10;
+                }
+            }
+
+            Invalidate();
+        }
+
+
+
+
     }
 }

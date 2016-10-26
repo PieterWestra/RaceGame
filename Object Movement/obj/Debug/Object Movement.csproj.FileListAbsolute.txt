@@ -7,4 +7,7 @@ C:\Users\Gebruiker\Desktop\HBO informatica\Programmeren 1\Object Movement\Object
 C:\Users\Gebruiker\Desktop\HBO informatica\Programmeren 1\Object Movement\Object Movement\obj\Debug\Object Movement.csproj.GenerateResource.Cache
 C:\Users\Gebruiker\Desktop\HBO informatica\Programmeren 1\Object Movement\Object Movement\obj\Debug\Object Movement.exe
 C:\Users\Gebruiker\Desktop\HBO informatica\Programmeren 1\Object Movement\Object Movement\obj\Debug\Object Movement.pdb
-C:\Users\Gebruiker\Desktop\HBO informatica\Programmeren 1\Object Movement\Object Movement\bin\Debug\Car.png
+C:\Users\Gebruiker\Desktop\HBO informatica\Programmeren 1\Object Movement\Object Movement\bin\Debug\Car1.png
+C:\Users\Gebruiker\Desktop\HBO informatica\Programmeren 1\Object Movement\Object Movement\bin\Debug\Car2.png
+C:\Users\Gebruiker\Desktop\HBO informatica\Programmeren 1\Object Movement\Object Movement\bin\Debug\Car3.png
+C:\Users\Gebruiker\Desktop\HBO informatica\Programmeren 1\Object Movement\Object Movement\bin\Debug\Car4.png
