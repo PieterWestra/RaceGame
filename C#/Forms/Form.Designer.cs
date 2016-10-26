@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pnlCanvas = new System.Windows.Forms.Panel();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tmrMoving = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // pnlCanvas
@@ -40,6 +43,17 @@
             this.pnlCanvas.TabIndex = 0;
             this.pnlCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlCanvas_Paint);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // tmrMoving
+            // 
+            this.tmrMoving.Enabled = true;
+            this.tmrMoving.Interval = 18;
+            this.tmrMoving.Tick += new System.EventHandler(this.tmrMoving_Tick);
+            // 
             // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -48,6 +62,7 @@
             this.Controls.Add(this.pnlCanvas);
             this.Name = "Form";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form_Load);
             this.ResumeLayout(false);
 
         }
@@ -55,6 +70,8 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlCanvas;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Timer tmrMoving;
     }
 }
 
