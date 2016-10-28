@@ -8,8 +8,10 @@ using System.Drawing;
 
 namespace Engine
 {
-    public class Loop
+    public static class Loop
     {
+        private static Sprite car1 = new Sprite();
+
         #region
         /*
         Random r = new Random();
@@ -21,12 +23,12 @@ namespace Engine
         */
         #endregion
 
-        Image image = Image.FromFile(@"C:\Users\Pieter\Desktop\car.png");
+        private static Image image = Image.FromFile(@"C:\Users\Pieter\Desktop\car.png");
         
-        float angle { get;  set; }
+        private static float angle { get;  set; }
 
 
-        public void Start(Panel pnlCanvas)
+        public static void Start(Panel pnlCanvas)
         {
             #region
             /*
@@ -51,17 +53,12 @@ namespace Engine
             
         }
 
-        public void Update(Panel pnlCanvas, Graphics g)
+        public static void Update(Panel pnlCanvas, Graphics g)
         {
-            //angle += .2f;
-
-            if (angle > 360)
-                angle -= 360;
+            
         }
 
-       
-
-        public void Render(Panel pnlCanvas, Graphics g)
+        public static void Render(Panel pnlCanvas, Graphics g)
         {
             #region
             /*
@@ -73,18 +70,8 @@ namespace Engine
             bc4.RenderCube(g, Brushes.HotPink, pnlCanvas.Width, pnlCanvas.Height);
             */
             #endregion
-
-            //g = Graphics.FromImage(image);
-
-            g.Clear(Color.Black);
-
-            g.TranslateTransform(image.Width / 2.0f + 0.35f, image.Height / 2.0f - 0.35f);
-            g.RotateTransform(-2);
-            g.TranslateTransform(-image.Width / 2.0f, -image.Height / 2.0f);
-
-            g.DrawImage(image, 0, 0);
-
-            //return image;
+            g.DrawImage(car1.GetSprite(), 0 - car1.newWidth / 2, 0 - car1.newHeight / 2);
+            
         }
     }
 }
