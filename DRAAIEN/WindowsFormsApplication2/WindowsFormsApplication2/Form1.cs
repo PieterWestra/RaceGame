@@ -20,7 +20,10 @@ namespace WindowsFormsApplication2
 
         float force;
         float direction;
-        double newX, newY;
+
+        float xMult, yMult;
+        float x = 0;
+        float y = 0;
 
         Bitmap b;
 
@@ -72,40 +75,49 @@ namespace WindowsFormsApplication2
 
             lblAngle.Text = "Angle: " +  Convert.ToString(angleDegrees);
             lblForce.Text = "Force: " + Convert.ToString(force);
+            lblX.Text = "Xpos: " + xMult;
+            lblY.Text = "Ypos: " + yMult;
 
             // MOVEMENT
             if (angleDegrees >= 0 && angleDegrees <= 90)
             {
-                direction = 90 - angleDegrees;
+                direction = (90 - angleDegrees) * 0.0174533f;
 
-                double A = Math.Sin(direction);
-                double B = Math.Sqrt(1 - Math.Pow(A, 2));
+                xMult = (float)Math.Sin(direction);
+                yMult = (float)(Math.Sqrt(1 - Math.Pow(xMult, 2)));
 
-                newX += (double)(1 * Math.Pow(B, 2));
-                newY += (double)(1 * A);
-
-                /*
-                 * float percentageTurned = (100 / 90) * direction;
-                 * float newX += speed * 
-                 * float newY += speed * 
-                 * 
-                 * C = 1
-                 * sin(direction) = A
-                 * B = sqrt(C^2 - A^2)
-                 * 
-                 * */
+                x += force * xMult;
+                y += force * yMult;
             }
-            if (angleDegrees >= 90 && angleDegrees <= 180)
+            if (angleDegrees >= 90 && angleDegrees < 180)
             {
-                direction = 180 - angleDegrees;
+                direction = (180 - angleDegrees) * 0.0174533f;
+
+                yMult = (float)Math.Sin(direction);
+                xMult = (float)(Math.Sqrt(1 - Math.Pow(yMult, 2)));
+
+                x -= force * xMult;
+                y += force * yMult;
             }
-            if (angleDegrees >= 180 && angleDegrees <= 270)
+            if (angleDegrees >= 180 && angleDegrees < 270)
             {
-                direction = 270 - angleDegrees;
+                direction = (270 - angleDegrees) * 0.0174533f;
+
+                xMult = (float)Math.Sin(direction);
+                yMult = (float)(Math.Sqrt(1 - Math.Pow(xMult, 2)));
+
+                x -= force * xMult;
+                y -= force * yMult;
             }
             if (angleDegrees >= 270 && angleDegrees <= 360)
             {
-                direction = 360 - angleDegrees;
+                direction = (360 - angleDegrees) * 0.0174533f;
+
+                yMult = (float)Math.Sin(direction);
+                xMult = (float)(Math.Sqrt(1 - Math.Pow(yMult, 2)));
+
+                x += force * xMult;
+                y -= force * yMult;
             }
 
             Render();
@@ -124,7 +136,8 @@ namespace WindowsFormsApplication2
 
            // gfx.ResetTransform();
 
-            gfx.DrawImage(GetImage(), (int)Math.Pow(newX, 2), (int)Math.Pow(newY, 2));
+            gfx.DrawImage(GetImage(), x - newWidth / 2, y - newHeight / 2);
+            gfx.DrawImage(GetImage(), x - newWidth / 2 + 50, y - newHeight / 2 + 50);
             gfx.Dispose();
             
         }
