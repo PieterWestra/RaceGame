@@ -44,10 +44,14 @@
   <ItemGroup>
     <Compile Include="BouncingCube.cs" />
     <Compile Include="Loop.cs" />
-    <Compile Include="Movement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rotation.cs" />
     <Compile Include="Sprite.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="sprites\car1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

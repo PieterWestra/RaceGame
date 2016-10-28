@@ -8,10 +8,8 @@ using System.Drawing;
 
 namespace Engine
 {
-    public static class Loop
+    public  class Loop
     {
-        private static Sprite car1 = new Sprite();
-
         #region
         /*
         Random r = new Random();
@@ -23,12 +21,7 @@ namespace Engine
         */
         #endregion
 
-        private static Image image = Image.FromFile(@"C:\Users\Pieter\Desktop\car.png");
-        
-        private static float angle { get;  set; }
-
-
-        public static void Start(Panel pnlCanvas)
+        public  void Start()
         {
             #region
             /*
@@ -53,15 +46,15 @@ namespace Engine
             
         }
 
-        public static void Update(Panel pnlCanvas, Graphics g)
+        public  void Update(Sprite car1)
         {
-            
+			car1.Transform();
         }
 
-        public static void Render(Panel pnlCanvas, Graphics g)
+        public  void Render(Graphics g, Sprite car1)
         {
-            #region
-            /*
+			#region
+			/*
             g.Clear(Color.Black);
 
             bc.RenderCube(g, Brushes.Red, pnlCanvas.Width, pnlCanvas.Height);
@@ -69,9 +62,11 @@ namespace Engine
             bc3.RenderCube(g, Brushes.Green, pnlCanvas.Width, pnlCanvas.Height);
             bc4.RenderCube(g, Brushes.HotPink, pnlCanvas.Width, pnlCanvas.Height);
             */
-            #endregion
-            g.DrawImage(car1.GetSprite(), 0 - car1.newWidth / 2, 0 - car1.newHeight / 2);
-            
-        }
+			#endregion
+
+			g.Clear(Color.Gray);
+			// Sprite.GetSprite heeft een optionele parameter voor een startrotatie (In hoeken van 90 houden!)
+            g.DrawImage(car1.GetSprite(180), car1.x - car1.newWidth / 2, car1.y - car1.newHeight / 2);
+		}
     }
 }

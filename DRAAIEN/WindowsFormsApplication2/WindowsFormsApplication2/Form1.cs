@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,7 +13,7 @@ namespace WindowsFormsApplication2
 {
     public partial class Form1 : Form
     {
-        Image img = Image.FromFile(@"C:\Users\Pieter\Desktop\image.png");
+        Image img = Image.FromFile(@"C:\Users\Pieter\Documents\School\RaceGame\C#\Engine\sprites\car1.png");
         float angleDegrees = 0f;
         float scaleFactor = 1f;
         bool turn = false;
@@ -27,17 +28,18 @@ namespace WindowsFormsApplication2
 
         Bitmap b;
 
-        int oldWidth, oldHeight, newWidth, newHeight;
+        int oldWidth, oldHeight, newWidth, newHeight, prevWidth, prevHeight;
 
         public Form1()
         {
             InitializeComponent();
-        }
+			DoubleBuffered = true;
+		}
 
         private void pnlCanvas_Paint(object sender, PaintEventArgs e)
         {
-            //graph = pnlCanvas.CreateGraphics();
-        }
+			//graph = pnlCanvas.CreateGraphics();
+		}
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -79,7 +81,7 @@ namespace WindowsFormsApplication2
             lblY.Text = "Ypos: " + yMult;
 
             // MOVEMENT
-            if (angleDegrees >= 0 && angleDegrees <= 90)
+            if (angleDegrees >= 0 && angleDegrees < 90)
             {
                 direction = (90 - angleDegrees) * 0.0174533f;
 
@@ -109,7 +111,7 @@ namespace WindowsFormsApplication2
                 x -= force * xMult;
                 y -= force * yMult;
             }
-            if (angleDegrees >= 270 && angleDegrees <= 360)
+            if (angleDegrees >= 270 && angleDegrees < 360)
             {
                 direction = (360 - angleDegrees) * 0.0174533f;
 
@@ -125,29 +127,26 @@ namespace WindowsFormsApplication2
 
         void Render()
         {
-            Graphics gfx = pnlCanvas.CreateGraphics();
-
-            gfx.Clear(Color.Gray);
-            
-           // gfx.TranslateTransform();
-           // gfx.RotateTransform();
-
-           // draw
-
-           // gfx.ResetTransform();
+			Graphics gfx = pnlCanvas.CreateGraphics();
+			gfx.Clear(Color.Gray);
 
             gfx.DrawImage(GetImage(), x - newWidth / 2, y - newHeight / 2);
-            gfx.DrawImage(GetImage(), x - newWidth / 2 + 50, y - newHeight / 2 + 50);
-            gfx.Dispose();
-            
-        }
+
+			// "Double buffering" hack
+			gfx.CopyFromScreen(new Point(0, 0), new Point(pnlCanvas.Width, pnlCanvas.Height), new Size(1, 1));
+			gfx.CopyFromScreen(new Point(0, 0), new Point(pnlCanvas.Width, pnlCanvas.Height), new Size(1, 1));
+
+
+			gfx.Dispose();
+
+		}
 
         Image GetImage()
         {
             if (b != null)
                 b.Dispose();
 
-            Image image = Image.FromFile(@"C:\Users\Pieter\Desktop\image.png");
+            Image image = Image.FromFile(@"C:\Users\Pieter\Documents\School\RaceGame\C#\Engine\sprites\car1.png");
 
 
             oldWidth = image.Width;
@@ -167,17 +166,17 @@ namespace WindowsFormsApplication2
             b = new Bitmap(newWidth, newHeight);
             Graphics g = Graphics.FromImage(b);
 
-            oldWidth = image.Width;
-            oldHeight = image.Height;
             scaleFactor = Math.Min((float)oldWidth / newWidth, (float)oldHeight / newHeight);
 
             g.TranslateTransform(newWidth / 2f, newHeight / 2f);
-            g.RotateTransform(angleDegrees);
+            g.RotateTransform(angleDegrees + 180);
             g.TranslateTransform(-oldWidth / 2, -oldHeight / 2);
 
-            g.Clear(Color.Black);
+            //g.Clear(Color.Black);
             g.DrawImage(image, 0, 0, image.Width, image.Height);
 
+			prevHeight = newHeight;
+			prevWidth = newWidth;
             image.Dispose();
             g.Dispose();
 

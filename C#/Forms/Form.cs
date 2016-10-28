@@ -9,59 +9,71 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using Engine;
+using System.Reflection;
 
 namespace Forms
 {
     
     public partial class Form : System.Windows.Forms.Form
-    {
-        Graphics g;
+	{
+		Loop loop = new Loop();
 
-        bool left = false;
-        bool right = false;
-        float force = 0f;
+		Sprite car1 = new Sprite();
+		Graphics g;
+		
 
         public Form()
         {
             InitializeComponent();
             tmrMoving.Interval = 18;
-        }
+		}
 
         private void pnlCanvas_Paint(object sender, PaintEventArgs e)
         {
             g = pnlCanvas.CreateGraphics();
-        }
+		}
 
 
         private void Form_Load(object sender, EventArgs e)
         {
-            Loop.Start(pnlCanvas);
+            loop.Start();
         }
 
         private void tmrMoving_Tick(object sender, EventArgs e)
         {
-            Loop.Update(pnlCanvas, g);
-            Loop.Render(pnlCanvas, g);
-        }
+            loop.Update(car1);
+            loop.Render(g, car1);
 
+			lblAngle.Text = "Angle: " + car1.angleDegrees;
+			lblForce.Text = "Force: " + car1.force;
+			lblXmult.Text = "Xmult: " + car1.xMult;
+			lblYmult.Text = "Ymult: " + car1.yMult;
+
+			// "Double buffering" hack
+			g.CopyFromScreen(new Point(0, 0), new Point(pnlCanvas.Width, pnlCanvas.Height), new Size(1, 1));
+			g.CopyFromScreen(new Point(0, 0), new Point(pnlCanvas.Width, pnlCanvas.Height), new Size(1, 1));
+		}
+
+		// Key press detectie
         private void Form_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.D)
-                Movement.right = true;
+                car1.right = true;
             if (e.KeyCode == Keys.A)
-                Movement.left = true;
+                car1.left = true;
             if (e.KeyCode == Keys.W)
-                Movement.force = 5f;
+                car1.force = 10f;
         }
 
+		// Key unpress detectie
         private void Form_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.D)
-                Movement.right = false;
+                car1.right = false;
             if (e.KeyCode == Keys.A)
-                Movement.left = false;
+                car1.left = false;
             if (e.KeyCode == Keys.W)
-                Movement.force = 0f;
+                car1.force = 0f;
         }
-    }
+	}
 }
