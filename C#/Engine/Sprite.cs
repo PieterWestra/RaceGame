@@ -106,7 +106,7 @@ namespace Engine
             gfx.TranslateTransform(-image.Width / 2, -image.Height / 2);
 
             // Teken de sprite
-            gfx.Clear(Color.Black);
+            //gfx.Clear(Color.Black);
             gfx.DrawImage(image, 0, 0, image.Width, image.Height);
 
             // gfx disposen

@@ -106,6 +106,7 @@
 			this.ClientSize = new System.Drawing.Size(784, 561);
 			this.Controls.Add(this.pnlCanvas);
 			this.Name = "Form";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Form1";
 			this.Load += new System.EventHandler(this.Form_Load);
 			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_KeyDown);
