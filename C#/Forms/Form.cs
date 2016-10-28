@@ -63,6 +63,8 @@ namespace Forms
                 car1.left = true;
             if (e.KeyCode == Keys.W)
                 car1.force = 10f;
+			if (e.KeyCode == Keys.S)
+				car1.force = -5f;
         }
 
 		// Key unpress detectie
@@ -74,6 +76,8 @@ namespace Forms
                 car1.left = false;
             if (e.KeyCode == Keys.W)
                 car1.force = 0f;
-        }
+			if (e.KeyCode == Keys.S)
+				car1.force = 0f;
+		}
 	}
 }

@@ -66,6 +66,7 @@
 			// lblAngle
 			// 
 			this.lblAngle.AutoSize = true;
+			this.lblAngle.BackColor = System.Drawing.SystemColors.ControlLightLight;
 			this.lblAngle.Location = new System.Drawing.Point(12, 9);
 			this.lblAngle.Name = "lblAngle";
 			this.lblAngle.Size = new System.Drawing.Size(35, 13);
@@ -75,6 +76,7 @@
 			// lblYmult
 			// 
 			this.lblYmult.AutoSize = true;
+			this.lblYmult.BackColor = System.Drawing.SystemColors.ControlLightLight;
 			this.lblYmult.Location = new System.Drawing.Point(12, 48);
 			this.lblYmult.Name = "lblYmult";
 			this.lblYmult.Size = new System.Drawing.Size(35, 13);
@@ -84,6 +86,7 @@
 			// lblXmult
 			// 
 			this.lblXmult.AutoSize = true;
+			this.lblXmult.BackColor = System.Drawing.SystemColors.ControlLightLight;
 			this.lblXmult.Location = new System.Drawing.Point(12, 35);
 			this.lblXmult.Name = "lblXmult";
 			this.lblXmult.Size = new System.Drawing.Size(35, 13);
@@ -93,6 +96,7 @@
 			// lblForce
 			// 
 			this.lblForce.AutoSize = true;
+			this.lblForce.BackColor = System.Drawing.SystemColors.ControlLightLight;
 			this.lblForce.Location = new System.Drawing.Point(12, 22);
 			this.lblForce.Name = "lblForce";
 			this.lblForce.Size = new System.Drawing.Size(35, 13);

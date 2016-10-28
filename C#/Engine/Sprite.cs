@@ -17,6 +17,7 @@ namespace Engine
 
 		public bool right = false;
 		public bool left = false;
+		public bool reverse = false;
 		public float force = 0f;
 		float direction;
 
@@ -26,9 +27,9 @@ namespace Engine
 
 		public void Transform()
 		{
-			if (right)
+			if (right && force != 0)
 				angleDegrees += 5;
-			if (left)
+			if (left && force != 0)
 				angleDegrees -= 5;
 
 			if (angleDegrees >= 360)
