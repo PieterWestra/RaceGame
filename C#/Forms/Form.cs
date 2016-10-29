@@ -21,13 +21,7 @@ namespace Forms
 		private Sprite car1 = new Sprite();
 	    private Sprite _car2  = new Sprite(); //new instance of Sprite called car2
 
-	    private void setbitmap(string location)
-	    {
-	        location = @"sprites\car2.png";
-          _car2.image = Image.FromFile(location);
-         }
-
-
+	   
 
 	    private Graphics g;
 		
@@ -36,7 +30,8 @@ namespace Forms
         {
             InitializeComponent();
             tmrMoving.Interval = 18;
-		}
+            _car2.image = Image.FromFile(@"sprites\car2.png");
+        }
 
         private void pnlCanvas_Paint(object sender, PaintEventArgs e)
         {
@@ -73,15 +68,20 @@ namespace Forms
 		// Key press detectie
         private void Form_KeyDown(object sender, KeyEventArgs e)
         {
+            // I removed out the original force version for the more advanced throttle/brake version
+            // you can see the speed code in the sprite.cs -- transform() method -- 
+            //
+            // - Peter
+
             //Car 1 config
             if (e.KeyCode == Keys.D)
                 car1.right = true;
             if (e.KeyCode == Keys.A)
                 car1.left = true;
             if (e.KeyCode == Keys.W)
-                car1.force = 10f;
-			if (e.KeyCode == Keys.S)
-				car1.force = -5f;
+                car1.Throttle = true;
+            if (e.KeyCode == Keys.S)
+               car1.Brake = true;
 
             //Car 2 config
             if (e.KeyCode == Keys.Right)
@@ -89,9 +89,9 @@ namespace Forms
             if (e.KeyCode == Keys.Left)
                 _car2.left = true;
             if (e.KeyCode == Keys.Up)
-                _car2.force = 10f;
+                _car2.Throttle =  true;
             if (e.KeyCode == Keys.Down)
-                _car2.force = -5f;
+                _car2.Brake = true;
         }
 
 		// Key unpress detectie
@@ -103,9 +103,9 @@ namespace Forms
             if (e.KeyCode == Keys.A)
                 car1.left = false;
             if (e.KeyCode == Keys.W)
-                car1.force = 0f;
-			if (e.KeyCode == Keys.S)
-				car1.force = 0f;
+                car1.Throttle = false;
+            if (e.KeyCode == Keys.S)
+                car1.Brake = false;
 
             //Car 2 config
             if (e.KeyCode == Keys.Right)
@@ -113,9 +113,9 @@ namespace Forms
             if (e.KeyCode == Keys.Left)
                 _car2.left = false;
             if (e.KeyCode == Keys.Up)
-                _car2.force = 0f;
+                _car2.Throttle = false;
             if (e.KeyCode == Keys.Down)
-                _car2.force = 0f;
+                _car2.Brake = false;
         }
 
 

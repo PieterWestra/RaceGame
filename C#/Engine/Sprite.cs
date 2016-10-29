@@ -21,6 +21,9 @@ namespace Engine
 		public float force = 0f;
 		float direction;
 
+        public bool Throttle = false;   // needed for the redesign of the the speed-o-meter
+        public bool Brake = false;      // comment for later.
+
 		public float xMult, yMult;
 		public float x = 0;
 		public float y = 0;
@@ -36,6 +39,34 @@ namespace Engine
 				angleDegrees -= 360;
 			if (angleDegrees < 0)
 				angleDegrees += 360;
+
+            // Force/Speed
+		    if (Throttle && (Brake == false))
+		        if (force < 10)
+		            force += 0.125f;
+		        else
+		            force = 10;
+		    if ((Throttle == false) && (Brake == false))
+		        if (force > 0)
+		            force -= 0.1f;
+		        else
+		            force = 0;
+		    if (Throttle && Brake)
+		    {
+		        if (force > 0)
+		            force = -0.5f;
+		        if (force <= 0)
+		            force = 0;
+		    }
+		    if ((Throttle == false) && Brake)
+		    {
+		        if (force > 0)
+		            force -= 2;
+		        if (force <= 0 && force >= -1)
+		            force -= -0.1f;
+		        if (force < -1)
+		            force = -3;
+		    }
 
 			// MOVEMENT
 			if (angleDegrees >= 0 && angleDegrees < 90)
