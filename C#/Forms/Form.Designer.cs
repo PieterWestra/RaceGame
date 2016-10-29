@@ -61,7 +61,7 @@
             this.pnlCanvas.Location = new System.Drawing.Point(0, 0);
             this.pnlCanvas.Margin = new System.Windows.Forms.Padding(4);
             this.pnlCanvas.Name = "pnlCanvas";
-            this.pnlCanvas.Size = new System.Drawing.Size(1045, 690);
+            this.pnlCanvas.Size = new System.Drawing.Size(1002, 717);
             this.pnlCanvas.TabIndex = 0;
             this.pnlCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlCanvas_Paint);
             // 
@@ -173,7 +173,7 @@
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(67, 4);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // tmrMoving
             // 
@@ -185,9 +185,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1045, 690);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1002, 717);
             this.Controls.Add(this.pnlCanvas);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RaceGame";

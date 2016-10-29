@@ -53,8 +53,14 @@ namespace Forms
             // it`s just an temporary fix. 29/10/16
             //
             // - Peter
-            Car1_Bar.Value = (int)car1.force;
-            Car2_Bar.Value = (int) _car2.force;
+            //
+            // it broke the game -- if you try to drive backwards you break it -- because it can`t handle negative values
+            // i will fix this tomorow
+            //
+            // - Peter
+            //
+            //Car1_Bar.Value = (int)car1.force;
+            //Car2_Bar.Value = (int) _car2.force;
 
 			lblAngle.Text = "Angle: " + car1.angleDegrees;
 			lblForce.Text = "Force: " + car1.force;
