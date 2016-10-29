@@ -46,9 +46,15 @@ namespace Forms
 
         private void tmrMoving_Tick(object sender, EventArgs e)
         {
-           loop.Update(car1, _car2);
-           loop.Render(g, car1, _car2);
-             
+           loop.Update(car1, _car2);    //
+           loop.Render(g, car1, _car2); //changed some of the rendercode - it works but could be done better. - peter 
+
+            // Speed-o-meter is just an regular progressbarr at the moment if there is time ove we will look in to an replacement
+            // it`s just an temporary fix. 29/10/16
+            //
+            // - Peter
+            Car1_Bar.Value = (int)car1.force;
+            Car2_Bar.Value = (int) _car2.force;
 
 			lblAngle.Text = "Angle: " + car1.angleDegrees;
 			lblForce.Text = "Force: " + car1.force;
