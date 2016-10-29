@@ -16,10 +16,20 @@ namespace Forms
     
     public partial class Form : System.Windows.Forms.Form
 	{
-		Loop loop = new Loop();
+		private Loop loop = new Loop();
 
-		Sprite car1 = new Sprite();
-		Graphics g;
+		private Sprite car1 = new Sprite();
+	    private Sprite _car2  = new Sprite(); //new instance of Sprite called car2
+
+	    private void setbitmap(string location)
+	    {
+	        location =@"sprites\car1.png";
+          _car2.image = Image.FromFile(@location);
+         }
+
+
+
+	    private Graphics g;
 		
 
         public Form()
@@ -41,8 +51,10 @@ namespace Forms
 
         private void tmrMoving_Tick(object sender, EventArgs e)
         {
-            loop.Update(car1);
-            loop.Render(g, car1);
+            loop.Update(car1, _car2);
+            //loop.Update(_car2);
+            loop.Render(g, car1, _car2);
+            //loop.Render(g, _car2);  
 
 			lblAngle.Text = "Angle: " + car1.angleDegrees;
 			lblForce.Text = "Force: " + car1.force;

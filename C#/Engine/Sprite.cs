@@ -12,7 +12,7 @@ namespace Engine
         public int newWidth, newHeight;
         public float angleDegrees = 0f;
 
-        Image image = Image.FromFile(@"sprites\car1.png");
+        public Image image = Image.FromFile(@"sprites\car1.png");
         Bitmap bmp;
 
 		public bool right = false;
