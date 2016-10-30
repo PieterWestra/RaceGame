@@ -24,6 +24,7 @@ namespace Engine
 
         public bool Throttle = false;   // needed for the redesign of the the speed-o-meter
         public bool Brake = false;      // comment for later.
+        public short Speed = 0;
 
 		public float xMult, yMult;
 		public float x = 0;
@@ -45,8 +46,9 @@ namespace Engine
             #endregion Transform_Steering
 
             #region Transform_Force/Speed
-            // Force/Speed
-            if (Throttle && (Brake == false))
+
+		    // Force/Speed
+		    if (Throttle && (Brake == false))
 		        if (force < 10)
 		            force += 0.125f;
 		        else
@@ -67,12 +69,18 @@ namespace Engine
 		    {
 		        if (force > 0)
 		            force -= 2;
-		        if (force <= 0 && force >= -1)
+		        if ((force <= 0) && (force >= -1))
 		            force -= -0.1f;
 		        if (force < -1)
-		            force = -3;
+		            force = -2;
 		    }
-            #endregion
+
+            //Speed for Speed-O-Meter
+		    if (force < 0)
+		        Speed = (short) (force*-10);
+		    else
+		        Speed = (short) (force*10);
+		    #endregion
 
             #region  Transform_Movement
             // MOVEMENT

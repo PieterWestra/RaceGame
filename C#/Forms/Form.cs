@@ -48,7 +48,7 @@ namespace Forms
 
 
            loop.Update(car1, car2);    //
-           loop.Render(g, car1, car2); //changed some of the rendercode - it works but could be done better. - peter 
+           loop.Render(g, car1, car2); //changed some of the rendercode - it works but could be done better. - Peter 
 
             #region Speed-o-meter
             // Speed-o-meter is just an regular progressbarr at the moment if there is time ove we will look in to an replacement
@@ -61,19 +61,19 @@ namespace Forms
             //
             // - Peter
             //
-            //Car1_Bar.Value = (int)car1.force;
-            //Car2_Bar.Value = (int) car2.force;
+            Car1_Bar.Value =(short) car1.Speed;
+            Car2_Bar.Value = (short) car2.Speed;
             #endregion
 
             #region Labels
 
             lblAngle.Text = "Angle: " + car1.angleDegrees;
-			lblForce.Text = "Force: " + car1.force;
+			lblForce.Text = "Speed: " + car1.Speed;
 			lblXmult.Text = "Xmult: " + car1.xMult;
 			lblYmult.Text = "Ymult: " + car1.yMult;
 
             label1.Text = "Angle car2: " + car2.angleDegrees;
-            label2.Text = "Force car2: " + car2.force;
+            label2.Text = "Speed car2: " + car2.Speed;
             label3.Text = "Xmult car2: " + car2.xMult;
             label4.Text = "Ymult car2: " + car2.yMult;
 

@@ -47,6 +47,7 @@
             // 
             // pnlCanvas
             // 
+            this.pnlCanvas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pnlCanvas.Controls.Add(this.Car1_Bar);
             this.pnlCanvas.Controls.Add(this.Car2_Bar);
             this.pnlCanvas.Controls.Add(this.label4);
@@ -68,7 +69,7 @@
             // Car1_Bar
             // 
             this.Car1_Bar.Location = new System.Drawing.Point(16, 91);
-            this.Car1_Bar.Maximum = 10;
+            this.Car1_Bar.Maximum = 101;
             this.Car1_Bar.Name = "Car1_Bar";
             this.Car1_Bar.Size = new System.Drawing.Size(100, 23);
             this.Car1_Bar.TabIndex = 10;
@@ -76,7 +77,7 @@
             // Car2_Bar
             // 
             this.Car2_Bar.Location = new System.Drawing.Point(886, 91);
-            this.Car2_Bar.Maximum = 10;
+            this.Car2_Bar.Maximum = 101;
             this.Car2_Bar.Name = "Car2_Bar";
             this.Car2_Bar.Size = new System.Drawing.Size(100, 23);
             this.Car2_Bar.TabIndex = 9;
@@ -173,7 +174,7 @@
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(67, 4);
             // 
             // tmrMoving
             // 
