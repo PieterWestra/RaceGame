@@ -14,25 +14,27 @@ namespace Engine
 		public Rectangle collisionFront;
 		public Rectangle collisionBack;
 
-		public int newWidth, newHeight;
+        #region declaring variables
+        public int newWidth, newHeight;
         public float angleDegrees = 0f;
 
         public Image image = Image.FromFile(@"sprites\car1.png");
-        Bitmap bmp;
+        private Bitmap bmp;
 
 		public bool right = false;
 		public bool left = false;
 		public bool reverse = false;
 		public float force = 0f;
-		float direction;
+		private float direction;
 
         public bool Throttle = false;   // needed for the redesign of the the speed-o-meter
         public bool Brake = false;      // comment for later.
+        public short Speed = 0;
 
 		public float xMult, yMult;
 		public float x = 0;
 		public float y = 0;
-
+        #endregion
 
 		// TESTVERSIE VAN COLLISIDERS MET HARDCODED FORMULES
 		public void Collider()
@@ -87,19 +89,21 @@ namespace Engine
 			}
 		}
 
-		public void Transform()
+        public void Transform()
 		{
-			if (right && force != 0)
-				angleDegrees += force / 2;
+			#region Transform_Steering
 			if (left && force != 0)
 				angleDegrees -= force / 2;
+			if (right && force != 0)
+				angleDegrees += force / 2;
 
 			if (angleDegrees >= 360)
 				angleDegrees -= 360;
 			if (angleDegrees < 0)
 				angleDegrees += 360;
+            #endregion Transform_Steering
 
-            // Force/Speed
+            #region Transform_Force/Speed
 		    if (Throttle && (Brake == false))
 		        if (force < 10)
 		            force += 0.125f;
@@ -121,13 +125,20 @@ namespace Engine
 		    {
 		        if (force > 0)
 		            force -= 2;
-		        if (force <= 0 && force >= -1)
+		        if ((force <= 0) && (force >= -1))
 		            force -= -0.1f;
 		        if (force < -1)
-		            force = -3;
+		            force = -2;
 		    }
 
+            //Speed for Speed-O-Meter
+		    if (force < 0)
+		        Speed = (short) (force*-10);
+		    else
+		        Speed = (short) (force*10);
+			#endregion Transform_Force/Speed
 
+			#region  Transform_Movement
 			// MOVEMENT
 			if (angleDegrees >= 0 && angleDegrees < 90)
 			{
@@ -169,10 +180,13 @@ namespace Engine
 				x += force * xMult;
 				y -= force * yMult;
 			}
-		}
+            #endregion
+        }
+
 
         public Image GetSprite(int initialRotation = 0)
         {
+            #region Black magic
             // Dispose bmp om memory leaks tegen te gaan
             if (bmp != null)
                 bmp.Dispose();
@@ -205,6 +219,7 @@ namespace Engine
 			gfx.Dispose();
 
             return bmp;
+            #endregion
         }
     }
 }
