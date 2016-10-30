@@ -18,8 +18,8 @@ namespace Forms
 	{
 		private Loop loop = new Loop();
 
-		private Sprite car1 = new Sprite();
-	    private Sprite _car2  = new Sprite(); //new instance of Sprite called car2
+		private Sprite car1 = new Sprite();  // new instance of Sprite called car1
+		private Sprite car2  = new Sprite(); // new instance of Sprite called car2
 
 	   
 
@@ -29,8 +29,8 @@ namespace Forms
         public Form()
         {
             InitializeComponent();
-            tmrMoving.Interval = 18;
-            _car2.image = Image.FromFile(@"sprites\car2.png");
+            tmrMoving.Interval = 16;
+            car2.image = Image.FromFile(@"sprites\car2.png");
         }
 
         private void pnlCanvas_Paint(object sender, PaintEventArgs e)
@@ -46,8 +46,8 @@ namespace Forms
 
         private void tmrMoving_Tick(object sender, EventArgs e)
         {
-           loop.Update(car1, _car2);    //
-           loop.Render(g, car1, _car2); //changed some of the rendercode - it works but could be done better. - peter 
+           loop.Update(car1, car2);    //
+           loop.Render(g, car1, car2); //changed some of the rendercode - it works but could be done better. - peter 
 
             // Speed-o-meter is just an regular progressbarr at the moment if there is time ove we will look in to an replacement
             // it`s just an temporary fix. 29/10/16
@@ -60,17 +60,17 @@ namespace Forms
             // - Peter
             //
             //Car1_Bar.Value = (int)car1.force;
-            //Car2_Bar.Value = (int) _car2.force;
+            //Car2_Bar.Value = (int) car2.force;
 
 			lblAngle.Text = "Angle: " + car1.angleDegrees;
 			lblForce.Text = "Force: " + car1.force;
 			lblXmult.Text = "Xmult: " + car1.xMult;
 			lblYmult.Text = "Ymult: " + car1.yMult;
 
-            label1.Text = "Angle _car2: " + _car2.angleDegrees;
-            label2.Text = "Force _car2: " + _car2.force;
-            label3.Text = "Xmult _car2: " + _car2.xMult;
-            label4.Text = "Ymult _car2: " + _car2.yMult;
+            label1.Text = "Angle car2: " + car2.angleDegrees;
+            label2.Text = "Force car2: " + car2.force;
+            label3.Text = "Xmult car2: " + car2.xMult;
+            label4.Text = "Ymult car2: " + car2.yMult;
 
             // "Double buffering" hack
             g.CopyFromScreen(new Point(0, 0), new Point(pnlCanvas.Width, pnlCanvas.Height), new Size(1, 1));
@@ -97,13 +97,13 @@ namespace Forms
 
             //Car 2 config
             if (e.KeyCode == Keys.Right)
-                _car2.right = true;
+                car2.right = true;
             if (e.KeyCode == Keys.Left)
-                _car2.left = true;
+                car2.left = true;
             if (e.KeyCode == Keys.Up)
-                _car2.Throttle =  true;
+                car2.Throttle =  true;
             if (e.KeyCode == Keys.Down)
-                _car2.Brake = true;
+                car2.Brake = true;
         }
 
 		// Key unpress detectie
@@ -121,13 +121,13 @@ namespace Forms
 
             //Car 2 config
             if (e.KeyCode == Keys.Right)
-                _car2.right = false;
+                car2.right = false;
             if (e.KeyCode == Keys.Left)
-                _car2.left = false;
+                car2.left = false;
             if (e.KeyCode == Keys.Up)
-                _car2.Throttle = false;
+                car2.Throttle = false;
             if (e.KeyCode == Keys.Down)
-                _car2.Brake = false;
+                car2.Brake = false;
         }
 
 
