@@ -29,7 +29,7 @@ namespace Forms
         {
             InitializeComponent();
             tmrMoving.Interval = 16;
-            car2.image = Image.FromFile(@"sprites\car2.png");
+            car2.image = Image.FromFile(@"resources\sprites\car2.png");
         }
 
         private void pnlCanvas_Paint(object sender, PaintEventArgs e)
