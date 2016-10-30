@@ -16,6 +16,8 @@ namespace Forms
     
     public partial class Form : System.Windows.Forms.Form
 	{
+		
+
 		private Loop loop = new Loop();
 
 		private Sprite car1 = new Sprite();  // new instance of Sprite called car1
@@ -41,7 +43,7 @@ namespace Forms
 
         private void Form_Load(object sender, EventArgs e)
         {
-            loop.Start();
+            loop.Start(car1, car2);
         }
 
         private void tmrMoving_Tick(object sender, EventArgs e)
@@ -66,6 +68,8 @@ namespace Forms
 			lblForce.Text = "Force: " + car1.force;
 			lblXmult.Text = "Xmult: " + car1.xMult;
 			lblYmult.Text = "Ymult: " + car1.yMult;
+
+			lblCarLoc.Text = "car1 X: " + car1.x + " / car1 Y: " + car1.y;
 
             label1.Text = "Angle car2: " + car2.angleDegrees;
             label2.Text = "Force car2: " + car2.force;

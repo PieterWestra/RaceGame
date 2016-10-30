@@ -9,7 +9,12 @@ namespace Engine
 {
     public class Sprite
     {
-        public int newWidth, newHeight;
+		public Rectangle collisionCenter1;
+		public Rectangle collisionCenter2;
+		public Rectangle collisionFront;
+		public Rectangle collisionBack;
+
+		public int newWidth, newHeight;
         public float angleDegrees = 0f;
 
         public Image image = Image.FromFile(@"sprites\car1.png");
@@ -28,12 +33,66 @@ namespace Engine
 		public float x = 0;
 		public float y = 0;
 
+
+		// TESTVERSIE VAN COLLISIDERS MET HARDCODED FORMULES
+		public void Collider()
+		{
+			if (angleDegrees >= 0 && angleDegrees < 90)
+			{
+				collisionCenter1 = new Rectangle(new Point(
+					(int)(x + 16 * (xMult - .9f)),
+					(int)(y - 16 / (yMult + 1f))),
+					new Size(32, 32));
+
+				collisionCenter2 = new Rectangle(new Point(
+					(int)(x - 24 * (xMult + .55f)),
+					(int)(y - 16 * (yMult + 1f))),
+					new Size(32, 32));
+			}
+			if (angleDegrees >= 90 && angleDegrees < 180)
+			{
+				collisionCenter1 = new Rectangle(new Point(
+					(int)(x - 16 * (xMult + .9f)),
+					(int)(y - 16 / (yMult + 1f))),
+					new Size(32, 32));
+
+				collisionCenter2 = new Rectangle(new Point(
+					(int)(x - 24 / (xMult + 1.7f)),
+					(int)(y - 16 * (yMult + 1f))),
+					new Size(32, 32));
+			}
+			if (angleDegrees >= 180 && angleDegrees < 270)
+			{
+				collisionCenter1 = new Rectangle(new Point(
+					(int)(x - 16 * (xMult + .9f)),
+					(int)(y - 16 * (yMult + 1f))),
+					new Size(32, 32));
+
+				collisionCenter2 = new Rectangle(new Point(
+					(int)(x + 24 * (xMult - .7f)),
+					(int)(y - 16 / (yMult + 1.7f))),
+					new Size(32, 32));
+			}
+			if (angleDegrees >= 270 && angleDegrees < 360)
+			{
+				collisionCenter1 = new Rectangle(new Point(
+					(int)(x - 16 / (xMult + .9f)),
+					(int)(y - 16 * (yMult + 1f))),
+					new Size(32, 32));
+
+				collisionCenter2 = new Rectangle(new Point(
+					(int)(x - 24 * (xMult + .55f)),
+					(int)(y - 16 / (yMult + 1.7f))),
+					new Size(32, 32));
+			}
+		}
+
 		public void Transform()
 		{
 			if (right && force != 0)
-				angleDegrees += 5;
+				angleDegrees += force / 2;
 			if (left && force != 0)
-				angleDegrees -= 5;
+				angleDegrees -= force / 2;
 
 			if (angleDegrees >= 360)
 				angleDegrees -= 360;
@@ -67,6 +126,7 @@ namespace Engine
 		        if (force < -1)
 		            force = -3;
 		    }
+
 
 			// MOVEMENT
 			if (angleDegrees >= 0 && angleDegrees < 90)
@@ -141,8 +201,8 @@ namespace Engine
             //gfx.Clear(Color.Black);
             gfx.DrawImage(image, 0, 0, image.Width, image.Height);
 
-            // gfx disposen
-            gfx.Dispose();
+			// gfx disposen
+			gfx.Dispose();
 
             return bmp;
         }
