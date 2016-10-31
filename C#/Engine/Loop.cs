@@ -13,6 +13,12 @@ namespace Engine
 		Rectangle rect2 = new Rectangle(new Point(256, 180), new Size(128, 256));
 		
 
+
+        public string vraag = string.Empty;
+        
+         
+
+
         public  void Start(Sprite car1, Sprite car2)
 		{
 			car1.x = 256;
@@ -33,7 +39,11 @@ namespace Engine
 				car1.force = -5f;
 			if (rect2.IntersectsWith(car1.collisionCenter2))
 				car1.force = 10f;
-		}
+
+           
+
+
+        }
 
         public  void Render(Graphics g, Sprite car1,Sprite car2, Sprite fuelImage)
         {
@@ -50,6 +60,10 @@ namespace Engine
 
 			g.FillRectangle(Brushes.Blue, rect2);
 
+            g.FillRectangle(Brushes.Turquoise,Checkpoints.Checkpoint1);
+            g.FillRectangle(Brushes.Violet, Checkpoints.Checkpoint2);
+            g.FillRectangle(Brushes.Red, Checkpoints.Checkpoint3);
+            g.FillRectangle(Brushes.Coral, Checkpoints.Checkpoint4);
 
             // Drawing fuel icon
             g.DrawImage(fuelImage.GetSprite(), 200, 200);

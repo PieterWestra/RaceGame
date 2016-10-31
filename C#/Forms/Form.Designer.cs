@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.pnlCanvas = new System.Windows.Forms.Panel();
+            this.lblFuel2 = new System.Windows.Forms.Label();
+            this.lblFuel1 = new System.Windows.Forms.Label();
             this.Car1_Bar = new System.Windows.Forms.ProgressBar();
             this.Car2_Bar = new System.Windows.Forms.ProgressBar();
             this.label4 = new System.Windows.Forms.Label();
@@ -42,13 +44,19 @@
             this.lblAngle = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tmrMoving = new System.Windows.Forms.Timer(this.components);
-            this.lblFuel1 = new System.Windows.Forms.Label();
-            this.lblFuel2 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblRondencar1 = new System.Windows.Forms.Label();
+            this.lblRondencar2 = new System.Windows.Forms.Label();
+            this.LBLRNDE = new System.Windows.Forms.Label();
             this.pnlCanvas.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlCanvas
             // 
+            this.pnlCanvas.Controls.Add(this.LBLRNDE);
+            this.pnlCanvas.Controls.Add(this.lblRondencar2);
+            this.pnlCanvas.Controls.Add(this.lblRondencar1);
+            this.pnlCanvas.Controls.Add(this.label5);
             this.pnlCanvas.Controls.Add(this.lblFuel2);
             this.pnlCanvas.Controls.Add(this.lblFuel1);
             this.pnlCanvas.Controls.Add(this.Car1_Bar);
@@ -68,6 +76,24 @@
             this.pnlCanvas.Size = new System.Drawing.Size(1003, 718);
             this.pnlCanvas.TabIndex = 0;
             this.pnlCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlCanvas_Paint);
+            // 
+            // lblFuel2
+            // 
+            this.lblFuel2.AutoSize = true;
+            this.lblFuel2.Location = new System.Drawing.Point(883, 65);
+            this.lblFuel2.Name = "lblFuel2";
+            this.lblFuel2.Size = new System.Drawing.Size(57, 17);
+            this.lblFuel2.TabIndex = 12;
+            this.lblFuel2.Text = "lblFuel2";
+            // 
+            // lblFuel1
+            // 
+            this.lblFuel1.AutoSize = true;
+            this.lblFuel1.Location = new System.Drawing.Point(17, 65);
+            this.lblFuel1.Name = "lblFuel1";
+            this.lblFuel1.Size = new System.Drawing.Size(57, 17);
+            this.lblFuel1.TabIndex = 11;
+            this.lblFuel1.Text = "lblFuel1";
             // 
             // Car1_Bar
             // 
@@ -179,7 +205,7 @@
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(67, 4);
             // 
             // tmrMoving
             // 
@@ -187,23 +213,41 @@
             this.tmrMoving.Interval = 18;
             this.tmrMoving.Tick += new System.EventHandler(this.tmrMoving_Tick);
             // 
-            // lblFuel1
+            // label5
             // 
-            this.lblFuel1.AutoSize = true;
-            this.lblFuel1.Location = new System.Drawing.Point(17, 65);
-            this.lblFuel1.Name = "lblFuel1";
-            this.lblFuel1.Size = new System.Drawing.Size(57, 17);
-            this.lblFuel1.TabIndex = 11;
-            this.lblFuel1.Text = "lblFuel1";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(25, 125);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(46, 17);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "label5";
             // 
-            // lblFuel2
+            // lblRondencar1
             // 
-            this.lblFuel2.AutoSize = true;
-            this.lblFuel2.Location = new System.Drawing.Point(883, 65);
-            this.lblFuel2.Name = "lblFuel2";
-            this.lblFuel2.Size = new System.Drawing.Size(57, 17);
-            this.lblFuel2.TabIndex = 12;
-            this.lblFuel2.Text = "lblFuel2";
+            this.lblRondencar1.AutoSize = true;
+            this.lblRondencar1.Location = new System.Drawing.Point(98, 29);
+            this.lblRondencar1.Name = "lblRondencar1";
+            this.lblRondencar1.Size = new System.Drawing.Size(100, 17);
+            this.lblRondencar1.TabIndex = 14;
+            this.lblRondencar1.Text = "lblRondencar1";
+            // 
+            // lblRondencar2
+            // 
+            this.lblRondencar2.AutoSize = true;
+            this.lblRondencar2.Location = new System.Drawing.Point(757, 28);
+            this.lblRondencar2.Name = "lblRondencar2";
+            this.lblRondencar2.Size = new System.Drawing.Size(100, 17);
+            this.lblRondencar2.TabIndex = 15;
+            this.lblRondencar2.Text = "lblRondencar2";
+            // 
+            // LBLRNDE
+            // 
+            this.LBLRNDE.AutoSize = true;
+            this.LBLRNDE.Location = new System.Drawing.Point(425, 12);
+            this.LBLRNDE.Name = "LBLRNDE";
+            this.LBLRNDE.Size = new System.Drawing.Size(72, 17);
+            this.LBLRNDE.TabIndex = 16;
+            this.LBLRNDE.Text = "LBLRNDE";
             // 
             // Form
             // 
@@ -244,6 +288,10 @@
         private System.Windows.Forms.ProgressBar Car2_Bar;
         private System.Windows.Forms.Label lblFuel2;
         private System.Windows.Forms.Label lblFuel1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblRondencar2;
+        private System.Windows.Forms.Label lblRondencar1;
+        private System.Windows.Forms.Label LBLRNDE;
     }
 }
 

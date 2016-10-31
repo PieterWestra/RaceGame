@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BouncingCube.cs" />
+    <Compile Include="Checkpoints.cs" />
     <Compile Include="Fuel.cs" />
     <Compile Include="Loop.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

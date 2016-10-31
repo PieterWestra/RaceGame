@@ -23,6 +23,7 @@ namespace Forms
 		private Sprite car2  = new Sprite(); // new instance of Sprite called car2
 
         private Sprite fuel = new Sprite();
+	    private Checkpoints _Checkpoints = new Checkpoints();
 
         private Graphics g;
         #endregion
@@ -50,8 +51,10 @@ namespace Forms
         {
 
 
-           loop.Update(car1, car2);    //
-           loop.Render(g, car1, car2, fuel); //changed some of the rendercode - it works but could be done better. - Peter 
+            loop.Update(car1, car2);    //
+            loop.Render(g, car1, car2, fuel); //changed some of the rendercode - it works but could be done better. - Peter 
+
+            _Checkpoints.CheckPass(car1, car2); //Checks id you have passed the checkpoints
 
             #region Speed-o-meter
             // Speed-o-meter is just an regular progressbarr at the moment if there is time ove we will look in to an replacement
@@ -82,6 +85,12 @@ namespace Forms
             lblFuel1.Text = "Fuel: " + car1.fuel;
             lblFuel2.Text = "Fuel: " + car2.fuel;
 
+            label5.Text = "geraakt?" + loop.vraag;
+
+            lblRondencar1.Text = "Ronde: " + _Checkpoints.Lapcar1;
+            lblRondencar2.Text = "Ronde " + _Checkpoints.Lapcar2;
+
+            LBLRNDE.Text = "DO THE CHECKPOINTS WORK??? " + _Checkpoints.WORK;
             #endregion
 
             // "Double buffering" hack
