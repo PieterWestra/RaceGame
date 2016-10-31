@@ -22,8 +22,13 @@ namespace Forms
 		private Sprite car1 = new Sprite();  // new instance of Sprite called car1
 		private Sprite car2  = new Sprite(); // new instance of Sprite called car2
 
+        private Sprite speed = new Sprite();
         private Sprite fuel = new Sprite();
+
 	    private Checkpoints _Checkpoints = new Checkpoints();
+
+
+
 
         private Graphics g;
         #endregion
@@ -34,6 +39,7 @@ namespace Forms
             tmrMoving.Interval = 16;
             car2.image = Image.FromFile(@"resources\sprites\car2.png");
             fuel.image = Image.FromFile(@"resources\sprites\Fuel.png");
+            speed.image = Image.FromFile(@"resources\sprites\Speed.png");
         }
 
         private void pnlCanvas_Paint(object sender, PaintEventArgs e)
@@ -48,15 +54,15 @@ namespace Forms
         }
 
         private void tmrMoving_Tick(object sender, EventArgs e)
-        {
+        { 
 
+           
 
-            loop.Update(car1, car2);    //
-            loop.Render(g, car1, car2, fuel); //changed some of the rendercode - it works but could be done better. - Peter 
-
+           loop.Update(car1, car2);    //
+           loop.Render(g, car1, car2, fuel, speed); //changed some of the rendercode - it works but could be done better. - Peter 
             _Checkpoints.CheckPass(car1, car2); //Checks id you have passed the checkpoints
 
-            #region Speed-o-meter
+            #region Speed-O-Meter / FuelBar
             // Speed-o-meter is just an regular progressbarr at the moment if there is time ove we will look in to an replacement
             // it`s just an temporary fix. 29/10/16
             //
@@ -69,6 +75,8 @@ namespace Forms
             //
             Car1_Bar.Value = car1.Speed;
             Car2_Bar.Value = car2.Speed;
+            Fuelbarcar1.Value = (int)car1.fuel;
+            Fuelbarcar2.Value = (int)car2.fuel;
             #endregion
 
             #region Labels
@@ -84,6 +92,8 @@ namespace Forms
             label4.Text = "Ymult car2: " + car2.yMult;
             lblFuel1.Text = "Fuel: " + car1.fuel;
             lblFuel2.Text = "Fuel: " + car2.fuel;
+            
+            lblTest.Text = "Total refueled" + loop.refuelCount;
 
             label5.Text = "geraakt?" + loop.vraag;
 

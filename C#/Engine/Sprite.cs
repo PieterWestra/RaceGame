@@ -9,14 +9,7 @@ namespace Engine
 {
     public class Sprite
     {
-		public Rectangle collisionCenter1;
-		public Rectangle collisionCenter2;
-		public Rectangle collisionFront;    
-		public Rectangle collisionBack;
-        public Image fuelImage = Image.FromFile(@"resources\sprites\Fuel.png");
-        public Rectangle fuelRectangle;
-        public float fuel = 100;
-
+		
         #region declaring variables
         public int newWidth, newHeight;
         public float angleDegrees = 0f;
@@ -37,10 +30,22 @@ namespace Engine
 		public float xMult, yMult;
 		public float x = 0;
 		public float y = 0;
+
+        public Rectangle collisionCenter1;
+        public Rectangle collisionCenter2;
+        public Rectangle collisionFront;
+        public Rectangle collisionBack;
+        public Image fuelImage = Image.FromFile(@"resources\sprites\Fuel.png");
+        public Image speedImage = Image.FromFile(@"resources\sprites\Speed.png");
+        public Rectangle fuelRectangle;
+        public Rectangle speedRectangle;
+        public float fuel = 100;
+        public bool boost = false;
+        public float timer = 0;
         #endregion
 
-		// TESTVERSIE VAN COLLISIDERS MET HARDCODED FORMULES
-		public void Collider()
+        // TESTVERSIE VAN COLLISIDERS MET HARDCODED FORMULES
+        public void Collider()
 		{
             //if (angleDegrees >= 0 && angleDegrees < 90)
             //{
@@ -102,28 +107,32 @@ namespace Engine
         }
 
         public void Transform()
-		{
-			#region Transform_Steering
-			if (left && force != 0)
-				angleDegrees -= force / 2;
-			if (right && force != 0)
-				angleDegrees += force / 2;
+        {
+            #region Transform_Steering
+            if (left && force != 0)
+                angleDegrees -= force / 2;
+            if (right && force != 0)
+                angleDegrees += force / 2;
 
-			if (angleDegrees >= 360)
-				angleDegrees -= 360;
-			if (angleDegrees < 0)
-				angleDegrees += 360;
+            if (angleDegrees >= 360)
+                angleDegrees -= 360;
+            if (angleDegrees < 0)
+                angleDegrees += 360;
             #endregion Transform_Steering
 
             #region Transform_Force/Speed
-		    if (Throttle && (Brake == false))
-		        if (force < 10)
-		            force += 0.125f;
-		        else
-		            force = 10;
+            if (Throttle && (Brake == false) && boost == false)
+                if (force < 10)
+                    force += 0.125f;
+                else
+                    force -= 0.3f;
+            if (Throttle && (Brake == false) && boost == true)
+            {
+                force = 20;
+            }
 		    if ((Throttle == false) && (Brake == false))
 		        if (force > 0)
-		            force -= 0.1f;
+		            force -= 0.2f;
 		        else
 		            force = 0;
 		    if (Throttle && Brake)
