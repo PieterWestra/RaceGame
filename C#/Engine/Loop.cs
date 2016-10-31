@@ -13,7 +13,8 @@ namespace Engine
     {
         #region Variables
         private Rectangle rect2 = new Rectangle(new Point(300, 200), new Size(150, 250));
-        public int refuelCount;
+        public int refuelCount = 0;
+        int refuelC = 1;
         private static Timer aTimer;//Not used?
 
         //  i tried to make a YouWin message, does not work at the moment will  look into why it doesn`t work.
@@ -92,16 +93,23 @@ namespace Engine
 
             // Giving the fuelRectangle a black outline en draw'd deze
             g.DrawRectangle(Pens.Black, fuelImage.fuelRectangle);
-
-            if (fuelImage.fuelRectangle.IntersectsWith(car1.collisionCenter1))
+            
+            if (fuelImage.fuelRectangle.IntersectsWith(car1.collisionCenter1) && refuelC > refuelCount )
             {
-                refuelCount++;
-                if ((car1.fuel <= 100) && (car1.force == 0))
+
+                if ((car1.fuel <= 99.9) && (car1.force == 0))
                 {
                     car1.fuel = Convert.ToSingle(car1.fuel + 0.5);
-                    if (car1.fuel > 100)
-                        car1.fuel = 100;
                 }
+                    if (car1.fuel > 100) { 
+                        
+                        car1.fuel = 100;
+                        refuelCount++;
+                }
+            }
+          if((fuelImage.fuelRectangle.IntersectsWith(car1.collisionCenter2) && (refuelC == refuelCount)))
+                {
+                refuelC++;
             }
             else if (speedImage.speedRectangle.IntersectsWith(car1.collisionCenter1))
             {
