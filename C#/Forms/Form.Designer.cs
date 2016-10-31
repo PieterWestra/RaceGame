@@ -44,11 +44,13 @@
             this.tmrMoving = new System.Windows.Forms.Timer(this.components);
             this.lblFuel1 = new System.Windows.Forms.Label();
             this.lblFuel2 = new System.Windows.Forms.Label();
+            this.lblTest = new System.Windows.Forms.Label();
             this.pnlCanvas.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlCanvas
             // 
+            this.pnlCanvas.Controls.Add(this.lblTest);
             this.pnlCanvas.Controls.Add(this.lblFuel2);
             this.pnlCanvas.Controls.Add(this.lblFuel1);
             this.pnlCanvas.Controls.Add(this.Car1_Bar);
@@ -73,7 +75,7 @@
             // 
             this.Car1_Bar.Location = new System.Drawing.Point(86, 684);
             this.Car1_Bar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Car1_Bar.Maximum = 101;
+            this.Car1_Bar.Maximum = 200;
             this.Car1_Bar.Name = "Car1_Bar";
             this.Car1_Bar.Size = new System.Drawing.Size(100, 23);
             this.Car1_Bar.TabIndex = 10;
@@ -82,7 +84,7 @@
             // 
             this.Car2_Bar.Location = new System.Drawing.Point(900, 684);
             this.Car2_Bar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Car2_Bar.Maximum = 101;
+            this.Car2_Bar.Maximum = 200;
             this.Car2_Bar.Name = "Car2_Bar";
             this.Car2_Bar.Size = new System.Drawing.Size(100, 23);
             this.Car2_Bar.TabIndex = 9;
@@ -205,6 +207,15 @@
             this.lblFuel2.TabIndex = 12;
             this.lblFuel2.Text = "lblFuel2";
             // 
+            // lblTest
+            // 
+            this.lblTest.AutoSize = true;
+            this.lblTest.Location = new System.Drawing.Point(16, 100);
+            this.lblTest.Name = "lblTest";
+            this.lblTest.Size = new System.Drawing.Size(46, 17);
+            this.lblTest.TabIndex = 13;
+            this.lblTest.Text = "label5";
+            // 
             // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -244,6 +255,7 @@
         private System.Windows.Forms.ProgressBar Car2_Bar;
         private System.Windows.Forms.Label lblFuel2;
         private System.Windows.Forms.Label lblFuel1;
+        private System.Windows.Forms.Label lblTest;
     }
 }
 

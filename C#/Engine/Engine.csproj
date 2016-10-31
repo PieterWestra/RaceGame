@@ -49,6 +49,9 @@
     <Compile Include="Sprite.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="resources\sprites\Speed.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="resources\map.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
