@@ -45,12 +45,16 @@ namespace Engine
 
             g.FillRectangle(Brushes.White, 12, 8, 96, 56); // Witte achtergrond voor labels
 
-			//g.FillRectangle(Brushes.Purple, car1.collisionCenter1);
-			//g.FillRectangle(Brushes.Purple, car1.collisionCenter2);
+			g.FillRectangle(Brushes.Purple, car1.collisionCenter1);
+			g.FillRectangle(Brushes.Purple, car1.collisionCenter2);
 
 			g.FillRectangle(Brushes.Blue, rect2);
 
-			//g.DrawRectangle(Pens.Black, rect2);
+            //g.DrawRectangle(Pens.Black, rect2);
+
+            g.DrawLine(Pens.White, new Point((int)car1.x, (int)car1.y), new Point(
+                (int)(car1.x + 64 * car1.xMult),
+                (int)(car1.y + 64 * car1.yMult)));
 
 		}
     }

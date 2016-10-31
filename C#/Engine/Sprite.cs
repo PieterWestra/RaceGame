@@ -39,55 +39,64 @@ namespace Engine
 		// TESTVERSIE VAN COLLISIDERS MET HARDCODED FORMULES
 		public void Collider()
 		{
-			if (angleDegrees >= 0 && angleDegrees < 90)
-			{
-				collisionCenter1 = new Rectangle(new Point(
-					(int)(x + 16 * (xMult - .9f)),
-					(int)(y - 16 / (yMult + 1f))),
-					new Size(32, 32));
+            //if (angleDegrees >= 0 && angleDegrees < 90)
+            //{
+            //	collisionCenter1 = new Rectangle(new Point(
+            //		(int)(x + 16 * (xMult - .9f)),
+            //		(int)(y - 16 / (yMult + 1f))),
+            //		new Size(32, 32));
 
-				collisionCenter2 = new Rectangle(new Point(
-					(int)(x - 24 * (xMult + .55f)),
-					(int)(y - 16 * (yMult + 1f))),
-					new Size(32, 32));
-			}
-			if (angleDegrees >= 90 && angleDegrees < 180)
-			{
-				collisionCenter1 = new Rectangle(new Point(
-					(int)(x - 16 * (xMult + .9f)),
-					(int)(y - 16 / (yMult + 1f))),
-					new Size(32, 32));
+            //	collisionCenter2 = new Rectangle(new Point(
+            //		(int)(x - 24 * (xMult + .55f)),
+            //		(int)(y - 16 * (yMult + 1f))),
+            //		new Size(32, 32));
+            //}
+            //if (angleDegrees >= 90 && angleDegrees < 180)
+            //{
+            //	collisionCenter1 = new Rectangle(new Point(
+            //		(int)(x - 16 * (xMult + .9f)),
+            //		(int)(y - 16 / (yMult + 1f))),
+            //		new Size(32, 32));
 
-				collisionCenter2 = new Rectangle(new Point(
-					(int)(x - 24 / (xMult + 1.7f)),
-					(int)(y - 16 * (yMult + 1f))),
-					new Size(32, 32));
-			}
-			if (angleDegrees >= 180 && angleDegrees < 270)
-			{
-				collisionCenter1 = new Rectangle(new Point(
-					(int)(x - 16 * (xMult + .9f)),
-					(int)(y - 16 * (yMult + 1f))),
-					new Size(32, 32));
+            //	collisionCenter2 = new Rectangle(new Point(
+            //		(int)(x - 24 / (xMult + 1.7f)),
+            //		(int)(y - 16 * (yMult + 1f))),
+            //		new Size(32, 32));
+            //}
+            //if (angleDegrees >= 180 && angleDegrees < 270)
+            //{
+            //	collisionCenter1 = new Rectangle(new Point(
+            //		(int)(x - 16 * (xMult + .9f)),
+            //		(int)(y - 16 * (yMult + 1f))),
+            //		new Size(32, 32));
 
-				collisionCenter2 = new Rectangle(new Point(
-					(int)(x + 24 * (xMult - .7f)),
-					(int)(y - 16 / (yMult + 1.7f))),
-					new Size(32, 32));
-			}
-			if (angleDegrees >= 270 && angleDegrees < 360)
-			{
-				collisionCenter1 = new Rectangle(new Point(
-					(int)(x - 16 / (xMult + .9f)),
-					(int)(y - 16 * (yMult + 1f))),
-					new Size(32, 32));
+            //	collisionCenter2 = new Rectangle(new Point(
+            //		(int)(x + 24 * (xMult - .7f)),
+            //		(int)(y - 16 / (yMult + 1.7f))),
+            //		new Size(32, 32));
+            //}
+            //if (angleDegrees >= 270 && angleDegrees < 360)
+            //{
+            //	collisionCenter1 = new Rectangle(new Point(
+            //		(int)(x - 16 / (xMult + .9f)),
+            //		(int)(y - 16 * (yMult + 1f))),
+            //		new Size(32, 32));
 
-				collisionCenter2 = new Rectangle(new Point(
-					(int)(x - 24 * (xMult + .55f)),
-					(int)(y - 16 / (yMult + 1.7f))),
-					new Size(32, 32));
-			}
-		}
+            //	collisionCenter2 = new Rectangle(new Point(
+            //		(int)(x - 24 * (xMult + .55f)),
+            //		(int)(y - 16 / (yMult + 1.7f))),
+            //		new Size(32, 32));
+            //}
+
+            // Nieuwe versimpelde formule (Op het moment nog steeds hardcoded)
+            collisionCenter1 = new Rectangle(new Point(
+                (int)((x) + 16 * xMult - 16), (int)((y - 16) + 16 * yMult)),
+                new Size(32, 32));
+
+            collisionCenter2 = new Rectangle(new Point(
+                (int)((x) - 16 * xMult - 16), (int)((y - 16) - 16 * yMult)),
+                new Size(32, 32));
+        }
 
         public void Transform()
 		{
@@ -155,30 +164,30 @@ namespace Engine
 				direction = (180 - angleDegrees) * 0.0174533f;
 
 				yMult = (float)Math.Sin(direction);
-				xMult = (float)(Math.Sqrt(1 - Math.Pow(yMult, 2)));
+				xMult = -(float)(Math.Sqrt(1 - Math.Pow(yMult, 2)));
 
-				x -= force * xMult;
+				x += force * xMult;
 				y += force * yMult;
 			}
 			if (angleDegrees >= 180 && angleDegrees < 270)
 			{
 				direction = (270 - angleDegrees) * 0.0174533f;
 
-				xMult = (float)Math.Sin(direction);
-				yMult = (float)(Math.Sqrt(1 - Math.Pow(xMult, 2)));
+				xMult = -(float)Math.Sin(direction);
+				yMult = -(float)(Math.Sqrt(1 - Math.Pow(xMult, 2)));
 
-				x -= force * xMult;
-				y -= force * yMult;
+				x += force * xMult;
+				y += force * yMult;
 			}
 			if (angleDegrees >= 270 && angleDegrees < 360)
 			{
 				direction = (360 - angleDegrees) * 0.0174533f;
 
-				yMult = (float)Math.Sin(direction);
+				yMult = -(float)Math.Sin(direction);
 				xMult = (float)(Math.Sqrt(1 - Math.Pow(yMult, 2)));
 
 				x += force * xMult;
-				y -= force * yMult;
+				y += force * yMult;
 			}
             #endregion
         }
