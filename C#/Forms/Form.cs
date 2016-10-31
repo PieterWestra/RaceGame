@@ -61,8 +61,8 @@ namespace Forms
             //
             // - Peter
             //
-            //Car1_Bar.Value = car1.Speed;
-            //Car2_Bar.Value = car2.Speed;
+            Car1_Bar.Value = car1.Speed;
+            Car2_Bar.Value = car2.Speed;
             #endregion
 
             #region Labels
@@ -73,7 +73,7 @@ namespace Forms
 			lblYmult.Text = "Ymult: " + car1.yMult;
 
             label1.Text = "Angle car2: " + car2.angleDegrees;
-            label2.Text = "Speed car2: " + car2.Speed;
+            label2.Text = "Speed: " + car2.Speed;
             label3.Text = "Xmult car2: " + car2.xMult;
             label4.Text = "Ymult car2: " + car2.yMult;
 
