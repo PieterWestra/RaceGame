@@ -43,7 +43,7 @@ namespace Engine
             g.DrawImage(car1.GetSprite(180), car1.x - car1.newWidth / 2, car1.y - car1.newHeight / 2);
             g.DrawImage(car2.GetSprite(180), car2.x - car2.newWidth / 2, car2.y - car2.newHeight / 2);
 
-            g.FillRectangle(Brushes.White, 12, 8, 96, 56); // Witte achtergrond voor labels
+            //g.FillRectangle(Brushes.White, 12, 8, 96, 56); // Witte achtergrond voor labels //fuck deze - Peter
 
 			//g.FillRectangle(Brushes.Purple, car1.collisionCenter1);
 			//g.FillRectangle(Brushes.Purple, car1.collisionCenter2);
