@@ -21,8 +21,10 @@ namespace Forms
 
 		private Sprite car1 = new Sprite();  // new instance of Sprite called car1
 		private Sprite car2  = new Sprite(); // new instance of Sprite called car2
-        
-	    private Graphics g;
+
+        private Sprite fuel = new Sprite();
+
+        private Graphics g;
         #endregion
 
         public Form()
@@ -30,6 +32,7 @@ namespace Forms
             InitializeComponent();
             tmrMoving.Interval = 16;
             car2.image = Image.FromFile(@"resources\sprites\car2.png");
+            fuel.image = Image.FromFile(@"resources\sprites\Fuel.png");
         }
 
         private void pnlCanvas_Paint(object sender, PaintEventArgs e)
@@ -48,7 +51,7 @@ namespace Forms
 
 
            loop.Update(car1, car2);    //
-           loop.Render(g, car1, car2); //changed some of the rendercode - it works but could be done better. - Peter 
+           loop.Render(g, car1, car2, fuel); //changed some of the rendercode - it works but could be done better. - Peter 
 
             #region Speed-o-meter
             // Speed-o-meter is just an regular progressbarr at the moment if there is time ove we will look in to an replacement
@@ -76,6 +79,8 @@ namespace Forms
             label2.Text = "Speed: " + car2.Speed;
             label3.Text = "Xmult car2: " + car2.xMult;
             label4.Text = "Ymult car2: " + car2.yMult;
+            lblFuel1.Text = "Fuel: " + car1.fuel;
+            lblFuel2.Text = "Fuel: " + car2.fuel;
 
             #endregion
 

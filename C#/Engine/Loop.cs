@@ -35,7 +35,7 @@ namespace Engine
 				car1.force = 10f;
 		}
 
-        public  void Render(Graphics g, Sprite car1,Sprite car2)
+        public  void Render(Graphics g, Sprite car1,Sprite car2, Sprite fuelImage)
         {
 			g.Clear(Color.Gray);
 
@@ -49,6 +49,17 @@ namespace Engine
 			g.FillRectangle(Brushes.Purple, car1.collisionCenter2);
 
 			g.FillRectangle(Brushes.Blue, rect2);
+
+
+            // Drawing fuel icon
+            g.DrawImage(fuelImage.GetSprite(), 200, 200);
+
+            // Drawig rectangle behind fuel icon
+            fuelImage.fuelRectangle = new Rectangle(new Point(200, 200), new Size(32, 32));
+
+            // Giving the fuelRectangle a black outline en draw'd deze
+            g.DrawRectangle(Pens.Black, fuelImage.fuelRectangle);
+
 
             //g.DrawRectangle(Pens.Black, rect2);
 

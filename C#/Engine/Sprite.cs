@@ -11,8 +11,11 @@ namespace Engine
     {
 		public Rectangle collisionCenter1;
 		public Rectangle collisionCenter2;
-		public Rectangle collisionFront;
+		public Rectangle collisionFront;    
 		public Rectangle collisionBack;
+        public Image fuelImage = Image.FromFile(@"resources\sprites\Fuel.png");
+        public Rectangle fuelRectangle;
+        public float fuel = 100;
 
         #region declaring variables
         public int newWidth, newHeight;
@@ -190,6 +193,10 @@ namespace Engine
 				y += force * yMult;
 			}
             #endregion
+
+            // Fuel
+            Fuel f = new Fuel();
+            fuel = f.fuelSystem(this.fuel, this.force);
         }
 
 
