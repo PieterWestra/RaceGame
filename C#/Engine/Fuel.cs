@@ -30,6 +30,10 @@ namespace Engine
             {
                 return fuel = Convert.ToSingle(fuel - 0.001);
             }
+            else if (fuel > 0 && force < 0)
+            {
+                return fuel = Convert.ToSingle(fuel - 0.05);
+            }
             return fuel;
         }
     }
