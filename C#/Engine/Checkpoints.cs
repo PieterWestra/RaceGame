@@ -16,6 +16,9 @@ namespace Engine
         public static Rectangle Checkpoint3 = new Rectangle(new Point(0, 300), new Size(300, 40));
         public static Rectangle Checkpoint4 = new Rectangle(new Point(400, 0), new Size(40, 200));
 
+
+
+
         private bool Checkpoint1PassCar1, Checkpoint2PassCar1, Checkpoint3PassCar1, Checkpoint4PassCar1;
         private bool Checkpoint1PassCar2, Checkpoint2PassCar2, Checkpoint3PassCar2, Checkpoint4PassCar2;
 
@@ -41,8 +44,9 @@ namespace Engine
                 if (Checkpoint4PassCar1 && Checkpoint2PassCar1 && Checkpoint1PassCar1 && Checkpoint3PassCar1)
                 {
                     WORK = "Haha yes!";
+                    Loop.LapCountCar1++;
                     Lapcar1++;
-                    Checkpoint1PassCar1 = Checkpoint2PassCar1 = Checkpoint3PassCar1 = false;
+                    Checkpoint1PassCar1 = Checkpoint2PassCar1 = Checkpoint3PassCar1 = false; //all of the boolians are reset to false
                 }
             }
 
@@ -61,7 +65,7 @@ namespace Engine
                 if (Checkpoint4PassCar1 && Checkpoint2PassCar1 && Checkpoint1PassCar1 && Checkpoint3PassCar1)
                 {
                     WORK = "Haha yes!";
-                    Lapcar1++;
+                    Lapcar2++;
                     Checkpoint1PassCar2= Checkpoint2PassCar2= Checkpoint3PassCar2= false; //all of the boolians are reset to false
                 }
             }

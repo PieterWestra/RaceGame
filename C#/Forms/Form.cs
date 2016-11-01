@@ -27,6 +27,8 @@ namespace Forms
 
 	    private Checkpoints _Checkpoints = new Checkpoints();
 
+	    public int LapCountCar1 = 1;
+
 
 
 
@@ -40,6 +42,9 @@ namespace Forms
             car2.image = Image.FromFile(@"resources\sprites\car2.png");
             fuel.image = Image.FromFile(@"resources\sprites\Fuel.png");
             speed.image = Image.FromFile(@"resources\sprites\Speed.png");
+
+            
+
         }
 
         private void pnlCanvas_Paint(object sender, PaintEventArgs e)

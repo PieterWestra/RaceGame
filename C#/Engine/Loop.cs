@@ -17,13 +17,15 @@ namespace Engine
         int refuelC = 1;
         private static Timer aTimer;//Not used?
 
+        public static int LapCountCar1 = 1;
+
         //  i tried to make a YouWin message, does not work at the moment will  look into why it doesn`t work.
         //
         // - Peter
         //
-        //private Rectangle YouWin = new Rectangle(new Point(0, 0), new Size(768, 1024)); 
-        //public Image YouWon = Image.FromFile(@"resources\sprites\YouWon.png");
-        //private Checkpoints _Checkpoints = new Checkpoints();
+        private Rectangle YouWin = new Rectangle(new Point(0, 0), new Size(768, 1024));
+        public Image YouWon = Image.FromFile(@"resources\sprites\YouWon.png");
+        private Checkpoints _Checkpoints = new Checkpoints();
 
         public string vraag = string.Empty;
         #endregion
@@ -59,7 +61,7 @@ namespace Engine
             //
             // - Peter
             g.Clear(Color.Gray);// Background -- IMPORTANT FOR LATER
-            //g.DrawImage.image(@"\resources\map.png");
+            //g.DrawImage.image(@"resources\map.png");
             
 
             //g.FillRectangle(Brushes.White, 12, 8, 96, 56); // Witte achtergrond voor labels //fuck deze - Peter
@@ -131,14 +133,16 @@ namespace Engine
                 (int) (car1.x + 64*car1.xMult),
                 (int) (car1.y + 64*car1.yMult)));
 
-            //Should give you YouWin message,  does not work at the moment - Peter
-            //
-            //if (_Checkpoints.Lapcar1 == 4)
-            //{
+            //Should give you YouWin message,  does not work at the moment -Peter
 
-            //    g.FillRectangle(Brushes.Black, YouWin);
-            //    g.DrawImage(YouWon, 256, 256);
-            //}
+
+            if (LapCountCar1 >= 4)
+            {
+
+                g.FillRectangle(Brushes.Black, YouWin);
+                g.DrawImage(YouWon, 0, 0);
+               
+            }
         }
     }
 }

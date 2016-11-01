@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.pnlCanvas = new System.Windows.Forms.Panel();
+            this.Fuelbarcar2 = new System.Windows.Forms.ProgressBar();
+            this.Fuelbarcar1 = new System.Windows.Forms.ProgressBar();
             this.LBLRNDE = new System.Windows.Forms.Label();
             this.lblRondencar2 = new System.Windows.Forms.Label();
             this.lblRondencar1 = new System.Windows.Forms.Label();
@@ -49,8 +51,6 @@
             this.lblAngle = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tmrMoving = new System.Windows.Forms.Timer(this.components);
-            this.Fuelbarcar1 = new System.Windows.Forms.ProgressBar();
-            this.Fuelbarcar2 = new System.Windows.Forms.ProgressBar();
             this.pnlCanvas.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,6 +82,22 @@
             this.pnlCanvas.Size = new System.Drawing.Size(1002, 717);
             this.pnlCanvas.TabIndex = 0;
             this.pnlCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlCanvas_Paint);
+            // 
+            // Fuelbarcar2
+            // 
+            this.Fuelbarcar2.Location = new System.Drawing.Point(900, 645);
+            this.Fuelbarcar2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Fuelbarcar2.Name = "Fuelbarcar2";
+            this.Fuelbarcar2.Size = new System.Drawing.Size(100, 23);
+            this.Fuelbarcar2.TabIndex = 18;
+            // 
+            // Fuelbarcar1
+            // 
+            this.Fuelbarcar1.Location = new System.Drawing.Point(86, 645);
+            this.Fuelbarcar1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Fuelbarcar1.Name = "Fuelbarcar1";
+            this.Fuelbarcar1.Size = new System.Drawing.Size(100, 23);
+            this.Fuelbarcar1.TabIndex = 17;
             // 
             // LBLRNDE
             // 
@@ -263,22 +279,6 @@
             this.tmrMoving.Enabled = true;
             this.tmrMoving.Interval = 18;
             this.tmrMoving.Tick += new System.EventHandler(this.tmrMoving_Tick);
-            // 
-            // Fuelbarcar1
-            // 
-            this.Fuelbarcar1.Location = new System.Drawing.Point(86, 645);
-            this.Fuelbarcar1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Fuelbarcar1.Name = "Fuelbarcar1";
-            this.Fuelbarcar1.Size = new System.Drawing.Size(100, 23);
-            this.Fuelbarcar1.TabIndex = 17;
-            // 
-            // Fuelbarcar2
-            // 
-            this.Fuelbarcar2.Location = new System.Drawing.Point(900, 645);
-            this.Fuelbarcar2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Fuelbarcar2.Name = "Fuelbarcar2";
-            this.Fuelbarcar2.Size = new System.Drawing.Size(100, 23);
-            this.Fuelbarcar2.TabIndex = 18;
             // 
             // Form
             // 
