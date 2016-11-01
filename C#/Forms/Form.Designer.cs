@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.pnlCanvas = new System.Windows.Forms.Panel();
+            this.YouWonBox = new System.Windows.Forms.PictureBox();
             this.Fuelbarcar2 = new System.Windows.Forms.ProgressBar();
             this.Fuelbarcar1 = new System.Windows.Forms.ProgressBar();
             this.lblRondencar2 = new System.Windows.Forms.Label();
@@ -49,9 +50,10 @@
             this.lblYmult = new System.Windows.Forms.Label();
             this.lblAngle = new System.Windows.Forms.Label();
             this.LBLRNDE = new System.Windows.Forms.Label();
-            this.YouWonBox = new System.Windows.Forms.PictureBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tmrMoving = new System.Windows.Forms.Timer(this.components);
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.pnlCanvas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.YouWonBox)).BeginInit();
             this.SuspendLayout();
@@ -59,6 +61,8 @@
             // pnlCanvas
             // 
             this.pnlCanvas.Controls.Add(this.YouWonBox);
+            this.pnlCanvas.Controls.Add(this.label7);
+            this.pnlCanvas.Controls.Add(this.label6);
             this.pnlCanvas.Controls.Add(this.Fuelbarcar2);
             this.pnlCanvas.Controls.Add(this.Fuelbarcar1);
             this.pnlCanvas.Controls.Add(this.lblRondencar2);
@@ -85,6 +89,17 @@
             this.pnlCanvas.Size = new System.Drawing.Size(1002, 717);
             this.pnlCanvas.TabIndex = 0;
             this.pnlCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlCanvas_Paint);
+            // 
+            // YouWonBox
+            // 
+            this.YouWonBox.Image = global::Forms.Properties.Resources.YouWon;
+            this.YouWonBox.Location = new System.Drawing.Point(3, 0);
+            this.YouWonBox.Name = "YouWonBox";
+            this.YouWonBox.Size = new System.Drawing.Size(1001, 717);
+            this.YouWonBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.YouWonBox.TabIndex = 19;
+            this.YouWonBox.TabStop = false;
+            this.YouWonBox.Visible = false;
             // 
             // Fuelbarcar2
             // 
@@ -271,28 +286,35 @@
             this.LBLRNDE.TabIndex = 16;
             this.LBLRNDE.Text = "LBLRNDE";
             // 
-            // YouWonBox
-            // 
-            this.YouWonBox.Image = global::Forms.Properties.Resources.YouWon;
-            this.YouWonBox.Location = new System.Drawing.Point(3, 0);
-            this.YouWonBox.Name = "YouWonBox";
-            this.YouWonBox.Size = new System.Drawing.Size(1001, 717);
-            this.YouWonBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.YouWonBox.TabIndex = 19;
-            this.YouWonBox.TabStop = false;
-            this.YouWonBox.Visible = false;
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(67, 4);
             // 
             // tmrMoving
             // 
             this.tmrMoving.Enabled = true;
             this.tmrMoving.Interval = 18;
             this.tmrMoving.Tick += new System.EventHandler(this.tmrMoving_Tick);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(20, 196);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(46, 17);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "label6";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(16, 256);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(46, 17);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "label7";
             // 
             // Form
             // 
@@ -342,6 +364,8 @@
         private System.Windows.Forms.ProgressBar Fuelbarcar2;
         private System.Windows.Forms.ProgressBar Fuelbarcar1;
         public System.Windows.Forms.PictureBox YouWonBox;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
     }
 }
 

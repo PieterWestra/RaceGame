@@ -24,7 +24,7 @@ namespace Engine
 
         public string WORK = string.Empty; // for testing 
 
-        public int Lapcar1 = 1,Lapcar2 = 1;//Laps start at 1
+        public int Lapcar1 = 1,Lapcar2 = 1;//Laps start at 1//not needed anymore will remove in future - Peter
         #endregion
 
         public void CheckPass(Sprite car1, Sprite car2)
@@ -45,7 +45,7 @@ namespace Engine
                 {
                     WORK = "Haha yes!";
                     Loop.LapCountCar1++;
-                    Lapcar1++;
+                    //Lapcar1++; //not needed anymore will remove in future
                     Checkpoint1PassCar1 = Checkpoint2PassCar1 = Checkpoint3PassCar1 = false; //all of the boolians are reset to false
                 }
             }

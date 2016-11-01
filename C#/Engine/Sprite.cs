@@ -42,60 +42,37 @@ namespace Engine
         public float fuel = 100;
         public bool boost = false;
         public float timer = 0;
+        //NEW
+        private Point position;
+        
+        //
         #endregion
+        //NEW
+        public Image getImage()
+        {
+            return image;
+        }
+
+        public Point getPosition()
+        {
+            return position;
+        }
+
+        public void calculateNewPosition()
+        {
+            Transform();
+        //    changeSpeed();
+        //    position.X += (int)Math.Round(speed * Math.Cos(rotation)); //pure magic here!
+        //    position.Y += (int)Math.Round(speed * Math.Sin(rotation)); //more magic here
+        }
+        //
+
+
+
 
         // TESTVERSIE VAN COLLISIDERS MET HARDCODED FORMULES
         public void Collider()
 		{
-            //if (angleDegrees >= 0 && angleDegrees < 90)
-            //{
-            //	collisionCenter1 = new Rectangle(new Point(
-            //		(int)(x + 16 * (xMult - .9f)),
-            //		(int)(y - 16 / (yMult + 1f))),
-            //		new Size(32, 32));
-
-            //	collisionCenter2 = new Rectangle(new Point(
-            //		(int)(x - 24 * (xMult + .55f)),
-            //		(int)(y - 16 * (yMult + 1f))),
-            //		new Size(32, 32));
-            //}
-            //if (angleDegrees >= 90 && angleDegrees < 180)
-            //{
-            //	collisionCenter1 = new Rectangle(new Point(
-            //		(int)(x - 16 * (xMult + .9f)),
-            //		(int)(y - 16 / (yMult + 1f))),
-            //		new Size(32, 32));
-
-            //	collisionCenter2 = new Rectangle(new Point(
-            //		(int)(x - 24 / (xMult + 1.7f)),
-            //		(int)(y - 16 * (yMult + 1f))),
-            //		new Size(32, 32));
-            //}
-            //if (angleDegrees >= 180 && angleDegrees < 270)
-            //{
-            //	collisionCenter1 = new Rectangle(new Point(
-            //		(int)(x - 16 * (xMult + .9f)),
-            //		(int)(y - 16 * (yMult + 1f))),
-            //		new Size(32, 32));
-
-            //	collisionCenter2 = new Rectangle(new Point(
-            //		(int)(x + 24 * (xMult - .7f)),
-            //		(int)(y - 16 / (yMult + 1.7f))),
-            //		new Size(32, 32));
-            //}
-            //if (angleDegrees >= 270 && angleDegrees < 360)
-            //{
-            //	collisionCenter1 = new Rectangle(new Point(
-            //		(int)(x - 16 / (xMult + .9f)),
-            //		(int)(y - 16 * (yMult + 1f))),
-            //		new Size(32, 32));
-
-            //	collisionCenter2 = new Rectangle(new Point(
-            //		(int)(x - 24 * (xMult + .55f)),
-            //		(int)(y - 16 / (yMult + 1.7f))),
-            //		new Size(32, 32));
-            //}
-
             // Nieuwe versimpelde formule (Op het moment nog steeds hardcoded)
             collisionCenter1 = new Rectangle(new Point(
                 (int)((x) + 16 * xMult - 16), (int)((y - 16) + 16 * yMult)),
@@ -105,6 +82,7 @@ namespace Engine
                 (int)((x) - 16 * xMult - 16), (int)((y - 16) - 16 * yMult)),
                 new Size(32, 32));
         }
+
 
         public void Transform()
         {
@@ -126,8 +104,9 @@ namespace Engine
                     force += 0.125f;
                 else
                     force -= 0.3f;
-            if (Throttle && (Brake == false) && boost == true)
+            if (Throttle && (Brake == false) && boost)
             {
+                
                 force = 20;
             }
 		    if ((Throttle == false) && (Brake == false))
@@ -170,7 +149,9 @@ namespace Engine
 
 				x += force * xMult;
 				y += force * yMult;
-			}
+                position.X += (int)(force * xMult);//NEW
+                position.Y += (int)(force * yMult);//NEW
+            }
 			if (angleDegrees >= 90 && angleDegrees < 180)
 			{
 				direction = (180 - angleDegrees) * 0.0174533f;
@@ -180,7 +161,10 @@ namespace Engine
 
 				x += force * xMult;
 				y += force * yMult;
-			}
+                position.X += (int)(force * xMult);//NEW
+                position.Y += (int)(force * yMult);//NEW
+
+            }
 			if (angleDegrees >= 180 && angleDegrees < 270)
 			{
 				direction = (270 - angleDegrees) * 0.0174533f;
@@ -190,7 +174,9 @@ namespace Engine
 
 				x += force * xMult;
 				y += force * yMult;
-			}
+                position.X += (int)(force * xMult);//NEW
+                position.Y += (int)(force * yMult);//NEW
+            }
 			if (angleDegrees >= 270 && angleDegrees < 360)
 			{
 				direction = (360 - angleDegrees) * 0.0174533f;
@@ -200,7 +186,10 @@ namespace Engine
 
 				x += force * xMult;
 				y += force * yMult;
-			}
+                position.X += (int)(force * xMult);
+                position.Y += (int)(force * yMult);
+                
+            }
             #endregion
 
             // Fuel
