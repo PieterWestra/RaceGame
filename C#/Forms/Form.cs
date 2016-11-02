@@ -117,13 +117,50 @@ namespace Forms
             lblRondencar1.Text = "Ronde: " + _Checkpoints.Lapcar1;
             lblRondencar2.Text = "Ronde " + _Checkpoints.Lapcar2;
 
-            LBLRNDE.Text = "DO THE CHECKPOINTS WORK??? " + _Checkpoints.WORK;
 
+            //LBLRNDE.Text = "DO THE CHECKPOINTS WORK??? " + _Checkpoints.WORK; //Only for testing
+            LBLRNDE.Visible = false;
+
+
+            #region YouWin-SCREEN + LABEL-Color change
             if (Loop.LapCountCar1 >= 4)
             {
+                //Win screen
                 YouWonBox.Visible = true;
+
+                //Background color Minutes
+                Minutes.BackColor = Color.Black;
+                Minutes2.BackColor = Color.Black;
+                Minutes3.BackColor = Color.Black;
+                
+                //fore ground color Minutes
+                Minutes.ForeColor = Color.White;
+                Minutes2.ForeColor = Color.White;
+                Minutes3.ForeColor = Color.White;
+
+                //Background color Seconds
+                Seconds.BackColor = Color.Black;
+                Seconds2.BackColor = Color.Black;
+                Seconds3.BackColor = Color.Black;
+                 
+                //fore ground color Seconds
+                Seconds.ForeColor = Color.White;
+                Seconds2.ForeColor = Color.White;
+                Seconds3.ForeColor = Color.White;
+
+                //Background color Laps
+                label6.BackColor = Color.Black; //Car 1 round 1
+                label7.BackColor = Color.Black; // BEST LAP
+                label8.BackColor = Color.Black; //Car 1 round 2
+                label9.BackColor = Color.Black; //Car 1 round 3
+
+                //fore ground color Laps
+                label6.ForeColor = Color.White; //Car 1 round 1
+                label7.ForeColor = Color.White; // BEST LAP
+                label8.ForeColor = Color.White; //Car 1 round 2
+                label9.ForeColor = Color.White; //Car 1 round 3
             }
-            
+            #endregion
             #endregion
 
             // "Double buffering" hack
@@ -192,7 +229,9 @@ namespace Forms
             #endregion
         }
 
-        #region timer
+
+        
+        #region timer + extra labels
         #region round 1
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -209,14 +248,15 @@ namespace Forms
 
             }
         }
+
         private void starttimer2()
         {
             timer2.Enabled = true;
         }
+
         private void stoptimer()
         {
             timer1.Enabled = false;
-
         }
         private void increaseseconds()
         {

@@ -19,7 +19,7 @@ namespace Engine
         private static Timer aTimer; //Not used?
 
         public static int LapCountCar1 = 1;
-
+        public static int LapCountCar2 = 1;
         //  i tried to make a YouWin message, does not work at the moment will  look into why it doesn`t work.
         //
         // - Peter
@@ -63,7 +63,7 @@ namespace Engine
                 // this may need some cleaning up.
                 //
                 // - Peter
-                //g.Clear(Color.Gray); // Background -- IMPORTANT FOR LATER
+                g.Clear(Color.Gray); // Background -- IMPORTANT FOR LATER
                 //g.DrawImage.image(@"resources\map.png");
 
 
@@ -72,9 +72,9 @@ namespace Engine
                 g.FillRectangle(Brushes.Blue, rect2);
 
                 //Checkpoints
-                g.FillRectangle(Brushes.Red, Checkpoints.Checkpoint1);
-                g.FillRectangle(Brushes.Red, Checkpoints.Checkpoint2);
-                g.FillRectangle(Brushes.Red, Checkpoints.Checkpoint3);
+                //g.FillRectangle(Brushes.Red, Checkpoints.Checkpoint1);
+                //g.FillRectangle(Brushes.Red, Checkpoints.Checkpoint2);
+                //g.FillRectangle(Brushes.Red, Checkpoints.Checkpoint3);
                 g.FillRectangle(Brushes.Black, Checkpoints.Checkpoint4); //Finishline
 
                 // Sprite.GetSprite heeft een optionele parameter voor een startrotatie (In hoeken van 90 houden!)
@@ -82,8 +82,8 @@ namespace Engine
                 g.DrawImage(car2.GetSprite(180), car2.x - car2.newWidth/2, car2.y - car2.newHeight/2);
 
                 //Collision Blocks for Testing
-                g.FillRectangle(Brushes.Purple, car1.collisionCenter1);
-                g.FillRectangle(Brushes.Purple, car1.collisionCenter2);
+                //g.FillRectangle(Brushes.Purple, car1.collisionCenter1);
+                //g.FillRectangle(Brushes.Purple, car1.collisionCenter2);
 
                 g.FillRectangle(Brushes.Plum, car2.collisionCenter1);
                 g.FillRectangle(Brushes.Plum, car2.collisionCenter2);

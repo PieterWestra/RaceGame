@@ -47,55 +47,6 @@ namespace Engine
         // TESTVERSIE VAN COLLISIDERS MET HARDCODED FORMULES
         public void Collider()
 		{
-            //if (angleDegrees >= 0 && angleDegrees < 90)
-            //{
-            //	collisionCenter1 = new Rectangle(new Point(
-            //		(int)(x + 16 * (xMult - .9f)),
-            //		(int)(y - 16 / (yMult + 1f))),
-            //		new Size(32, 32));
-
-            //	collisionCenter2 = new Rectangle(new Point(
-            //		(int)(x - 24 * (xMult + .55f)),
-            //		(int)(y - 16 * (yMult + 1f))),
-            //		new Size(32, 32));
-            //}
-            //if (angleDegrees >= 90 && angleDegrees < 180)
-            //{
-            //	collisionCenter1 = new Rectangle(new Point(
-            //		(int)(x - 16 * (xMult + .9f)),
-            //		(int)(y - 16 / (yMult + 1f))),
-            //		new Size(32, 32));
-
-            //	collisionCenter2 = new Rectangle(new Point(
-            //		(int)(x - 24 / (xMult + 1.7f)),
-            //		(int)(y - 16 * (yMult + 1f))),
-            //		new Size(32, 32));
-            //}
-            //if (angleDegrees >= 180 && angleDegrees < 270)
-            //{
-            //	collisionCenter1 = new Rectangle(new Point(
-            //		(int)(x - 16 * (xMult + .9f)),
-            //		(int)(y - 16 * (yMult + 1f))),
-            //		new Size(32, 32));
-
-            //	collisionCenter2 = new Rectangle(new Point(
-            //		(int)(x + 24 * (xMult - .7f)),
-            //		(int)(y - 16 / (yMult + 1.7f))),
-            //		new Size(32, 32));
-            //}
-            //if (angleDegrees >= 270 && angleDegrees < 360)
-            //{
-            //	collisionCenter1 = new Rectangle(new Point(
-            //		(int)(x - 16 / (xMult + .9f)),
-            //		(int)(y - 16 * (yMult + 1f))),
-            //		new Size(32, 32));
-
-            //	collisionCenter2 = new Rectangle(new Point(
-            //		(int)(x - 24 * (xMult + .55f)),
-            //		(int)(y - 16 / (yMult + 1.7f))),
-            //		new Size(32, 32));
-            //}
-
             // Nieuwe versimpelde formule (Op het moment nog steeds hardcoded)
             collisionCenter1 = new Rectangle(new Point(
                 (int)((x) + 16 * xMult - 16), (int)((y - 16) + 16 * yMult)),
@@ -126,7 +77,7 @@ namespace Engine
                     force += 0.125f;
                 else
                     force -= 0.3f;
-            if (Throttle && (Brake == false) && boost == true)
+            if (Throttle && (Brake == false) && boost)
             {
                 force = 20;
             }
