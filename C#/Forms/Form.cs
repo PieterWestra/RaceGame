@@ -110,11 +110,11 @@ namespace Forms
             //
 
 
-            _Loop.Update(_Car1, _Car2);    //
-           _Loop.Render(_Graphics, _Car1, _Car2, _Fuel, _Speed); //changed some of the rendercode - it works but could be done better. - Peter 
-            _Checkpoints.CheckPass(_Car1, _Car2); //Checks id you have passed the checkpoints
+            //_Loop.Update(_Car1, _Car2);    //
+            //_Loop.Render(_Graphics, _Car1, _Car2, _Fuel, _Speed); //changed some of the rendercode - it works but could be done better. - Peter 
+            //_Checkpoints.CheckPass(_Car1, _Car2); //Checks id you have passed the checkpoints
 
-            
+
             #region Speed-O-Meter / FuelBar
             // Speed-o-meter is just an regular progressbarr at the moment if there is time ove we will look in to an replacement
             // it`s just an temporary fix. 29/10/16
@@ -135,9 +135,9 @@ namespace Forms
             #region Labels
 
             lblAngle.Text = "Angle: " + _Car1.angleDegrees;
-			lblForce.Text = "Speed: " + _Car1.Speed;
-			lblXmult.Text = "Xmult: " + _Car1.xMult;
-			lblYmult.Text = "Ymult: " + _Car1.yMult;
+            lblForce.Text = "Speed: " + _Car1.Speed;
+            lblXmult.Text = "Xmult: " + _Car1.xMult;
+            lblYmult.Text = "Ymult: " + _Car1.yMult;
 
             label1.Text = "Angle _Car2: " + _Car2.angleDegrees;
             label2.Text = "Speed: " + _Car2.Speed;
@@ -145,7 +145,7 @@ namespace Forms
             label4.Text = "Ymult _Car2: " + _Car2.yMult;
             lblFuel1.Text = "Fuel: " + _Car1.fuel;
             lblFuel2.Text = "Fuel: " + _Car2.fuel;
-            
+
             lblTest.Text = "Total refueled" + _Loop.refuelCount;
 
             label5.Text = "geraakt?" + _Loop.vraag;
@@ -161,13 +161,13 @@ namespace Forms
             {
                 YouWonBox.Visible = true;
             }
-            
+
             #endregion
 
             // "Double buffering" hack
-            _Graphics.CopyFromScreen(new Point(0, 0), new Point(pnlCanvas.Width, pnlCanvas.Height), new Size(1, 1));
-			_Graphics.CopyFromScreen(new Point(0, 0), new Point(pnlCanvas.Width, pnlCanvas.Height), new Size(1, 1));
-		}
+            // _Graphics.CopyFromScreen(new Point(0, 0), new Point(pnlCanvas.Width, pnlCanvas.Height), new Size(1, 1));
+            //_Graphics.CopyFromScreen(new Point(0, 0), new Point(pnlCanvas.Width, pnlCanvas.Height), new Size(1, 1));
+        }
 
         // Key press detectie
         private void Form_KeyDown(object sender, KeyEventArgs e)

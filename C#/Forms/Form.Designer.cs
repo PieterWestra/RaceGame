@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.pnlCanvas = new System.Windows.Forms.Panel();
             this.YouWonBox = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.Fuelbarcar2 = new System.Windows.Forms.ProgressBar();
             this.Fuelbarcar1 = new System.Windows.Forms.ProgressBar();
             this.lblRondencar2 = new System.Windows.Forms.Label();
@@ -52,8 +54,6 @@
             this.LBLRNDE = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tmrMoving = new System.Windows.Forms.Timer(this.components);
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.pnlCanvas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.YouWonBox)).BeginInit();
             this.SuspendLayout();
@@ -100,6 +100,24 @@
             this.YouWonBox.TabIndex = 19;
             this.YouWonBox.TabStop = false;
             this.YouWonBox.Visible = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(16, 256);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(46, 17);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "label7";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(20, 196);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(46, 17);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "label6";
             // 
             // Fuelbarcar2
             // 
@@ -290,31 +308,12 @@
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(67, 4);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // tmrMoving
             // 
             this.tmrMoving.Enabled = true;
             this.tmrMoving.Interval = 18;
-            this.tmrMoving.Tick += new System.EventHandler(this.tmrMoving_Tick);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(20, 196);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(46, 17);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "label6";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(16, 256);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(46, 17);
-            this.label7.TabIndex = 21;
-            this.label7.Text = "label7";
             // 
             // Form
             // 
