@@ -123,7 +123,7 @@ namespace Forms
 
 
             #region YouWin-SCREEN + LABEL-Color change
-            if (Loop.LapCountCar1 >= 4)
+            if (Loop.LapCountCar1 >= 4 || Loop.LapCountCar2  >= 4)
             {
                 //Win screen
                 YouWonBox.Visible = true;
