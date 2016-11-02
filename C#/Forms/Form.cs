@@ -148,8 +148,6 @@ namespace Forms
 				label11.BackColor = Color.Gray; //Car 2 round 2
 				label14.BackColor = Color.Gray; //Car 2 round 3
 			}
-			//LBLRNDE.Text = "DO THE CHECKPOINTS WORK??? " + _Checkpoints.WORK; //Only for testing
-			LBLRNDE.Visible = false;
 
 
 			#region YouWin-SCREEN + LABEL-Color change
