@@ -59,7 +59,6 @@
             this.Fuelbarcar1 = new System.Windows.Forms.ProgressBar();
             this.lblRondencar2 = new System.Windows.Forms.Label();
             this.lblRondencar1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.lblRefuelP1 = new System.Windows.Forms.Label();
             this.lblFuel2 = new System.Windows.Forms.Label();
             this.lblFuel1 = new System.Windows.Forms.Label();
@@ -82,11 +81,13 @@
             this.timer4 = new System.Windows.Forms.Timer(this.components);
             this.timer5 = new System.Windows.Forms.Timer(this.components);
             this.timer6 = new System.Windows.Forms.Timer(this.components);
+            this.label5 = new System.Windows.Forms.Label();
             this.pnlCanvas.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlCanvas
             // 
+            this.pnlCanvas.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlCanvas.Controls.Add(this.label_player1);
             this.pnlCanvas.Controls.Add(this.label_player2);
             this.pnlCanvas.Controls.Add(this.LBL_info);
@@ -396,15 +397,6 @@
             this.lblRondencar1.TabIndex = 14;
             this.lblRondencar1.Text = "lblRondencar1";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(25, 126);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(67, 17);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Geraakt?";
-            // 
             // lblRefuelP1
             // 
             this.lblRefuelP1.AutoSize = true;
@@ -575,6 +567,15 @@
             this.timer3.Interval = 1000;
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(25, 126);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(67, 17);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Geraakt?";
+            // 
             // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -582,7 +583,7 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1339, 892);
             this.Controls.Add(this.pnlCanvas);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
@@ -615,7 +616,6 @@
         private System.Windows.Forms.ProgressBar Car2_Bar;
         private System.Windows.Forms.Label lblFuel2;
         private System.Windows.Forms.Label lblFuel1;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblRondencar2;
         private System.Windows.Forms.Label lblRondencar1;
         private System.Windows.Forms.Label LBLRNDE;
@@ -652,6 +652,7 @@
         private System.Windows.Forms.Label label_player1;
         private System.Windows.Forms.Label label_player2;
 		private System.Windows.Forms.Label lblRefuelP2;
-	}
+        private System.Windows.Forms.Label label5;
+    }
 }
 

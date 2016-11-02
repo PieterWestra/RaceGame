@@ -173,7 +173,7 @@ namespace Forms
             lblRefuelP1.Text = "Player 1, Times Refueled: " + car1.fuelCounter;
             lblRefuelP2.Text = "Player 2, Times Refueled: " + car2.fuelCounter;
 
-            label5.Text = "geraakt?" + loop.vraag;
+            //label5.Text = "geraakt?" + loop.vraag; // niet meer nodig
 
 
             lblRondencar1.Text = "Ronde: " + _Checkpoints.Lapcar1;
@@ -325,13 +325,7 @@ namespace Forms
             #endregion
             #endregion
 
-            if (CloseRace == false)
-            {
-
-                // "Double buffering" hack
-                g.CopyFromScreen(new Point(0, 0), new Point(pnlCanvas.Width, pnlCanvas.Height), new Size(1, 1));
-                g.CopyFromScreen(new Point(0, 0), new Point(pnlCanvas.Width, pnlCanvas.Height), new Size(1, 1));
-            }
+            
         }
 
 
