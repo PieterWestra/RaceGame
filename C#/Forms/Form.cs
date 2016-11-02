@@ -17,7 +17,9 @@ namespace Forms
     public partial class Form : System.Windows.Forms.Form
     {
         #region Declaring variables
+        // OLD
         private Loop loop = new Loop();
+
 
         private Sprite car1 = new Sprite();  // new instance of Sprite called car1
         private Sprite car2 = new Sprite(); // new instance of Sprite called car2
@@ -30,13 +32,17 @@ namespace Forms
         private short _minutes, _seconds;
         private short _minutes2, _seconds2 = 2;
         private short _minutes3, _seconds3 = 2;
-
-        //  public int LapCountCar1 = 1;
-
-
-
-
         private Graphics g;
+        public int LapCountCar1 = 1;
+        ////NEW
+        //Bitmap Backbuffer;
+        //private Image BACKGROUND = Image.FromFile(@"OpDeKaart.png");
+        //List<Sprite> cars = new List<Sprite>();
+        ////
+
+
+
+        
         #endregion
 
         public Form()
@@ -71,6 +77,7 @@ namespace Forms
             loop.Render(g, car1, car2, fuel, speed); //changed some of the rendercode - it works but could be done better. - Peter 
             _Checkpoints.CheckPass(car1, car2); //Checks id you have passed the checkpoints
 
+            
             #region Speed-O-Meter / FuelBar
             // Speed-o-meter is just an regular progressbarr at the moment if there is time ove we will look in to an replacement
             // it`s just an temporary fix. 29/10/16
@@ -111,6 +118,12 @@ namespace Forms
             lblRondencar2.Text = "Ronde " + _Checkpoints.Lapcar2;
 
             LBLRNDE.Text = "DO THE CHECKPOINTS WORK??? " + _Checkpoints.WORK;
+
+            if (Loop.LapCountCar1 >= 4)
+            {
+                YouWonBox.Visible = true;
+            }
+            
             #endregion
 
             // "Double buffering" hack

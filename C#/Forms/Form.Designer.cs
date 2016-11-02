@@ -39,7 +39,6 @@
             this.Minutes = new System.Windows.Forms.Label();
             this.Fuelbarcar2 = new System.Windows.Forms.ProgressBar();
             this.Fuelbarcar1 = new System.Windows.Forms.ProgressBar();
-            this.LBLRNDE = new System.Windows.Forms.Label();
             this.lblRondencar2 = new System.Windows.Forms.Label();
             this.lblRondencar1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -56,6 +55,8 @@
             this.lblXmult = new System.Windows.Forms.Label();
             this.lblYmult = new System.Windows.Forms.Label();
             this.lblAngle = new System.Windows.Forms.Label();
+            this.LBLRNDE = new System.Windows.Forms.Label();
+            this.YouWonBox = new System.Windows.Forms.PictureBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tmrMoving = new System.Windows.Forms.Timer(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -65,10 +66,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.pnlCanvas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.YouWonBox)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pnlCanvas
-            // 
             this.pnlCanvas.Controls.Add(this.label9);
             this.pnlCanvas.Controls.Add(this.label8);
             this.pnlCanvas.Controls.Add(this.label7);
@@ -79,9 +78,9 @@
             this.pnlCanvas.Controls.Add(this.label6);
             this.pnlCanvas.Controls.Add(this.Seconds);
             this.pnlCanvas.Controls.Add(this.Minutes);
+            this.pnlCanvas.Controls.Add(this.YouWonBox);
             this.pnlCanvas.Controls.Add(this.Fuelbarcar2);
             this.pnlCanvas.Controls.Add(this.Fuelbarcar1);
-            this.pnlCanvas.Controls.Add(this.LBLRNDE);
             this.pnlCanvas.Controls.Add(this.lblRondencar2);
             this.pnlCanvas.Controls.Add(this.lblRondencar1);
             this.pnlCanvas.Controls.Add(this.label5);
@@ -98,6 +97,7 @@
             this.pnlCanvas.Controls.Add(this.lblXmult);
             this.pnlCanvas.Controls.Add(this.lblYmult);
             this.pnlCanvas.Controls.Add(this.lblAngle);
+            this.pnlCanvas.Controls.Add(this.LBLRNDE);
             this.pnlCanvas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlCanvas.Location = new System.Drawing.Point(0, 0);
             this.pnlCanvas.Margin = new System.Windows.Forms.Padding(4);
@@ -185,15 +185,6 @@
             this.Fuelbarcar1.Name = "Fuelbarcar1";
             this.Fuelbarcar1.Size = new System.Drawing.Size(100, 23);
             this.Fuelbarcar1.TabIndex = 17;
-            // 
-            // LBLRNDE
-            // 
-            this.LBLRNDE.AutoSize = true;
-            this.LBLRNDE.Location = new System.Drawing.Point(425, 12);
-            this.LBLRNDE.Name = "LBLRNDE";
-            this.LBLRNDE.Size = new System.Drawing.Size(72, 17);
-            this.LBLRNDE.TabIndex = 16;
-            this.LBLRNDE.Text = "LBLRNDE";
             // 
             // lblRondencar2
             // 
@@ -355,11 +346,31 @@
             this.lblAngle.TabIndex = 1;
             this.lblAngle.Text = "lblAngle";
             // 
+            // LBLRNDE
+            // 
+            this.LBLRNDE.AutoSize = true;
+            this.LBLRNDE.Location = new System.Drawing.Point(425, 12);
+            this.LBLRNDE.Name = "LBLRNDE";
+            this.LBLRNDE.Size = new System.Drawing.Size(72, 17);
+            this.LBLRNDE.TabIndex = 16;
+            this.LBLRNDE.Text = "LBLRNDE";
+            // 
+            // YouWonBox
+            // 
+            this.YouWonBox.Image = global::Forms.Properties.Resources.YouWon;
+            this.YouWonBox.Location = new System.Drawing.Point(3, 0);
+            this.YouWonBox.Name = "YouWonBox";
+            this.YouWonBox.Size = new System.Drawing.Size(1001, 717);
+            this.YouWonBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.YouWonBox.TabIndex = 19;
+            this.YouWonBox.TabStop = false;
+            this.YouWonBox.Visible = false;
+            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(67, 4);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // tmrMoving
             // 
@@ -429,6 +440,7 @@
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form_KeyUp);
             this.pnlCanvas.ResumeLayout(false);
             this.pnlCanvas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.YouWonBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -470,6 +482,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
+        public System.Windows.Forms.PictureBox YouWonBox;
     }
 }
 
