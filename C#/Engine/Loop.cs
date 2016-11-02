@@ -19,6 +19,7 @@ namespace Engine
         private static Timer aTimer; //Not used?
 
         public static int LapCountCar1 = 1;
+        public static int LapCountCar2 = 1;
 
         //  i tried to make a YouWin message, does not work at the moment will  look into why it doesn`t work.
         //
