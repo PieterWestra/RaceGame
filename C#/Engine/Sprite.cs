@@ -14,13 +14,14 @@ namespace Engine
         public int newWidth, newHeight;
         public float angleDegrees = 0f;
 
-        public Image image = Image.FromFile(@"resources\sprites\car1.png");
+        public Image image;
         private Bitmap bmp;
 
 		public bool right = false;
 		public bool left = false;
 		public bool reverse = false;
 		public float force = 0f;
+       // private float speedmult; // Jawel Visual Studio, het word wel gebruikt...
 		private float direction;
 
         public bool Throttle = false;   // needed for the redesign of the the speed-o-meter
@@ -31,52 +32,54 @@ namespace Engine
 		public float x = 0;
 		public float y = 0;
 
-        public Rectangle collisionCenter1;
-        public Rectangle collisionCenter2;
         public Rectangle collisionFront;
         public Rectangle collisionBack;
-        public Image fuelImage = Image.FromFile(@"resources\sprites\Fuel.png");
-        public Image speedImage = Image.FromFile(@"resources\sprites\Speed.png");
         public Rectangle fuelRectangle;
         public Rectangle speedRectangle;
+
         public float fuel = 100;
         public bool boost = false;
         public float timer = 0;
-        #endregion
+		#endregion
 
-        // TESTVERSIE VAN COLLISIDERS MET HARDCODED FORMULES
-        public void Collider()
+		Image track = Image.FromFile(@"resources/sprites/track/track.png");
+
+		public void Collider()
 		{
             // Nieuwe versimpelde formule (Op het moment nog steeds hardcoded)
-            collisionCenter1 = new Rectangle(new Point(
-                (int)((x) + 16 * xMult - 16), (int)((y - 16) + 16 * yMult)),
-                new Size(32, 32));
+            collisionFront = new Rectangle(new Point(
+                (int)((x) + 6 * xMult - 6), (int)((y - 6) + 6 * yMult)),
+                new Size(12, 12));
 
-            collisionCenter2 = new Rectangle(new Point(
-                (int)((x) - 16 * xMult - 16), (int)((y - 16) - 16 * yMult)),
-                new Size(32, 32));
+            collisionBack = new Rectangle(new Point(
+                (int)((x) - 6 * xMult - 6), (int)((y - 6) - 6 * yMult)),
+                new Size(12, 12));
         }
 
         public void Transform()
         {
             #region Transform_Steering
             if (left && force != 0)
-                angleDegrees -= force / 2;
+                angleDegrees -= force;
             if (right && force != 0)
-                angleDegrees += force / 2;
+                angleDegrees += force;
 
             if (angleDegrees >= 360)
                 angleDegrees -= 360;
             if (angleDegrees < 0)
                 angleDegrees += 360;
-            #endregion Transform_Steering
+			#endregion Transform_Steering
 
-            #region Transform_Force/Speed
-            if (Throttle && (Brake == false) && boost == false)
-                if (force < 10)
-                    force += 0.125f;
-                else
-                    force -= 0.3f;
+			#region Transform_Force/Speed
+			if (Throttle && (Brake == false))
+			{
+				if (force < 10 && !boost)
+					force += 0.125f;
+				else if (force < 20 && boost)
+					force += 1f;
+				else
+					force -= 0.3f;
+			}
             if (Throttle && (Brake == false) && boost)
             {
                 force = 20;
@@ -104,10 +107,18 @@ namespace Engine
 		    }
 
             //Speed for Speed-O-Meter
-		    if (force < 0)
-		        Speed = (short) (force*-10);
-		    else
-		        Speed = (short) (force*10);
+            if (force < 20)
+            {
+                if (force < 0)
+                    Speed = (short)(-(force * 10));
+                else
+                    Speed = (short)(force * 10);
+            }
+            else
+            {
+                Speed = 200;
+            }
+		    
 			#endregion Transform_Force/Speed
 
 			#region  Transform_Movement
@@ -187,8 +198,8 @@ namespace Engine
             gfx.RotateTransform(angleDegrees + initialRotation);
             gfx.TranslateTransform(-image.Width / 2, -image.Height / 2);
 
-            // Teken de sprite
-            //gfx.Clear(Color.Black);
+			// Teken de sprite
+			//gfx.Clear(Color.Black);
             gfx.DrawImage(image, 0, 0, image.Width, image.Height);
 
 			// gfx disposen
