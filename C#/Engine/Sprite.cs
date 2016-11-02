@@ -68,17 +68,21 @@ namespace Engine
                 angleDegrees -= 360;
             if (angleDegrees < 0)
                 angleDegrees += 360;
-            #endregion Transform_Steering
+			#endregion Transform_Steering
 
-            #region Transform_Force/Speed
-            if (Throttle && (Brake == false))
+			#region Transform_Force/Speed
+			if (Throttle && (Brake == false))
+			{
+				if (force < 10 && !boost)
+					force += 0.125f;
+				else if (force < 20 && boost)
+					force += 1f;
+				else
+					force -= 0.3f;
+			}
+            if (Throttle && (Brake == false) && boost)
             {
-                if (force < 10 && !boost)
-                    force += 0.125f;
-                else if (force < 20 && boost)
-                    force += 1f;
-                else
-                    force -= 0.3f;
+                force = 20;
             }
 		    if ((Throttle == false) && (Brake == false))
 		        if (force > 0)

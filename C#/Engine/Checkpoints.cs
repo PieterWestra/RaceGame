@@ -66,6 +66,7 @@ namespace Engine
                 {
                     WORK = "Haha yes!";
                     Lapcar2++;
+                    Loop.LapCountCar2++;
                     Checkpoint1PassCar2= Checkpoint2PassCar2= Checkpoint3PassCar2= false; //all of the boolians are reset to false
                 }
             }
