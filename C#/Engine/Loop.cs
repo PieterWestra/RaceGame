@@ -28,7 +28,7 @@ namespace Engine
         // - Peter
         //
         private readonly Rectangle YouWin = new Rectangle(new Point(0, 0), new Size(768, 1024));
-        public Image YouWon = Image.FromFile(@"resources\sprites\YouWon.png");
+        public Image youWon = Image.FromFile(@"resources\sprites\YouWon.png");
         public Image background = Image.FromFile(@"resources\map.png");
         private Checkpoints _Checkpoints = new Checkpoints();
 
@@ -37,11 +37,8 @@ namespace Engine
 		#endregion
 
 		// TEMPORARY
-		//Image trackStr = Image.FromFile(@"resources/sprites/track/TrackStraight.png");
 		Image track = Image.FromFile(@"resources/sprites/track/track.png");
-
 		TextureBrush grassBrush = new TextureBrush(Image.FromFile(@"resources/sprites/track/Grass.png"), WrapMode.Tile);
-		TextureBrush trackStr = new TextureBrush(Image.FromFile(@"resources/sprites/track/track.png"));
 
 		Graphics backBuffer;
 		Bitmap bmp;
@@ -101,26 +98,17 @@ namespace Engine
             car2.Collider();
 
 			Collide(car1, car2);
+			PitStop.InPitstop(car1, car2);
+			Boost.Booster(car1, car2);
 
             #region Collisions
             // Cross car collision
-            if (car1.collisionFront.IntersectsWith(car2.collisionFront) || 
-                car1.collisionFront.IntersectsWith(car2.collisionBack))
-                car1.force = -2f;
-            if (car1.collisionBack.IntersectsWith(car2.collisionFront) || 
-                car1.collisionBack.IntersectsWith(car2.collisionBack))
-                car1.force = 2f;
-            if (car2.collisionFront.IntersectsWith(car1.collisionFront) || 
-                car2.collisionFront.IntersectsWith(car1.collisionBack))
-                car2.force = -2f;
-            if (car2.collisionBack.IntersectsWith(car1.collisionFront) || 
-                car2.collisionBack.IntersectsWith(car1.collisionBack))
-                car2.force = 2f;
+            
 
             #endregion Collisions
         }
 
-        public Image Render(Graphics gfx, Sprite car1, Sprite car2, Sprite fuelImage, Sprite speedImage)
+        public Image Render(Sprite car1, Sprite car2, Sprite fuelImage, Sprite speedImage)
         {
 			if (bmp != null)
 				bmp.Dispose();
@@ -141,88 +129,44 @@ namespace Engine
 			backBuffer.FillRectangle(grassBrush, 0, 0, 1024, 768);
 			backBuffer.DrawImage(track, 0, 0, 1024, 768);
 
-            //Checkpoints
-            //g.FillRectangle(Brushes.Red, Checkpoints.Checkpoint1);
-            //g.FillRectangle(Brushes.Red, Checkpoints.Checkpoint2);
-            //g.FillRectangle(Brushes.Red, Checkpoints.Checkpoint3);
-            //g.FillRectangle(Brushes.Black, Checkpoints.Checkpoint4); //Finishline
+			////Checkpoints
+			//backBuffer.DrawRectangle(Pens.Red, Checkpoints.Checkpoint1);
+			//backBuffer.DrawRectangle(Pens.Red, Checkpoints.Checkpoint2);
+			//backBuffer.DrawRectangle(Pens.Red, Checkpoints.Checkpoint3);
+			//backBuffer.DrawRectangle(Pens.Black, Checkpoints.Checkpoint4); //Finishline
 
-            // Sprite.GetSprite heeft een optionele parameter voor een startrotatie (In hoeken van 90 houden!)
-            backBuffer.DrawImage(car1.GetSprite(180), (car1.x - car1.newWidth / 2), (car1.y - car1.newHeight / 2));
+			// Sprite.GetSprite heeft een optionele parameter voor een startrotatie (In hoeken van 90 houden!)
+			backBuffer.DrawImage(car1.GetSprite(180), (car1.x - car1.newWidth / 2), (car1.y - car1.newHeight / 2));
             backBuffer.DrawImage(car2.GetSprite(180), (car2.x - car2.newWidth / 2), (car2.y - car2.newHeight / 2));
 
-            //Collision Blocks for Testing
-            //g.FillRectangle(Brushes.Yellow, car1.collisionBack);
-            //g.FillRectangle(Brushes.Red, car1.collisionFront);
+			//Collision Blocks for Testing
+			//backBuffer.FillRectangle(Brushes.Yellow, car1.collisionBack);
+			//backBuffer.FillRectangle(Brushes.Red, car1.collisionFront);
 
-            //g.FillRectangle(Brushes.Yellow, car2.collisionBack);
-            //g.FillRectangle(Brushes.Red, car2.collisionFront);
-
-            // Drawing fuel and speed icon
-            backBuffer.DrawImage(fuelImage.GetSprite(), 200, 200);
-            backBuffer.DrawImage(speedImage.GetSprite(), 500, 400);
-
-			#region RIP
-			//// Drawig rectangle behind fuel and speed icon
-			//fuelImage.fuelRectangle = new Rectangle(new Point(200, 200), new Size(32, 32));
-			//speedImage.speedRectangle = new Rectangle(new Point(500, 400), new Size(32, 32));
-
-			//// Giving the fuelRectangle a black outline en draw'd deze
-			//g.DrawRectangle(Pens.Black, fuelImage.fuelRectangle);
-
-			//if (fuelImage.fuelRectangle.IntersectsWith(car1.collisionFront) && (refuelC > refuelCount))
-			//{
-			//    if ((car1.fuel <= 99.9) && (car1.force == 0))
-			//        car1.fuel = Convert.ToSingle(car1.fuel + 0.5);
-			//    if (car1.fuel > 100)
-			//    {
-			//        car1.fuel = 100;
-			//        refuelCount++;
-			//    }
-			//}
-			//if (fuelImage.fuelRectangle.IntersectsWith(car1.collisionBack) && (refuelC == refuelCount))
-			//{
-			//    refuelC++;
-			//}
-			//else if (speedImage.speedRectangle.IntersectsWith(car1.collisionFront))
-			//{
-			//    car1.boost = true;
-			//    timer = 20;
-			//}
-			//else if (speedImage.speedRectangle.IntersectsWith(car1.collisionFront) == false)
-			//{
-			//    if (timer > 0)
-			//        timer--;
-			//    else if (timer == 0)
-			//        car1.boost = false;
-			//}
-
-			//Should give you YouWin message,  does not work at the moment -Peter
-			#endregion
+			//backBuffer.FillRectangle(Brushes.Yellow, car2.collisionBack);
+			//backBuffer.FillRectangle(Brushes.Red, car2.collisionFront);
 
 			// Debug Rendering voor hitboxes
-			colliders.DebugRender(backBuffer);
-			colliders2.DebugRender(backBuffer);
-			colliders3.DebugRender(backBuffer);
-			colliders4.DebugRender(backBuffer);
-			colliders5.DebugRender(backBuffer);
-			colliders6.DebugRender(backBuffer);
-			colliders7.DebugRender(backBuffer);
-			colliders8.DebugRender(backBuffer);
-			colliders9.DebugRender(backBuffer);
-			colliders10.DebugRender(backBuffer);
-			colliders11.DebugRender(backBuffer);
-			colliders12.DebugRender(backBuffer);
-			colliders13.DebugRender(backBuffer);
+			//colliders.DebugRender(backBuffer);
+			//colliders2.DebugRender(backBuffer);
+			//colliders3.DebugRender(backBuffer);
+			//colliders4.DebugRender(backBuffer);
+			//colliders5.DebugRender(backBuffer);
+			//colliders6.DebugRender(backBuffer);
+			//colliders7.DebugRender(backBuffer);
+			//colliders8.DebugRender(backBuffer);
+			//colliders9.DebugRender(backBuffer);
+			//colliders10.DebugRender(backBuffer);
+			//colliders11.DebugRender(backBuffer);
+			//colliders12.DebugRender(backBuffer);
+			//colliders13.DebugRender(backBuffer);
 
-			PitStop.DebugRender(backBuffer);
+			//PitStop.DebugRender(backBuffer);
+			Boost.Render(backBuffer);
 
-			if (LapCountCar1 >= 4)
-            {
-				backBuffer.FillRectangle(Brushes.Black, YouWin);
-                //g.DrawImage(YouWon, 0, 0);
-                
-            }
+			if (LapCountCar2 >= 4 || LapCountCar1 >= 4)
+				backBuffer.DrawImage(youWon, 0, 0, 1024, 768);
+
 			return bmp;
 			
         }
@@ -230,6 +174,22 @@ namespace Engine
 		// Collision Detectie
 		public void Collide(Sprite car1, Sprite car2)
 		{
+			// Cross car collision
+			if (car1.collisionFront.IntersectsWith(car2.collisionFront) ||
+				car1.collisionFront.IntersectsWith(car2.collisionBack))
+				car1.force = -2f;
+			if (car1.collisionBack.IntersectsWith(car2.collisionFront) ||
+				car1.collisionBack.IntersectsWith(car2.collisionBack))
+				car1.force = 2f;
+
+			if (car2.collisionFront.IntersectsWith(car1.collisionFront) ||
+				car2.collisionFront.IntersectsWith(car1.collisionBack))
+				car2.force = -2f;
+			if (car2.collisionBack.IntersectsWith(car1.collisionFront) ||
+				car2.collisionBack.IntersectsWith(car1.collisionBack))
+				car2.force = 2f;
+
+			// Map bounds
 			colliders.Collide(car1, car2);
 			colliders2.Collide(car1, car2);
 			colliders3.Collide(car1, car2);

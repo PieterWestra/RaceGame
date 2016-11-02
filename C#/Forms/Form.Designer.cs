@@ -51,13 +51,12 @@
 			this.label6 = new System.Windows.Forms.Label();
 			this.Seconds = new System.Windows.Forms.Label();
 			this.Minutes = new System.Windows.Forms.Label();
-			this.YouWonBox = new System.Windows.Forms.PictureBox();
 			this.Fuelbarcar2 = new System.Windows.Forms.ProgressBar();
 			this.Fuelbarcar1 = new System.Windows.Forms.ProgressBar();
 			this.lblRondencar2 = new System.Windows.Forms.Label();
 			this.lblRondencar1 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
-			this.lblTest = new System.Windows.Forms.Label();
+			this.lblRefuelP1 = new System.Windows.Forms.Label();
 			this.lblFuel2 = new System.Windows.Forms.Label();
 			this.lblFuel1 = new System.Windows.Forms.Label();
 			this.Car1_Bar = new System.Windows.Forms.ProgressBar();
@@ -79,12 +78,13 @@
 			this.timer4 = new System.Windows.Forms.Timer(this.components);
 			this.timer5 = new System.Windows.Forms.Timer(this.components);
 			this.timer6 = new System.Windows.Forms.Timer(this.components);
+			this.lblRefuelP2 = new System.Windows.Forms.Label();
 			this.pnlCanvas.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.YouWonBox)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// pnlCanvas
 			// 
+			this.pnlCanvas.Controls.Add(this.lblRefuelP2);
 			this.pnlCanvas.Controls.Add(this.winner);
 			this.pnlCanvas.Controls.Add(this.car2seconds3);
 			this.pnlCanvas.Controls.Add(this.car2minutes3);
@@ -105,13 +105,12 @@
 			this.pnlCanvas.Controls.Add(this.label6);
 			this.pnlCanvas.Controls.Add(this.Seconds);
 			this.pnlCanvas.Controls.Add(this.Minutes);
-			this.pnlCanvas.Controls.Add(this.YouWonBox);
 			this.pnlCanvas.Controls.Add(this.Fuelbarcar2);
 			this.pnlCanvas.Controls.Add(this.Fuelbarcar1);
 			this.pnlCanvas.Controls.Add(this.lblRondencar2);
 			this.pnlCanvas.Controls.Add(this.lblRondencar1);
 			this.pnlCanvas.Controls.Add(this.label5);
-			this.pnlCanvas.Controls.Add(this.lblTest);
+			this.pnlCanvas.Controls.Add(this.lblRefuelP1);
 			this.pnlCanvas.Controls.Add(this.lblFuel2);
 			this.pnlCanvas.Controls.Add(this.lblFuel1);
 			this.pnlCanvas.Controls.Add(this.Car1_Bar);
@@ -139,7 +138,7 @@
 			this.winner.Font = new System.Drawing.Font("Comic Sans MS", 48F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.winner.ForeColor = System.Drawing.Color.White;
-			this.winner.Location = new System.Drawing.Point(233, 3);
+			this.winner.Location = new System.Drawing.Point(373, 3);
 			this.winner.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.winner.Name = "winner";
 			this.winner.Size = new System.Drawing.Size(262, 90);
@@ -150,7 +149,7 @@
 			// car2seconds3
 			// 
 			this.car2seconds3.AutoSize = true;
-			this.car2seconds3.Location = new System.Drawing.Point(702, 485);
+			this.car2seconds3.Location = new System.Drawing.Point(939, 477);
 			this.car2seconds3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.car2seconds3.Name = "car2seconds3";
 			this.car2seconds3.Size = new System.Drawing.Size(41, 13);
@@ -160,7 +159,7 @@
 			// car2minutes3
 			// 
 			this.car2minutes3.AutoSize = true;
-			this.car2minutes3.Location = new System.Drawing.Point(654, 485);
+			this.car2minutes3.Location = new System.Drawing.Point(891, 477);
 			this.car2minutes3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.car2minutes3.Name = "car2minutes3";
 			this.car2minutes3.Size = new System.Drawing.Size(41, 13);
@@ -170,7 +169,7 @@
 			// label14
 			// 
 			this.label14.AutoSize = true;
-			this.label14.Location = new System.Drawing.Point(671, 471);
+			this.label14.Location = new System.Drawing.Point(908, 463);
 			this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.label14.Name = "label14";
 			this.label14.Size = new System.Drawing.Size(71, 13);
@@ -180,7 +179,7 @@
 			// car2seconds2
 			// 
 			this.car2seconds2.AutoSize = true;
-			this.car2seconds2.Location = new System.Drawing.Point(710, 436);
+			this.car2seconds2.Location = new System.Drawing.Point(947, 428);
 			this.car2seconds2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.car2seconds2.Name = "car2seconds2";
 			this.car2seconds2.Size = new System.Drawing.Size(41, 13);
@@ -190,7 +189,7 @@
 			// car2minutes2
 			// 
 			this.car2minutes2.AutoSize = true;
-			this.car2minutes2.Location = new System.Drawing.Point(667, 436);
+			this.car2minutes2.Location = new System.Drawing.Point(904, 428);
 			this.car2minutes2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.car2minutes2.Name = "car2minutes2";
 			this.car2minutes2.Size = new System.Drawing.Size(41, 13);
@@ -200,7 +199,7 @@
 			// label11
 			// 
 			this.label11.AutoSize = true;
-			this.label11.Location = new System.Drawing.Point(667, 422);
+			this.label11.Location = new System.Drawing.Point(904, 414);
 			this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.label11.Name = "label11";
 			this.label11.Size = new System.Drawing.Size(71, 13);
@@ -210,7 +209,7 @@
 			// car2seconds1
 			// 
 			this.car2seconds1.AutoSize = true;
-			this.car2seconds1.Location = new System.Drawing.Point(702, 389);
+			this.car2seconds1.Location = new System.Drawing.Point(939, 381);
 			this.car2seconds1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.car2seconds1.Name = "car2seconds1";
 			this.car2seconds1.Size = new System.Drawing.Size(41, 13);
@@ -220,7 +219,7 @@
 			// car2minutes1
 			// 
 			this.car2minutes1.AutoSize = true;
-			this.car2minutes1.Location = new System.Drawing.Point(667, 389);
+			this.car2minutes1.Location = new System.Drawing.Point(904, 381);
 			this.car2minutes1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.car2minutes1.Name = "car2minutes1";
 			this.car2minutes1.Size = new System.Drawing.Size(41, 13);
@@ -230,7 +229,7 @@
 			// label10
 			// 
 			this.label10.AutoSize = true;
-			this.label10.Location = new System.Drawing.Point(667, 375);
+			this.label10.Location = new System.Drawing.Point(904, 367);
 			this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.label10.Name = "label10";
 			this.label10.Size = new System.Drawing.Size(71, 13);
@@ -339,22 +338,10 @@
 			this.Minutes.TabIndex = 19;
 			this.Minutes.Text = "label6";
 			// 
-			// YouWonBox
-			// 
-			this.YouWonBox.Image = global::Forms.Properties.Resources.YouWon;
-			this.YouWonBox.Location = new System.Drawing.Point(-2, 0);
-			this.YouWonBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-			this.YouWonBox.Name = "YouWonBox";
-			this.YouWonBox.Size = new System.Drawing.Size(1006, 725);
-			this.YouWonBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.YouWonBox.TabIndex = 19;
-			this.YouWonBox.TabStop = false;
-			this.YouWonBox.Visible = false;
-			// 
 			// Fuelbarcar2
 			// 
-			this.Fuelbarcar2.Location = new System.Drawing.Point(675, 524);
-			this.Fuelbarcar2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.Fuelbarcar2.Location = new System.Drawing.Point(912, 516);
+			this.Fuelbarcar2.Margin = new System.Windows.Forms.Padding(2);
 			this.Fuelbarcar2.Name = "Fuelbarcar2";
 			this.Fuelbarcar2.Size = new System.Drawing.Size(75, 19);
 			this.Fuelbarcar2.TabIndex = 18;
@@ -362,7 +349,7 @@
 			// Fuelbarcar1
 			// 
 			this.Fuelbarcar1.Location = new System.Drawing.Point(64, 524);
-			this.Fuelbarcar1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.Fuelbarcar1.Margin = new System.Windows.Forms.Padding(2);
 			this.Fuelbarcar1.Name = "Fuelbarcar1";
 			this.Fuelbarcar1.Size = new System.Drawing.Size(75, 19);
 			this.Fuelbarcar1.TabIndex = 17;
@@ -370,7 +357,7 @@
 			// lblRondencar2
 			// 
 			this.lblRondencar2.AutoSize = true;
-			this.lblRondencar2.Location = new System.Drawing.Point(568, 23);
+			this.lblRondencar2.Location = new System.Drawing.Point(816, 22);
 			this.lblRondencar2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.lblRondencar2.Name = "lblRondencar2";
 			this.lblRondencar2.Size = new System.Drawing.Size(76, 13);
@@ -397,20 +384,20 @@
 			this.label5.TabIndex = 13;
 			this.label5.Text = "Geraakt?";
 			// 
-			// lblTest
+			// lblRefuelP1
 			// 
-			this.lblTest.AutoSize = true;
-			this.lblTest.Location = new System.Drawing.Point(12, 81);
-			this.lblTest.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.lblTest.Name = "lblTest";
-			this.lblTest.Size = new System.Drawing.Size(58, 13);
-			this.lblTest.TabIndex = 13;
-			this.lblTest.Text = "lblFuelTest";
+			this.lblRefuelP1.AutoSize = true;
+			this.lblRefuelP1.Location = new System.Drawing.Point(12, 81);
+			this.lblRefuelP1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.lblRefuelP1.Name = "lblRefuelP1";
+			this.lblRefuelP1.Size = new System.Drawing.Size(58, 13);
+			this.lblRefuelP1.TabIndex = 13;
+			this.lblRefuelP1.Text = "lblFuelTest";
 			// 
 			// lblFuel2
 			// 
 			this.lblFuel2.AutoSize = true;
-			this.lblFuel2.Location = new System.Drawing.Point(600, 524);
+			this.lblFuel2.Location = new System.Drawing.Point(837, 516);
 			this.lblFuel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.lblFuel2.Name = "lblFuel2";
 			this.lblFuel2.Size = new System.Drawing.Size(43, 13);
@@ -430,7 +417,7 @@
 			// Car1_Bar
 			// 
 			this.Car1_Bar.Location = new System.Drawing.Point(64, 556);
-			this.Car1_Bar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.Car1_Bar.Margin = new System.Windows.Forms.Padding(2);
 			this.Car1_Bar.Maximum = 200;
 			this.Car1_Bar.Name = "Car1_Bar";
 			this.Car1_Bar.Size = new System.Drawing.Size(75, 19);
@@ -438,8 +425,8 @@
 			// 
 			// Car2_Bar
 			// 
-			this.Car2_Bar.Location = new System.Drawing.Point(675, 556);
-			this.Car2_Bar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.Car2_Bar.Location = new System.Drawing.Point(913, 555);
+			this.Car2_Bar.Margin = new System.Windows.Forms.Padding(2);
 			this.Car2_Bar.Maximum = 200;
 			this.Car2_Bar.Name = "Car2_Bar";
 			this.Car2_Bar.Size = new System.Drawing.Size(75, 19);
@@ -449,7 +436,7 @@
 			// 
 			this.label4.AutoSize = true;
 			this.label4.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.label4.Location = new System.Drawing.Point(662, 10);
+			this.label4.Location = new System.Drawing.Point(910, 9);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(35, 13);
 			this.label4.TabIndex = 8;
@@ -459,7 +446,7 @@
 			// 
 			this.label3.AutoSize = true;
 			this.label3.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.label3.Location = new System.Drawing.Point(662, 24);
+			this.label3.Location = new System.Drawing.Point(910, 23);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(35, 13);
 			this.label3.TabIndex = 7;
@@ -469,7 +456,7 @@
 			// 
 			this.label2.AutoSize = true;
 			this.label2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.label2.Location = new System.Drawing.Point(600, 561);
+			this.label2.Location = new System.Drawing.Point(837, 556);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(35, 13);
 			this.label2.TabIndex = 6;
@@ -479,7 +466,7 @@
 			// 
 			this.label1.AutoSize = true;
 			this.label1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.label1.Location = new System.Drawing.Point(662, 36);
+			this.label1.Location = new System.Drawing.Point(910, 35);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(35, 13);
 			this.label1.TabIndex = 5;
@@ -563,6 +550,16 @@
 			this.timer3.Interval = 1000;
 			this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
 			// 
+			// lblRefuelP2
+			// 
+			this.lblRefuelP2.AutoSize = true;
+			this.lblRefuelP2.Location = new System.Drawing.Point(816, 80);
+			this.lblRefuelP2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.lblRefuelP2.Name = "lblRefuelP2";
+			this.lblRefuelP2.Size = new System.Drawing.Size(58, 13);
+			this.lblRefuelP2.TabIndex = 41;
+			this.lblRefuelP2.Text = "lblFuelTest";
+			// 
 			// Form
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -581,7 +578,6 @@
 			this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form_KeyUp);
 			this.pnlCanvas.ResumeLayout(false);
 			this.pnlCanvas.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.YouWonBox)).EndInit();
 			this.ResumeLayout(false);
 
         }
@@ -607,7 +603,7 @@
         private System.Windows.Forms.Label lblRondencar2;
         private System.Windows.Forms.Label lblRondencar1;
         private System.Windows.Forms.Label LBLRNDE;
-        private System.Windows.Forms.Label lblTest;
+        private System.Windows.Forms.Label lblRefuelP1;
         private System.Windows.Forms.ProgressBar Fuelbarcar2;
         private System.Windows.Forms.ProgressBar Fuelbarcar1;
         private System.Windows.Forms.Label Seconds;
@@ -623,7 +619,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        public System.Windows.Forms.PictureBox YouWonBox;
         private System.Windows.Forms.Label car2seconds1;
         private System.Windows.Forms.Label car2minutes1;
         private System.Windows.Forms.Label label10;
@@ -637,6 +632,7 @@
         private System.Windows.Forms.Label car2minutes2;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label winner;
-    }
+		private System.Windows.Forms.Label lblRefuelP2;
+	}
 }
 

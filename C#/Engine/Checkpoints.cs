@@ -11,14 +11,11 @@ namespace Engine
     {
         #region Variables
         //for drawing them at the screen.
-        public static Rectangle Checkpoint1 = new Rectangle(new Point(450, 300), new Size(300, 40));
-        public static Rectangle Checkpoint2 = new Rectangle(new Point(400, 450), new Size(40, 200));
-        public static Rectangle Checkpoint3 = new Rectangle(new Point(0, 300), new Size(300, 40));
-        public static Rectangle Checkpoint4 = new Rectangle(new Point(400, 0), new Size(40, 200));
-
-
-
-
+        public static Rectangle Checkpoint1 = new Rectangle(new Point(642, 390), new Size(152, 16));
+        public static Rectangle Checkpoint2 = new Rectangle(new Point(270, 587), new Size(16, 64));
+        public static Rectangle Checkpoint3 = new Rectangle(new Point(409, 300), new Size(64, 16));
+        public static Rectangle Checkpoint4 = new Rectangle(new Point(514, 112), new Size(16, 64));
+		
         private bool Checkpoint1PassCar1, Checkpoint2PassCar1, Checkpoint3PassCar1, Checkpoint4PassCar1;
         private bool Checkpoint1PassCar2, Checkpoint2PassCar2, Checkpoint3PassCar2, Checkpoint4PassCar2;
 
@@ -62,7 +59,7 @@ namespace Engine
             if (Checkpoint4.IntersectsWith(car2.collisionFront))
             {
                 Checkpoint4PassCar2 = true;
-                if (Checkpoint4PassCar1 && Checkpoint2PassCar1 && Checkpoint1PassCar1 && Checkpoint3PassCar1)
+                if (Checkpoint4PassCar2 && Checkpoint2PassCar2 && Checkpoint1PassCar2 && Checkpoint3PassCar2)
                 {
                     WORK = "Haha yes!";
                     Lapcar2++;

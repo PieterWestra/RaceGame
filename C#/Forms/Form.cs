@@ -76,7 +76,7 @@ namespace Forms
 			loop.Update(car1, car2);    //
 										//loop.Render(g, car1, car2, fuel, speed); //changed some of the rendercode - it works but could be done better. - Peter 
 
-			g.DrawImage(loop.Render(g, car1, car2, fuel, speed), 0, 0, 1024, 768);
+			g.DrawImage(loop.Render(car1, car2, fuel, speed), 0, 0, 1024, 768);
 			_Checkpoints.CheckPass(car1, car2); //Checks id you have passed the checkpoints
 
 
@@ -108,16 +108,17 @@ namespace Forms
 			label2.Text = "Speed: " + car2.Speed;
 			label3.Text = "Xmult car2: " + car2.xMult;
 			label4.Text = "Ymult car2: " + car2.yMult;
-			lblFuel1.Text = "Fuel: " + car1.fuel;
-			lblFuel2.Text = "Fuel: " + car2.fuel;
+			lblFuel1.Text = "Fuel: " + (int)car1.fuel;
+			lblFuel2.Text = "Fuel: " + (int)car2.fuel;
 
-			lblTest.Text = "Total refueled" + loop.refuelCount;
+			lblRefuelP1.Text = "Player 1, Times Refueled: " + car1.fuelCounter;
+			lblRefuelP2.Text = "Player 2, Times Refueled: " + car2.fuelCounter;
 
 			label5.Text = "geraakt?" + loop.vraag;
 
 
 			lblRondencar1.Text = "Ronde: " + _Checkpoints.Lapcar1;
-			lblRondencar2.Text = "Ronde " + _Checkpoints.Lapcar2;
+			lblRondencar2.Text = "Ronde: " + _Checkpoints.Lapcar2;
 
 			if (Loop.LapCountCar1 < 4 && Loop.LapCountCar2 < 4)
 			{
@@ -165,7 +166,7 @@ namespace Forms
 					winner.Text = "Player 2";
 				}
 				//Win screen
-				YouWonBox.Visible = true;
+				//YouWonBox.Visible = true;
 
 				//Background color Minutes
 				Minutes.BackColor = Color.Black;
