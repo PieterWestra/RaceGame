@@ -32,8 +32,14 @@ namespace Forms
         private short _minutes, _seconds;
         private short _minutes2, _seconds2 = 2;
         private short _minutes3, _seconds3 = 2;
+
+        private short _2minutes, _2seconds;
+        private short _2minutes2, _2seconds2 = 2;
+        private short _2minutes3, _2seconds3 = 2;
+
         private Graphics g;
         public int LapCountCar1 = 1;
+        
         ////NEW
         //Bitmap Backbuffer;
         //private Image BACKGROUND = Image.FromFile(@"OpDeKaart.png");
@@ -230,8 +236,8 @@ namespace Forms
         }
 
 
-        
         #region timer + extra labels
+ 
         #region round 1
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -373,9 +379,153 @@ namespace Forms
             Minutes3.Text = _minutes3.ToString("00");
             Seconds3.Text = _seconds3.ToString("00");
         }
-   
+
         #endregion
         #endregion
+        #region car2
+        #region car 2 round 1
+        private void timer4_Tick(object sender, EventArgs e)
+        {
+            if (Loop.LapCountCar2 == 1)
+            {
+                _2increaseseconds();
+                _2ShowTime();
+            }
+            if (Loop.LapCountCar2 > 1)
+            {
+                _2starttimer2();
+                _2stoptimer();
+                _2ShowTime();
+
+            }
+        }
+        private void _2starttimer2()
+        {
+            timer5.Enabled = true;
+        }
+        private void _2stoptimer()
+        {
+            timer4.Enabled = false;
+
+        }
+        private void _2increaseseconds()
+        {
+
+            if (_2seconds == 59)
+            {
+                _2seconds = 0;
+                _2minutes++;
+            }
+            else
+            {
+                _2seconds++;
+            }
+        }
+
+        private void _2ShowTime()
+        {
+            car2minutes1.Text = _2minutes.ToString("00");
+            car2seconds1.Text = _2seconds.ToString("00");
+        }
+        #endregion
+        #region car 2 round 2
+        private void timer5_Tick_1(object sender, EventArgs e)
+        {
+            if (Loop.LapCountCar2 == 2)
+            {
+                _2increaseseconds2();
+                _2ShowTime2();
+            }
+            else
+            {
+                _2stoptimer2();
+                _2starttimer3();
+            }
+        }
+        private void _2starttimer3()
+        {
+            timer6.Enabled = true;
+            timer5.Enabled = false;
+        }
+        private void _2stoptimer2()
+        {
+            timer5.Enabled = false;
+        }
+
+        private void _2increaseseconds2()
+        {
+            if (_seconds2 == 59)
+            {
+                _seconds2 = 0;
+                _2minutes2++;
+            }
+            else
+            {
+                _seconds2++;
+            }
+        }
+        private void _2ShowTime2()
+        {
+            car2minutes2.Text = _2minutes2.ToString("00");
+            car2seconds2.Text = _seconds2.ToString("00");
+        }
+        #endregion
+        #region car 2 round 3 + lapcalc
+        private void timer6_Tick(object sender, EventArgs e)
+        {
+            if (Loop.LapCountCar2 == 3)
+            {
+                _2increaseseconds3();
+                _2ShowTime3();
+            }
+            else
+            {
+                _2stoptimer3();
+                _2calculatebest();
+            }
+        }
+        private void _2calculatebest()
+        {
+            if ((_2seconds + _2minutes) <= (_2seconds2 + _2minutes2) && (_2seconds + _2minutes) <= (_2seconds3 + _2minutes3))
+            {
+                label7.Visible = true;
+                label7.Text = "Best lap : Lap 1";
+            }
+            else if ((_2seconds2 + _2minutes2) <= (_2seconds + _2minutes) && (_2seconds2 + _2minutes2) <= (_2seconds3 + _2minutes3))
+            {
+                label7.Visible = true;
+                label7.Text = "Best lap : Lap 2";
+            }
+            else if ((_2seconds3 + _2minutes3) <= (_2seconds2 + _2minutes2) && (_2seconds3 + _2minutes3) <= (_2seconds + _2minutes))
+            {
+                label7.Visible = true;
+                label7.Text = "Best lap: Lap 3";
+            }
+        }
+        private void _2stoptimer3()
+        {
+            timer6.Enabled = false;
+        }
+        private void _2increaseseconds3()
+        {
+            if (_2seconds3 == 59)
+            {
+                _2seconds3 = 0;
+                _2minutes3++;
+            }
+            else
+            {
+                _2seconds3++;
+            }
+        }
+        private void _2ShowTime3()
+        {
+            car2minutes3.Text = _2minutes3.ToString("00");
+            car2seconds3.Text = _2seconds3.ToString("00");
+        }
+        #endregion
+        #endregion
+
     }
 }
 
