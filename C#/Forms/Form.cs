@@ -123,7 +123,34 @@ namespace Forms
             lblRondencar1.Text = "Ronde: " + _Checkpoints.Lapcar1;
             lblRondencar2.Text = "Ronde " + _Checkpoints.Lapcar2;
 
+            if (Loop.LapCountCar1 < 4 && Loop.LapCountCar2 < 4)
+            { 
+               
+               Minutes.BackColor = Color.Gray;
+               Minutes2.BackColor = Color.Gray;
+               Minutes3.BackColor = Color.Gray;
 
+               car2minutes1.BackColor = Color.Gray;
+               car2minutes2.BackColor = Color.Gray;
+               car2minutes3.BackColor = Color.Gray;
+
+               Seconds.BackColor = Color.Gray;
+               Seconds2.BackColor = Color.Gray;
+               Seconds3.BackColor = Color.Gray;
+                    
+               car2seconds1.BackColor = Color.Gray;
+               car2seconds2.BackColor = Color.Gray;
+               car2seconds3.BackColor = Color.Gray;
+
+                label6.BackColor = Color.Gray; //Car 1 round 1
+                label7.BackColor = Color.Gray; // BEST LAP
+                label8.BackColor = Color.Gray; //Car 1 round 2
+                label9.BackColor = Color.Gray; //Car 1 round 3
+
+                label10.BackColor = Color.Gray; //Car 2 round 1
+                label11.BackColor = Color.Gray; //Car 2 round 2
+                label14.BackColor = Color.Gray; //Car 2 round 3
+            }
             //LBLRNDE.Text = "DO THE CHECKPOINTS WORK??? " + _Checkpoints.WORK; //Only for testing
             LBLRNDE.Visible = false;
 
@@ -148,21 +175,38 @@ namespace Forms
                 Minutes.BackColor = Color.Black;
                 Minutes2.BackColor = Color.Black;
                 Minutes3.BackColor = Color.Black;
-                
+
+                car2minutes1.BackColor = Color.Black;
+                car2minutes2.BackColor = Color.Black;
+                car2minutes3.BackColor = Color.Black;
+
+
                 //fore ground color Minutes
                 Minutes.ForeColor = Color.White;
                 Minutes2.ForeColor = Color.White;
                 Minutes3.ForeColor = Color.White;
 
+                car2minutes1.ForeColor = Color.White;
+                car2minutes2.ForeColor = Color.White;
+                car2minutes3.ForeColor = Color.White;
+                
                 //Background color Seconds
                 Seconds.BackColor = Color.Black;
                 Seconds2.BackColor = Color.Black;
                 Seconds3.BackColor = Color.Black;
-                 
+
+                car2seconds1.BackColor = Color.Black;
+                car2seconds2.BackColor = Color.Black;
+                car2seconds3.BackColor = Color.Black;
+
                 //fore ground color Seconds
                 Seconds.ForeColor = Color.White;
                 Seconds2.ForeColor = Color.White;
                 Seconds3.ForeColor = Color.White;
+
+                car2seconds1.ForeColor = Color.Black;
+                car2seconds2.ForeColor = Color.Black;
+                car2seconds3.ForeColor = Color.Black;
 
                 //Background color Laps
                 label6.BackColor = Color.Black; //Car 1 round 1
@@ -170,11 +214,20 @@ namespace Forms
                 label8.BackColor = Color.Black; //Car 1 round 2
                 label9.BackColor = Color.Black; //Car 1 round 3
 
+                label10.BackColor = Color.Black; //Car 2 round 1
+                label11.BackColor = Color.Black; //Car 2 round 2
+                label14.BackColor = Color.Black; //Car 2 round 3
+
                 //fore ground color Laps
                 label6.ForeColor = Color.White; //Car 1 round 1
                 label7.ForeColor = Color.White; // BEST LAP
                 label8.ForeColor = Color.White; //Car 1 round 2
                 label9.ForeColor = Color.White; //Car 1 round 3
+
+                label10.ForeColor = Color.White; //Car 2 round 1
+                label11.ForeColor = Color.White; //Car 2 round 2
+                label14.ForeColor = Color.White; //Car 2 round 3
+
             }
             #endregion
             #endregion

@@ -29,7 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form));
             this.pnlCanvas = new System.Windows.Forms.Panel();
+            this.winner = new System.Windows.Forms.Label();
             this.car2seconds3 = new System.Windows.Forms.Label();
             this.car2minutes3 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -77,7 +79,6 @@
             this.timer4 = new System.Windows.Forms.Timer(this.components);
             this.timer5 = new System.Windows.Forms.Timer(this.components);
             this.timer6 = new System.Windows.Forms.Timer(this.components);
-            this.winner = new System.Windows.Forms.Label();
             this.pnlCanvas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.YouWonBox)).BeginInit();
             this.SuspendLayout();
@@ -132,10 +133,24 @@
             this.pnlCanvas.TabIndex = 0;
             this.pnlCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlCanvas_Paint);
             // 
+            // winner
+            // 
+            this.winner.AutoSize = true;
+            this.winner.BackColor = System.Drawing.Color.Black;
+            this.winner.Font = new System.Drawing.Font("Comic Sans MS", 48F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
+                | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.winner.ForeColor = System.Drawing.Color.White;
+            this.winner.Location = new System.Drawing.Point(311, 4);
+            this.winner.Name = "winner";
+            this.winner.Size = new System.Drawing.Size(326, 113);
+            this.winner.TabIndex = 40;
+            this.winner.Text = "label12";
+            this.winner.Visible = false;
+            // 
             // car2seconds3
             // 
             this.car2seconds3.AutoSize = true;
-            this.car2seconds3.Location = new System.Drawing.Point(897, 286);
+            this.car2seconds3.Location = new System.Drawing.Point(936, 597);
             this.car2seconds3.Name = "car2seconds3";
             this.car2seconds3.Size = new System.Drawing.Size(54, 17);
             this.car2seconds3.TabIndex = 39;
@@ -144,7 +159,7 @@
             // car2minutes3
             // 
             this.car2minutes3.AutoSize = true;
-            this.car2minutes3.Location = new System.Drawing.Point(878, 286);
+            this.car2minutes3.Location = new System.Drawing.Point(872, 597);
             this.car2minutes3.Name = "car2minutes3";
             this.car2minutes3.Size = new System.Drawing.Size(54, 17);
             this.car2minutes3.TabIndex = 38;
@@ -153,7 +168,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(886, 269);
+            this.label14.Location = new System.Drawing.Point(895, 580);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(95, 17);
             this.label14.TabIndex = 37;
@@ -162,7 +177,7 @@
             // car2seconds2
             // 
             this.car2seconds2.AutoSize = true;
-            this.car2seconds2.Location = new System.Drawing.Point(897, 228);
+            this.car2seconds2.Location = new System.Drawing.Point(946, 537);
             this.car2seconds2.Name = "car2seconds2";
             this.car2seconds2.Size = new System.Drawing.Size(54, 17);
             this.car2seconds2.TabIndex = 36;
@@ -171,7 +186,7 @@
             // car2minutes2
             // 
             this.car2minutes2.AutoSize = true;
-            this.car2minutes2.Location = new System.Drawing.Point(875, 227);
+            this.car2minutes2.Location = new System.Drawing.Point(889, 537);
             this.car2minutes2.Name = "car2minutes2";
             this.car2minutes2.Size = new System.Drawing.Size(54, 17);
             this.car2minutes2.TabIndex = 35;
@@ -180,7 +195,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(889, 211);
+            this.label11.Location = new System.Drawing.Point(889, 520);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(95, 17);
             this.label11.TabIndex = 34;
@@ -189,7 +204,7 @@
             // car2seconds1
             // 
             this.car2seconds1.AutoSize = true;
-            this.car2seconds1.Location = new System.Drawing.Point(909, 172);
+            this.car2seconds1.Location = new System.Drawing.Point(936, 479);
             this.car2seconds1.Name = "car2seconds1";
             this.car2seconds1.Size = new System.Drawing.Size(54, 17);
             this.car2seconds1.TabIndex = 33;
@@ -198,7 +213,7 @@
             // car2minutes1
             // 
             this.car2minutes1.AutoSize = true;
-            this.car2minutes1.Location = new System.Drawing.Point(872, 172);
+            this.car2minutes1.Location = new System.Drawing.Point(889, 479);
             this.car2minutes1.Name = "car2minutes1";
             this.car2minutes1.Size = new System.Drawing.Size(54, 17);
             this.car2minutes1.TabIndex = 32;
@@ -207,7 +222,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(886, 155);
+            this.label10.Location = new System.Drawing.Point(889, 462);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(95, 17);
             this.label10.TabIndex = 31;
@@ -505,7 +520,7 @@
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(67, 4);
             // 
             // tmrMoving
             // 
@@ -529,16 +544,6 @@
             this.timer3.Interval = 1000;
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
-            // winner
-            // 
-            this.winner.AutoSize = true;
-            this.winner.Location = new System.Drawing.Point(428, 44);
-            this.winner.Name = "winner";
-            this.winner.Size = new System.Drawing.Size(54, 17);
-            this.winner.TabIndex = 40;
-            this.winner.Text = "label12";
-            this.winner.Visible = false;
-            // 
             // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -547,11 +552,12 @@
             this.ClientSize = new System.Drawing.Size(1002, 717);
             this.Controls.Add(this.pnlCanvas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "RaceGame";
+            this.Text = "Pret Eiland";
             this.Load += new System.EventHandler(this.Form_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form_KeyUp);
