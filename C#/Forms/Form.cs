@@ -118,7 +118,7 @@ namespace Forms
             //make You Won image invisible
             LBL_info.Visible = false;
             winner.Visible = false;
-            //YouWonBox.Visible = false;
+            YouWonBox.Visible = false;
 
         }
 
@@ -253,7 +253,7 @@ namespace Forms
                     }
                 }
                 //Win screen
-                //YouWonBox.Visible = true;
+                YouWonBox.Visible = true;
 
                 //PLayer Names
                 label_player1.BackColor = Color.Black;
@@ -633,7 +633,9 @@ namespace Forms
             }
         }
 
-		private void _2ShowTime2()
+
+
+        private void _2ShowTime2()
         {
             car2minutes2.Text = _2minutes2.ToString("00");
             car2seconds2.Text = _seconds2.ToString("00");
