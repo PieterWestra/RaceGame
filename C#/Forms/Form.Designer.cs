@@ -79,12 +79,18 @@
             this.timer4 = new System.Windows.Forms.Timer(this.components);
             this.timer5 = new System.Windows.Forms.Timer(this.components);
             this.timer6 = new System.Windows.Forms.Timer(this.components);
+            this.LBL_info = new System.Windows.Forms.Label();
+            this.label_player2 = new System.Windows.Forms.Label();
+            this.label_player1 = new System.Windows.Forms.Label();
             this.pnlCanvas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.YouWonBox)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlCanvas
             // 
+            this.pnlCanvas.Controls.Add(this.label_player1);
+            this.pnlCanvas.Controls.Add(this.label_player2);
+            this.pnlCanvas.Controls.Add(this.LBL_info);
             this.pnlCanvas.Controls.Add(this.winner);
             this.pnlCanvas.Controls.Add(this.car2seconds3);
             this.pnlCanvas.Controls.Add(this.car2minutes3);
@@ -544,6 +550,34 @@
             this.timer3.Interval = 1000;
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
+            // LBL_info
+            // 
+            this.LBL_info.AutoSize = true;
+            this.LBL_info.BackColor = System.Drawing.Color.Black;
+            this.LBL_info.ForeColor = System.Drawing.Color.White;
+            this.LBL_info.Location = new System.Drawing.Point(385, 276);
+            this.LBL_info.Name = "LBL_info";
+            this.LBL_info.Size = new System.Drawing.Size(84, 17);
+            this.LBL_info.TabIndex = 41;
+            this.LBL_info.Text = "INFO_TEXT";
+            this.LBL_info.Visible = false;
+            // 
+            // label_player2
+            // 
+            this.label_player2.AutoSize = true;
+            this.label_player2.Location = new System.Drawing.Point(889, 429);
+            this.label_player2.Name = "label_player2";
+            this.label_player2.Size = new System.Drawing.Size(0, 17);
+            this.label_player2.TabIndex = 42;
+            // 
+            // label_player1
+            // 
+            this.label_player1.AutoSize = true;
+            this.label_player1.Location = new System.Drawing.Point(4, 416);
+            this.label_player1.Name = "label_player1";
+            this.label_player1.Size = new System.Drawing.Size(0, 17);
+            this.label_player1.TabIndex = 43;
+            // 
             // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -551,7 +585,7 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1002, 717);
             this.Controls.Add(this.pnlCanvas);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
@@ -619,6 +653,9 @@
         private System.Windows.Forms.Label car2minutes2;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label winner;
+        private System.Windows.Forms.Label LBL_info;
+        private System.Windows.Forms.Label label_player1;
+        private System.Windows.Forms.Label label_player2;
     }
 }
 

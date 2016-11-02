@@ -29,6 +29,8 @@ namespace Forms
 
         private Checkpoints _Checkpoints = new Checkpoints();
 
+        public bool CloseRace;
+
         private short _minutes, _seconds;
         private short _minutes2, _seconds2 = 2;
         private short _minutes3, _seconds3 = 2;
@@ -39,7 +41,16 @@ namespace Forms
 
         private Graphics g;
         public int LapCountCar1 = 1;
-        
+
+        public static string Player1Name = "Player 1";
+        public static string Player2Name = "Player 2";
+
+        ////moving without borders
+        //private const int WM_NCHITTEST = 0x84;
+        //private const int HT_CLIENT = 0x1;
+        //private const int HT_CAPTION = 0x2;
+        ////
+
         ////NEW
         //Bitmap Backbuffer;
         //private Image BACKGROUND = Image.FromFile(@"OpDeKaart.png");
@@ -48,18 +59,69 @@ namespace Forms
 
 
 
-        
+
         #endregion
 
         public Form()
         {
+            
             InitializeComponent();
+
             tmrMoving.Interval = 16;
             car2.image = Image.FromFile(@"resources\sprites\car2.png");
             fuel.image = Image.FromFile(@"resources\sprites\Fuel.png");
             speed.image = Image.FromFile(@"resources\sprites\Speed.png");
 
 
+
+        }
+
+        //protected override void WndProc(ref Message m) //moving without borders
+        //{
+        //    base.WndProc(ref m);
+        //    if (m.Msg == WM_NCHITTEST)
+        //        m.Result = (IntPtr)(HT_CAPTION);
+        //}
+    
+                
+
+        public void Reset()
+        {
+            //reset laps
+            LapCountCar1 = 1;
+            Loop.LapCountCar1 = 1;
+            Loop.LapCountCar2 = 1;
+            _Checkpoints.Lapcar1 = 1;
+            _Checkpoints.Lapcar2 = 1;
+
+            //reset car values
+            car1.force = 0;
+            car1.fuel = 100;
+            car1.timer = 0;
+            car1.x = 0;
+            car1.y = 0;
+            car1.angleDegrees = 0f;
+
+            //reset car values
+            car2.force = 0;
+            car2.fuel = 100;
+            car2.timer = 0;
+            car2.x = 0;
+            car2.y = 0;
+            car2.angleDegrees = 0f;
+
+            //reset to loop values
+            car1.x = 300;
+            car1.y = 50; //X and Y coordinates Car1
+            car2.x = 300;
+            car2.y = 100; //X and Y coordinates Car2
+
+
+
+            //make You Won image invisible
+            LBL_info.Visible = false;
+            winner.Visible = false;
+            YouWonBox.Visible = false;
 
         }
 
@@ -123,9 +185,16 @@ namespace Forms
             lblRondencar1.Text = "Ronde: " + _Checkpoints.Lapcar1;
             lblRondencar2.Text = "Ronde " + _Checkpoints.Lapcar2;
 
+            label_player1.Text = Player1Name;
+            label_player2.Text = Player2Name;
+
+
             if (Loop.LapCountCar1 < 4 && Loop.LapCountCar2 < 4)
-            { 
-               
+            {
+               label_player1.BackColor = Color.Gray;
+               label_player2.BackColor = Color.Gray;
+
+
                Minutes.BackColor = Color.Gray;
                Minutes2.BackColor = Color.Gray;
                Minutes3.BackColor = Color.Gray;
@@ -158,18 +227,46 @@ namespace Forms
             #region YouWin-SCREEN + LABEL-Color change
             if (Loop.LapCountCar1 >= 4 || Loop.LapCountCar2  >= 4)
             {
+                LBL_info.Visible = true;
+                LBL_info.Text = "Press Enter to Q to the main menu.\nPress Enter to restart. ";
+
                 if(Loop.LapCountCar1 >= 4)
                 {
                     winner.Visible = true;
-                    winner.Text = "Player 1";
+                    winner.Text = Player1Name;
+                    if (CloseRace == true)
+                    {
+                        Menu_Form Form_Menu = new Menu_Form();
+                        //this.Dispose();
+                        this.Close();
+                        Form_Menu.Show();
+
+                        ///Menu_Form.Show;
+                    }
                 }
                 else if (Loop.LapCountCar2 >= 4)
                 {
                     winner.Visible = true;
-                    winner.Text = "Player 2";
+                    winner.Text = Player2Name;
+                    if (CloseRace == true)
+                    {
+                        Menu_Form Form_Menu = new Menu_Form();
+                        //this.Dispose();
+                        this.Close();
+                        Form_Menu.Show();
+
+                        ///Menu_Form.Show;
+                    }
                 }
                 //Win screen
                 YouWonBox.Visible = true;
+
+                //PLayer Names
+                label_player1.BackColor = Color.Black;
+                label_player2.BackColor = Color.Black;
+
+                label_player1.ForeColor = Color.White;
+                label_player2.ForeColor = Color.White;
 
                 //Background color Minutes
                 Minutes.BackColor = Color.Black;
@@ -228,23 +325,41 @@ namespace Forms
                 label11.ForeColor = Color.White; //Car 2 round 2
                 label14.ForeColor = Color.White; //Car 2 round 3
 
+
             }
             #endregion
             #endregion
 
-            // "Double buffering" hack
-            g.CopyFromScreen(new Point(0, 0), new Point(pnlCanvas.Width, pnlCanvas.Height), new Size(1, 1));
-            g.CopyFromScreen(new Point(0, 0), new Point(pnlCanvas.Width, pnlCanvas.Height), new Size(1, 1));
+            if (CloseRace == false)
+            {
+
+                // "Double buffering" hack
+                g.CopyFromScreen(new Point(0, 0), new Point(pnlCanvas.Width, pnlCanvas.Height), new Size(1, 1));
+                g.CopyFromScreen(new Point(0, 0), new Point(pnlCanvas.Width, pnlCanvas.Height), new Size(1, 1));
+            }
         }
 
         // Key press detectie
         private void Form_KeyDown(object sender, KeyEventArgs e)
         {
+            if (Loop.LapCountCar1 >= 4 || Loop.LapCountCar2 >= 4)
+            {
+                if (e.KeyCode == Keys.Q)
+                {
+                    CloseRace = true;
+                }
+                if (e.KeyCode == Keys.Enter)
+                {
+                    Reset();
+                }
+            }
+
             #region Car1 config
             // I removed out the original force version for the more advanced throttle/brake version
             // you can see the speed code in the sprite.cs -- transform() method -- 
             //
             // - Peter
+
 
             //Car 1 config
             if (e.KeyCode == Keys.D)

@@ -133,17 +133,7 @@ namespace Engine
 
                 g.DrawLine(Pens.White, new Point((int) car1.x, (int) car1.y), new Point(
                     (int) (car1.x + 64*car1.xMult),
-                    (int) (car1.y + 64*car1.yMult)));
-
-                //Should give you YouWin message,  does not work at the moment -Peter
-            
-
-            if (LapCountCar1 >= 4)
-            {
-                g.FillRectangle(Brushes.Black, YouWin);
-                //g.DrawImage(YouWon, 0, 0);
-                
-            }
-        }
+                    (int) (car1.y + 64*car1.yMult)));     
+           }
     }
 }
