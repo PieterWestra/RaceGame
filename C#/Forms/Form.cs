@@ -40,17 +40,14 @@ namespace Forms
         {
             InitializeComponent();
             tmrMoving.Interval = 16;
-            car2.image = Image.FromFile(@"resources\sprites\car2.png");
+            
             fuel.image = Image.FromFile(@"resources\sprites\Fuel.png");
             speed.image = Image.FromFile(@"resources\sprites\Speed.png");
-
-            
-
-        }
+		}
 
         private void pnlCanvas_Paint(object sender, PaintEventArgs e)
         {
-            g = pnlCanvas.CreateGraphics();
+			g = pnlCanvas.CreateGraphics();
 		}
 
 
@@ -61,11 +58,11 @@ namespace Forms
 
         private void tmrMoving_Tick(object sender, EventArgs e)
         { 
+			loop.Update(car1, car2);    //
+			//loop.Render(g, car1, car2, fuel, speed); //changed some of the rendercode - it works but could be done better. - Peter 
 
-           
-
-           loop.Update(car1, car2);    //
-           loop.Render(g, car1, car2, fuel, speed); //changed some of the rendercode - it works but could be done better. - Peter 
+			g.DrawImage(loop.Render(g, car1, car2, fuel, speed),
+										0, 0, 1024, 768);
             _Checkpoints.CheckPass(car1, car2); //Checks id you have passed the checkpoints
 
             
@@ -108,17 +105,19 @@ namespace Forms
             lblRondencar2.Text = "Ronde " + _Checkpoints.Lapcar2;
 
             LBLRNDE.Text = "DO THE CHECKPOINTS WORK??? " + _Checkpoints.WORK;
+			lblCursor.Text = "" + System.Windows.Forms.Cursor.Position;
 
-            if (Loop.LapCountCar1 >= 4)
+
+			if (Loop.LapCountCar1 >= 4)
             {
-                YouWonBox.Visible = true;
+                //YouWonBox.Visible = true;
             }
             
             #endregion
 
             // "Double buffering" hack
-            g.CopyFromScreen(new Point(0, 0), new Point(pnlCanvas.Width, pnlCanvas.Height), new Size(1, 1));
-			g.CopyFromScreen(new Point(0, 0), new Point(pnlCanvas.Width, pnlCanvas.Height), new Size(1, 1));
+           // g.CopyFromScreen(new Point(0, 0), new Point(pnlCanvas.Width, pnlCanvas.Height), new Size(1, 1));
+			//g.CopyFromScreen(new Point(0, 0), new Point(pnlCanvas.Width, pnlCanvas.Height), new Size(1, 1));
 		}
 
         // Key press detectie

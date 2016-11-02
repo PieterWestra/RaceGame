@@ -29,16 +29,16 @@ namespace Engine
 
         public void CheckPass(Sprite car1, Sprite car2)
         {
-            if (Checkpoint1.IntersectsWith(car1.collisionCenter1))
+            if (Checkpoint1.IntersectsWith(car1.collisionFront))
             {
                 Checkpoint1PassCar1 = true;
                 Checkpoint4PassCar1 = false;
             }
-            if (Checkpoint2.IntersectsWith(car1.collisionCenter1))
+            if (Checkpoint2.IntersectsWith(car1.collisionFront))
                 Checkpoint2PassCar1 = true;
-            if (Checkpoint3.IntersectsWith(car1.collisionCenter1))
+            if (Checkpoint3.IntersectsWith(car1.collisionFront))
                 Checkpoint3PassCar1 = true;
-            if (Checkpoint4.IntersectsWith(car1.collisionCenter1))
+            if (Checkpoint4.IntersectsWith(car1.collisionFront))
             {
                 Checkpoint4PassCar1 = true;
                 if (Checkpoint4PassCar1 && Checkpoint2PassCar1 && Checkpoint1PassCar1 && Checkpoint3PassCar1)
@@ -50,16 +50,16 @@ namespace Engine
                 }
             }
 
-            if (Checkpoint1.IntersectsWith(car2.collisionCenter1))
+            if (Checkpoint1.IntersectsWith(car2.collisionFront))
             {
                 Checkpoint1PassCar2 = true;
                 Checkpoint4PassCar2 = false;
             }
-            if (Checkpoint2.IntersectsWith(car2.collisionCenter1))
+            if (Checkpoint2.IntersectsWith(car2.collisionFront))
                 Checkpoint2PassCar2 = true;
-            if (Checkpoint3.IntersectsWith(car2.collisionCenter1))
+            if (Checkpoint3.IntersectsWith(car2.collisionFront))
                 Checkpoint3PassCar2 = true;
-            if (Checkpoint4.IntersectsWith(car2.collisionCenter1))
+            if (Checkpoint4.IntersectsWith(car2.collisionFront))
             {
                 Checkpoint4PassCar2 = true;
                 if (Checkpoint4PassCar1 && Checkpoint2PassCar1 && Checkpoint1PassCar1 && Checkpoint3PassCar1)
