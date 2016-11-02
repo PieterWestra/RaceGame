@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Boost.cs" />
     <Compile Include="BouncingCube.cs" />
     <Compile Include="Checkpoints.cs" />
     <Compile Include="Colliders.cs" />
@@ -52,13 +53,13 @@
     <Compile Include="Sprite.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="resources\sprites\Speed.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="resources\sprites\car1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="resources\sprites\car2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\sprites\speed.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="resources\sprites\track\Grass.png">

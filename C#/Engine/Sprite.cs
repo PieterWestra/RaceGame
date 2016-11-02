@@ -21,7 +21,7 @@ namespace Engine
 		public bool left = false;
 		public bool reverse = false;
 		public float force = 0f;
-       // private float speedmult; // Jawel Visual Studio, het word wel gebruikt...
+		//private float speedmult;
 		private float direction;
 
         public bool Throttle = false;   // needed for the redesign of the the speed-o-meter
@@ -38,7 +38,9 @@ namespace Engine
         public Rectangle speedRectangle;
 
         public float fuel = 100;
-        public bool boost = false;
+		public int fuelCounter = 0;
+		public bool boost = false;
+		private int boostCounter = 0;
         public float timer = 0;
 		#endregion
 
@@ -69,21 +71,26 @@ namespace Engine
             if (angleDegrees < 0)
                 angleDegrees += 360;
 			#endregion Transform_Steering
-
+			
 			#region Transform_Force/Speed
+			if (boost)
+			{
+				boostCounter += 1;
+				if (boostCounter >= 100)
+				{
+					boostCounter = 0;
+					boost = false;
+				}
+			}
 			if (Throttle && (Brake == false))
 			{
-				if (force < 10 && !boost)
+				if (force < 5 && !boost)
 					force += 0.125f;
-				else if (force < 20 && boost)
-					force += 1f;
+				else if (force < 8 && boost)
+					force += 0.25f;
 				else
 					force -= 0.3f;
 			}
-            if (Throttle && (Brake == false) && boost)
-            {
-                force = 20;
-            }
 		    if ((Throttle == false) && (Brake == false))
 		        if (force > 0)
 		            force -= 0.2f;
@@ -106,13 +113,16 @@ namespace Engine
 		            force = -2;
 		    }
 
+			if (force > 2 && fuel <= 0)
+				force = 2;
+
             //Speed for Speed-O-Meter
-            if (force < 20)
+            if (force < 10)
             {
                 if (force < 0)
-                    Speed = (short)(-(force * 10));
+                    Speed = (short)(-(force * 20));
                 else
-                    Speed = (short)(force * 10);
+                    Speed = (short)(force * 20);
             }
             else
             {
