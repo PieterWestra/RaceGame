@@ -131,6 +131,16 @@ namespace Forms
             #region YouWin-SCREEN + LABEL-Color change
             if (Loop.LapCountCar1 >= 4 || Loop.LapCountCar2  >= 4)
             {
+                if(Loop.LapCountCar1 >= 4)
+                {
+                    winner.Visible = true;
+                    winner.Text = "Player 1";
+                }
+                else if (Loop.LapCountCar2 >= 4)
+                {
+                    winner.Visible = true;
+                    winner.Text = "Player 2";
+                }
                 //Win screen
                 YouWonBox.Visible = true;
 
@@ -236,7 +246,7 @@ namespace Forms
         }
 
 
-        #region timer + extra labels
+        #region timer car 1 + extra labels
  
         #region round 1
         private void timer1_Tick(object sender, EventArgs e)
@@ -382,7 +392,7 @@ namespace Forms
 
         #endregion
         #endregion
-        #region car2
+        #region timer car2
         #region car 2 round 1
         private void timer4_Tick(object sender, EventArgs e)
         {
