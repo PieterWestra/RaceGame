@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-<<<<<<< HEAD
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form));
+            //System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form));
             this.pnlCanvas = new System.Windows.Forms.Panel();
             this.winner = new System.Windows.Forms.Label();
             this.car2seconds3 = new System.Windows.Forms.Label();
@@ -52,13 +51,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.Seconds = new System.Windows.Forms.Label();
             this.Minutes = new System.Windows.Forms.Label();
-            this.YouWonBox = new System.Windows.Forms.PictureBox();
+            //this.YouWonBox = new System.Windows.Forms.PictureBox();
             this.Fuelbarcar2 = new System.Windows.Forms.ProgressBar();
             this.Fuelbarcar1 = new System.Windows.Forms.ProgressBar();
             this.lblRondencar2 = new System.Windows.Forms.Label();
             this.lblRondencar1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.lblTest = new System.Windows.Forms.Label();
+            //this.lblTest = new System.Windows.Forms.Label();
             this.lblFuel2 = new System.Windows.Forms.Label();
             this.lblFuel1 = new System.Windows.Forms.Label();
             this.Car1_Bar = new System.Windows.Forms.ProgressBar();
@@ -84,7 +83,7 @@
             this.label_player2 = new System.Windows.Forms.Label();
             this.label_player1 = new System.Windows.Forms.Label();
             this.pnlCanvas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.YouWonBox)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.YouWonBox)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlCanvas
@@ -112,13 +111,13 @@
             this.pnlCanvas.Controls.Add(this.label6);
             this.pnlCanvas.Controls.Add(this.Seconds);
             this.pnlCanvas.Controls.Add(this.Minutes);
-            this.pnlCanvas.Controls.Add(this.YouWonBox);
+            //this.pnlCanvas.Controls.Add(this.YouWonBox);
             this.pnlCanvas.Controls.Add(this.Fuelbarcar2);
             this.pnlCanvas.Controls.Add(this.Fuelbarcar1);
             this.pnlCanvas.Controls.Add(this.lblRondencar2);
             this.pnlCanvas.Controls.Add(this.lblRondencar1);
             this.pnlCanvas.Controls.Add(this.label5);
-            this.pnlCanvas.Controls.Add(this.lblTest);
+            //this.pnlCanvas.Controls.Add(this.lblTest);
             this.pnlCanvas.Controls.Add(this.lblFuel2);
             this.pnlCanvas.Controls.Add(this.lblFuel1);
             this.pnlCanvas.Controls.Add(this.Car1_Bar);
@@ -329,14 +328,14 @@
             // 
             // YouWonBox
             // 
-            this.YouWonBox.Image = global::Forms.Properties.Resources.YouWon;
-            this.YouWonBox.Location = new System.Drawing.Point(-2, 0);
-            this.YouWonBox.Name = "YouWonBox";
-            this.YouWonBox.Size = new System.Drawing.Size(1004, 717);
-            this.YouWonBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.YouWonBox.TabIndex = 19;
-            this.YouWonBox.TabStop = false;
-            this.YouWonBox.Visible = false;
+            //this.YouWonBox.Image = global::Forms.Properties.Resources.YouWon;
+            //this.YouWonBox.Location = new System.Drawing.Point(-2, 0);
+            //this.YouWonBox.Name = "YouWonBox";
+            //this.YouWonBox.Size = new System.Drawing.Size(1004, 717);
+            //this.YouWonBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            //this.YouWonBox.TabIndex = 19;
+            //this.YouWonBox.TabStop = false;
+            //this.YouWonBox.Visible = false;
             // 
             // Fuelbarcar2
             // 
@@ -383,13 +382,13 @@
             // 
             // lblTest
             // 
-            this.lblTest.AutoSize = true;
-            this.lblTest.Location = new System.Drawing.Point(16, 100);
-            this.lblTest.Name = "lblTest";
-            this.lblTest.Size = new System.Drawing.Size(77, 17);
-            this.lblTest.TabIndex = 13;
-            this.lblTest.Text = "lblFuelTest";
-            // 
+            //this.lblTest.AutoSize = true;
+            //this.lblTest.Location = new System.Drawing.Point(16, 100);
+            //this.lblTest.Name = "lblTest";
+            //this.lblTest.Size = new System.Drawing.Size(77, 17);
+            //this.lblTest.TabIndex = 13;
+            //this.lblTest.Text = "lblFuelTest";
+            //// 
             // lblFuel2
             // 
             this.lblFuel2.AutoSize = true;
@@ -587,7 +586,7 @@
             this.ClientSize = new System.Drawing.Size(1002, 717);
             this.Controls.Add(this.pnlCanvas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            //this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "Form";
@@ -598,59 +597,58 @@
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form_KeyUp);
             this.pnlCanvas.ResumeLayout(false);
             this.pnlCanvas.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.YouWonBox)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.YouWonBox)).EndInit();
             this.ResumeLayout(false);
-=======
-			this.components = new System.ComponentModel.Container();
+//			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form));
-			this.pnlCanvas = new System.Windows.Forms.Panel();
-			this.winner = new System.Windows.Forms.Label();
-			this.car2seconds3 = new System.Windows.Forms.Label();
-			this.car2minutes3 = new System.Windows.Forms.Label();
-			this.label14 = new System.Windows.Forms.Label();
-			this.car2seconds2 = new System.Windows.Forms.Label();
-			this.car2minutes2 = new System.Windows.Forms.Label();
-			this.label11 = new System.Windows.Forms.Label();
-			this.car2seconds1 = new System.Windows.Forms.Label();
-			this.car2minutes1 = new System.Windows.Forms.Label();
-			this.label10 = new System.Windows.Forms.Label();
-			this.label9 = new System.Windows.Forms.Label();
-			this.label8 = new System.Windows.Forms.Label();
-			this.label7 = new System.Windows.Forms.Label();
-			this.Seconds3 = new System.Windows.Forms.Label();
-			this.Minutes3 = new System.Windows.Forms.Label();
-			this.Seconds2 = new System.Windows.Forms.Label();
-			this.Minutes2 = new System.Windows.Forms.Label();
-			this.label6 = new System.Windows.Forms.Label();
-			this.Seconds = new System.Windows.Forms.Label();
-			this.Minutes = new System.Windows.Forms.Label();
-			this.Fuelbarcar2 = new System.Windows.Forms.ProgressBar();
-			this.Fuelbarcar1 = new System.Windows.Forms.ProgressBar();
-			this.lblRondencar2 = new System.Windows.Forms.Label();
-			this.lblRondencar1 = new System.Windows.Forms.Label();
-			this.label5 = new System.Windows.Forms.Label();
+//			this.pnlCanvas = new System.Windows.Forms.Panel();
+//			this.winner = new System.Windows.Forms.Label();
+			//this.car2seconds3 = new System.Windows.Forms.Label();
+			//this.car2minutes3 = new System.Windows.Forms.Label();
+//			this.label14 = new System.Windows.Forms.Label();
+			//this.car2seconds2 = new System.Windows.Forms.Label();
+			//this.car2minutes2 = new System.Windows.Forms.Label();
+//			this.label11 = new System.Windows.Forms.Label();
+			//this.car2seconds1 = new System.Windows.Forms.Label();
+			//this.car2minutes1 = new System.Windows.Forms.Label();
+//			this.label10 = new System.Windows.Forms.Label();
+//			this.label9 = new System.Windows.Forms.Label();
+//			this.label8 = new System.Windows.Forms.Label();
+//			this.label7 = new System.Windows.Forms.Label();
+//			this.Seconds3 = new System.Windows.Forms.Label();
+//			this.Minutes3 = new System.Windows.Forms.Label();
+//			this.Seconds2 = new System.Windows.Forms.Label();
+//			this.Minutes2 = new System.Windows.Forms.Label();
+//			this.label6 = new System.Windows.Forms.Label();
+//			this.Seconds = new System.Windows.Forms.Label();
+//			this.Minutes = new System.Windows.Forms.Label();
+			//this.Fuelbarcar2 = new System.Windows.Forms.ProgressBar();
+			//this.Fuelbarcar1 = new System.Windows.Forms.ProgressBar();
+//			this.lblRondencar2 = new System.Windows.Forms.Label();
+//			this.lblRondencar1 = new System.Windows.Forms.Label();
+//			this.label5 = new System.Windows.Forms.Label();
 			this.lblRefuelP1 = new System.Windows.Forms.Label();
-			this.lblFuel2 = new System.Windows.Forms.Label();
-			this.lblFuel1 = new System.Windows.Forms.Label();
-			this.Car1_Bar = new System.Windows.Forms.ProgressBar();
-			this.Car2_Bar = new System.Windows.Forms.ProgressBar();
-			this.label4 = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
-			this.label1 = new System.Windows.Forms.Label();
-			this.lblForce = new System.Windows.Forms.Label();
-			this.lblXmult = new System.Windows.Forms.Label();
-			this.lblYmult = new System.Windows.Forms.Label();
-			this.lblAngle = new System.Windows.Forms.Label();
-			this.LBLRNDE = new System.Windows.Forms.Label();
-			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.tmrMoving = new System.Windows.Forms.Timer(this.components);
-			this.timer1 = new System.Windows.Forms.Timer(this.components);
-			this.timer2 = new System.Windows.Forms.Timer(this.components);
-			this.timer3 = new System.Windows.Forms.Timer(this.components);
-			this.timer4 = new System.Windows.Forms.Timer(this.components);
-			this.timer5 = new System.Windows.Forms.Timer(this.components);
-			this.timer6 = new System.Windows.Forms.Timer(this.components);
+//			this.lblFuel2 = new System.Windows.Forms.Label();
+//			this.lblFuel1 = new System.Windows.Forms.Label();
+			//this.Car1_Bar = new System.Windows.Forms.ProgressBar();
+			//this.Car2_Bar = new System.Windows.Forms.ProgressBar();
+//			this.label4 = new System.Windows.Forms.Label();
+//			this.label3 = new System.Windows.Forms.Label();
+//			this.label2 = new System.Windows.Forms.Label();
+//			this.label1 = new System.Windows.Forms.Label();
+//			this.lblForce = new System.Windows.Forms.Label();
+//			this.lblXmult = new System.Windows.Forms.Label();
+//			this.lblYmult = new System.Windows.Forms.Label();
+//			this.lblAngle = new System.Windows.Forms.Label();
+//			this.LBLRNDE = new System.Windows.Forms.Label();
+			//this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+//			this.tmrMoving = new System.Windows.Forms.Timer(this.components);
+//			this.timer1 = new System.Windows.Forms.Timer(this.components);
+//			this.timer2 = new System.Windows.Forms.Timer(this.components);
+//			this.timer3 = new System.Windows.Forms.Timer(this.components);
+//			this.timer4 = new System.Windows.Forms.Timer(this.components);
+//			this.timer5 = new System.Windows.Forms.Timer(this.components);
+//			this.timer6 = new System.Windows.Forms.Timer(this.components);
 			this.lblRefuelP2 = new System.Windows.Forms.Label();
 			this.pnlCanvas.SuspendLayout();
 			this.SuspendLayout();
@@ -1152,7 +1150,6 @@
 			this.pnlCanvas.ResumeLayout(false);
 			this.pnlCanvas.PerformLayout();
 			this.ResumeLayout(false);
->>>>>>> 68f646d8ee693c585f244fc1fea8ec8b71e31421
 
         }
 

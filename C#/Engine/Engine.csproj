@@ -43,7 +43,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Boost.cs" />
-    <Compile Include="BouncingCube.cs" />
     <Compile Include="Checkpoints.cs" />
     <Compile Include="Colliders.cs" />
     <Compile Include="Fuel.cs" />

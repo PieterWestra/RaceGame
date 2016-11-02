@@ -110,83 +110,7 @@ namespace Engine
 
         public Image Render(Sprite car1, Sprite car2, Sprite fuelImage, Sprite speedImage)
         {
-<<<<<<< HEAD
-            
-                // this may need some cleaning up.
-                //
-                // - Peter
-                g.Clear(Color.Gray); // Background -- IMPORTANT FOR LATER
-                //g.DrawImage.image(@"resources\map.png");
 
-
-                //g.FillRectangle(Brushes.White, 12, 8, 96, 56); // Witte achtergrond voor labels //fuck deze - Peter
-
-                g.FillRectangle(Brushes.Blue, rect2);
-
-                //Checkpoints
-                //g.FillRectangle(Brushes.Red, Checkpoints.Checkpoint1);
-                //g.FillRectangle(Brushes.Red, Checkpoints.Checkpoint2);
-                //g.FillRectangle(Brushes.Red, Checkpoints.Checkpoint3);
-                g.FillRectangle(Brushes.Black, Checkpoints.Checkpoint4); //Finishline
-
-                // Sprite.GetSprite heeft een optionele parameter voor een startrotatie (In hoeken van 90 houden!)
-                g.DrawImage(car1.GetSprite(180), car1.x - car1.newWidth/2, car1.y - car1.newHeight/2);
-                g.DrawImage(car2.GetSprite(180), car2.x - car2.newWidth/2, car2.y - car2.newHeight/2);
-
-                //Collision Blocks for Testing
-                //g.FillRectangle(Brushes.Purple, car1.collisionCenter1);
-                //g.FillRectangle(Brushes.Purple, car1.collisionCenter2);
-
-                g.FillRectangle(Brushes.Plum, car2.collisionCenter1);
-                g.FillRectangle(Brushes.Plum, car2.collisionCenter2);
-
-                // Drawing fuel and speed icon
-                g.DrawImage(fuelImage.GetSprite(), 200, 200);
-                g.DrawImage(speedImage.GetSprite(), 500, 400);
-
-                // Drawig rectangle behind fuel and speed icon
-                fuelImage.fuelRectangle = new Rectangle(new Point(200, 200), new Size(32, 32));
-                speedImage.speedRectangle = new Rectangle(new Point(500, 400), new Size(32, 32));
-
-                // Giving the fuelRectangle a black outline en draw'd deze
-                g.DrawRectangle(Pens.Black, fuelImage.fuelRectangle);
-
-                if (fuelImage.fuelRectangle.IntersectsWith(car1.collisionCenter1) && (refuelC > refuelCount))
-                {
-
-                    if ((car1.fuel <= 99.9) && (car1.force == 0))
-                        car1.fuel = Convert.ToSingle(car1.fuel + 0.5);
-                    if (car1.fuel > 100)
-                    {
-                        car1.fuel = 100;
-                        refuelCount++;
-                    }
-                }
-                if (fuelImage.fuelRectangle.IntersectsWith(car1.collisionCenter2) && (refuelC == refuelCount))
-                {
-                    refuelC++;
-                }
-                else if (speedImage.speedRectangle.IntersectsWith(car1.collisionCenter1))
-                {
-                    car1.boost = true;
-                    timer = 20;
-                }
-                else if (speedImage.speedRectangle.IntersectsWith(car1.collisionCenter1) == false)
-                {
-                    if (timer > 0)
-                        timer--;
-                    else if (timer == 0)
-                        car1.boost = false;
-                }
-
-
-                //g.DrawRectangle(Pens.Black, rect2);
-
-                g.DrawLine(Pens.White, new Point((int) car1.x, (int) car1.y), new Point(
-                    (int) (car1.x + 64*car1.xMult),
-                    (int) (car1.y + 64*car1.yMult)));     
-           }
-=======
 			if (bmp != null)
 				bmp.Dispose();
 			if (backBuffer != null)
@@ -281,6 +205,5 @@ namespace Engine
 			colliders12.Collide(car1, car2);
 			colliders13.Collide(car1, car2);
 		}
->>>>>>> 68f646d8ee693c585f244fc1fea8ec8b71e31421
     }
 }

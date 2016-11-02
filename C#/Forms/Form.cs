@@ -118,7 +118,7 @@ namespace Forms
             //make You Won image invisible
             LBL_info.Visible = false;
             winner.Visible = false;
-            YouWonBox.Visible = false;
+            //YouWonBox.Visible = false;
 
         }
 
@@ -253,7 +253,7 @@ namespace Forms
                     }
                 }
                 //Win screen
-                YouWonBox.Visible = true;
+                //YouWonBox.Visible = true;
 
                 //PLayer Names
                 label_player1.BackColor = Color.Black;
