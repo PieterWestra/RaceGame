@@ -13,21 +13,25 @@ using System.Reflection;
 
 namespace Forms
 {
-    
+
     public partial class Form : System.Windows.Forms.Form
-	{
+    {
         #region Declaring variables
         private Loop loop = new Loop();
 
-		private Sprite car1 = new Sprite();  // new instance of Sprite called car1
-		private Sprite car2  = new Sprite(); // new instance of Sprite called car2
+        private Sprite car1 = new Sprite();  // new instance of Sprite called car1
+        private Sprite car2 = new Sprite(); // new instance of Sprite called car2
 
         private Sprite speed = new Sprite();
         private Sprite fuel = new Sprite();
 
-	    private Checkpoints _Checkpoints = new Checkpoints();
+        private Checkpoints _Checkpoints = new Checkpoints();
 
-	    public int LapCountCar1 = 1;
+        private short _minutes, _seconds;
+        private short _minutes2, _seconds2 = 2;
+        private short _minutes3, _seconds3 = 2;
+
+        //  public int LapCountCar1 = 1;
 
 
 
@@ -43,14 +47,14 @@ namespace Forms
             fuel.image = Image.FromFile(@"resources\sprites\Fuel.png");
             speed.image = Image.FromFile(@"resources\sprites\Speed.png");
 
-            
+
 
         }
 
         private void pnlCanvas_Paint(object sender, PaintEventArgs e)
         {
             g = pnlCanvas.CreateGraphics();
-		}
+        }
 
 
         private void Form_Load(object sender, EventArgs e)
@@ -59,12 +63,12 @@ namespace Forms
         }
 
         private void tmrMoving_Tick(object sender, EventArgs e)
-        { 
+        {
 
-           
 
-           loop.Update(car1, car2);    //
-           loop.Render(g, car1, car2, fuel, speed); //changed some of the rendercode - it works but could be done better. - Peter 
+
+            loop.Update(car1, car2);    //
+            loop.Render(g, car1, car2, fuel, speed); //changed some of the rendercode - it works but could be done better. - Peter 
             _Checkpoints.CheckPass(car1, car2); //Checks id you have passed the checkpoints
 
             #region Speed-O-Meter / FuelBar
@@ -87,9 +91,9 @@ namespace Forms
             #region Labels
 
             lblAngle.Text = "Angle: " + car1.angleDegrees;
-			lblForce.Text = "Speed: " + car1.Speed;
-			lblXmult.Text = "Xmult: " + car1.xMult;
-			lblYmult.Text = "Ymult: " + car1.yMult;
+            lblForce.Text = "Speed: " + car1.Speed;
+            lblXmult.Text = "Xmult: " + car1.xMult;
+            lblYmult.Text = "Ymult: " + car1.yMult;
 
             label1.Text = "Angle car2: " + car2.angleDegrees;
             label2.Text = "Speed: " + car2.Speed;
@@ -97,10 +101,11 @@ namespace Forms
             label4.Text = "Ymult car2: " + car2.yMult;
             lblFuel1.Text = "Fuel: " + car1.fuel;
             lblFuel2.Text = "Fuel: " + car2.fuel;
-            
+
             lblTest.Text = "Total refueled" + loop.refuelCount;
 
             label5.Text = "geraakt?" + loop.vraag;
+
 
             lblRondencar1.Text = "Ronde: " + _Checkpoints.Lapcar1;
             lblRondencar2.Text = "Ronde " + _Checkpoints.Lapcar2;
@@ -110,8 +115,8 @@ namespace Forms
 
             // "Double buffering" hack
             g.CopyFromScreen(new Point(0, 0), new Point(pnlCanvas.Width, pnlCanvas.Height), new Size(1, 1));
-			g.CopyFromScreen(new Point(0, 0), new Point(pnlCanvas.Width, pnlCanvas.Height), new Size(1, 1));
-		}
+            g.CopyFromScreen(new Point(0, 0), new Point(pnlCanvas.Width, pnlCanvas.Height), new Size(1, 1));
+        }
 
         // Key press detectie
         private void Form_KeyDown(object sender, KeyEventArgs e)
@@ -130,7 +135,7 @@ namespace Forms
             if (e.KeyCode == Keys.W)
                 car1.Throttle = true;
             if (e.KeyCode == Keys.S)
-               car1.Brake = true;
+                car1.Brake = true;
             #endregion
 
             #region Car2 config
@@ -140,7 +145,7 @@ namespace Forms
             if (e.KeyCode == Keys.Left)
                 car2.left = true;
             if (e.KeyCode == Keys.Up)
-                car2.Throttle =  true;
+                car2.Throttle = true;
             if (e.KeyCode == Keys.Down)
                 car2.Brake = true;
             #endregion
@@ -174,6 +179,150 @@ namespace Forms
             #endregion
         }
 
+        #region timer
+        #region round 1
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (Loop.LapCountCar1 == 1)
+            {
+                increaseseconds();
+                ShowTime();
+            }
+            if (Loop.LapCountCar1 > 1)
+            {
+                starttimer2();
+                stoptimer();
+                ShowTime();
 
+            }
+        }
+        private void starttimer2()
+        {
+            timer2.Enabled = true;
+        }
+        private void stoptimer()
+        {
+            timer1.Enabled = false;
+
+        }
+        private void increaseseconds()
+        {
+
+            if (_seconds == 59)
+            {
+                _seconds = 0;
+                _minutes++;
+            }
+            else
+            {
+                _seconds++;
+            }
+        }
+
+        private void ShowTime()
+        {
+            Minutes.Text = _minutes.ToString("00");
+            Seconds.Text = _seconds.ToString("00");
+        }
+        #endregion
+        #region round 2
+        private void timer2_Tick_1(object sender, EventArgs e)
+        {
+            if (Loop.LapCountCar1 == 2)
+            {
+                increaseseconds2();
+                ShowTime2();
+            }
+            else
+            {
+                stoptimer2();
+                starttimer3();
+            }
+        }
+        private void starttimer3()
+        {
+            timer3.Enabled = true;
+            timer2.Enabled = false;
+        }
+        private void stoptimer2()
+        {
+           timer2.Enabled = false;
+        }
+
+        private void increaseseconds2()
+        {
+            if (_seconds2 == 59)
+            {
+                _seconds2 = 0;
+                _minutes2++;
+            }
+            else
+            {
+                _seconds2++;
+            }
+        }
+        private void ShowTime2()
+        {
+            Minutes2.Text = _minutes2.ToString("00");
+            Seconds2.Text = _seconds2.ToString("00");
+        }
+        #endregion
+        #region round 3 + lapcalc
+        private void timer3_Tick(object sender, EventArgs e)
+        {
+            if (Loop.LapCountCar1 == 3)
+            {
+                increaseseconds3();
+                ShowTime3();
+            }
+            else
+            {
+                stoptimer3();
+                calculatebest();
+            }
+        }
+        private void calculatebest()
+        {
+            if ((_seconds + _minutes) <= (_seconds2 + _minutes2) && (_seconds + _minutes) <= (_seconds3 + _minutes3))
+            {
+                label7.Visible = true;
+                label7.Text = "Best lap : Lap 1";
+            }
+            else if ((_seconds2 + _minutes2) <= (_seconds + _minutes) && (_seconds2 + _minutes2) <= (_seconds3 + _minutes3))
+            {
+                label7.Visible = true;
+                label7.Text = "Best lap : Lap 2";
+            }
+            else if ((_seconds3 + _minutes3) <= (_seconds2 + _minutes2) && (_seconds3 + _minutes3) <= (_seconds + _minutes))
+            {
+                label7.Visible = true;
+                label7.Text = "Best lap: Lap 3";
+            }
+        }
+        private void stoptimer3()
+        {
+            timer3.Enabled = false;
+        }
+        private void increaseseconds3()
+        {
+            if (_seconds3 == 59)
+            {
+                _seconds3 = 0;
+                _minutes3++;
+            }
+            else
+            {
+                _seconds3++;
+            }
+        }
+        private void ShowTime3()
+        {
+            Minutes3.Text = _minutes3.ToString("00");
+            Seconds3.Text = _seconds3.ToString("00");
+        }
+   
+        #endregion
+        #endregion
     }
 }
+

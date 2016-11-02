@@ -30,6 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.pnlCanvas = new System.Windows.Forms.Panel();
+            this.Seconds3 = new System.Windows.Forms.Label();
+            this.Minutes3 = new System.Windows.Forms.Label();
+            this.Seconds2 = new System.Windows.Forms.Label();
+            this.Minutes2 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.Seconds = new System.Windows.Forms.Label();
+            this.Minutes = new System.Windows.Forms.Label();
             this.Fuelbarcar2 = new System.Windows.Forms.ProgressBar();
             this.Fuelbarcar1 = new System.Windows.Forms.ProgressBar();
             this.LBLRNDE = new System.Windows.Forms.Label();
@@ -51,11 +58,27 @@
             this.lblAngle = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tmrMoving = new System.Windows.Forms.Timer(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.timer3 = new System.Windows.Forms.Timer(this.components);
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.pnlCanvas.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlCanvas
             // 
+            this.pnlCanvas.Controls.Add(this.label9);
+            this.pnlCanvas.Controls.Add(this.label8);
+            this.pnlCanvas.Controls.Add(this.label7);
+            this.pnlCanvas.Controls.Add(this.Seconds3);
+            this.pnlCanvas.Controls.Add(this.Minutes3);
+            this.pnlCanvas.Controls.Add(this.Seconds2);
+            this.pnlCanvas.Controls.Add(this.Minutes2);
+            this.pnlCanvas.Controls.Add(this.label6);
+            this.pnlCanvas.Controls.Add(this.Seconds);
+            this.pnlCanvas.Controls.Add(this.Minutes);
             this.pnlCanvas.Controls.Add(this.Fuelbarcar2);
             this.pnlCanvas.Controls.Add(this.Fuelbarcar1);
             this.pnlCanvas.Controls.Add(this.LBLRNDE);
@@ -82,6 +105,70 @@
             this.pnlCanvas.Size = new System.Drawing.Size(1002, 717);
             this.pnlCanvas.TabIndex = 0;
             this.pnlCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlCanvas_Paint);
+            // 
+            // Seconds3
+            // 
+            this.Seconds3.AutoSize = true;
+            this.Seconds3.Location = new System.Drawing.Point(56, 286);
+            this.Seconds3.Name = "Seconds3";
+            this.Seconds3.Size = new System.Drawing.Size(54, 17);
+            this.Seconds3.TabIndex = 27;
+            this.Seconds3.Text = "label12";
+            // 
+            // Minutes3
+            // 
+            this.Minutes3.AutoSize = true;
+            this.Minutes3.Location = new System.Drawing.Point(8, 286);
+            this.Minutes3.Name = "Minutes3";
+            this.Minutes3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Minutes3.Size = new System.Drawing.Size(54, 17);
+            this.Minutes3.TabIndex = 26;
+            this.Minutes3.Text = "label11";
+            // 
+            // Seconds2
+            // 
+            this.Seconds2.AutoSize = true;
+            this.Seconds2.Location = new System.Drawing.Point(56, 228);
+            this.Seconds2.Name = "Seconds2";
+            this.Seconds2.Size = new System.Drawing.Size(46, 17);
+            this.Seconds2.TabIndex = 24;
+            this.Seconds2.Text = "label9";
+            // 
+            // Minutes2
+            // 
+            this.Minutes2.AutoSize = true;
+            this.Minutes2.Location = new System.Drawing.Point(9, 228);
+            this.Minutes2.Name = "Minutes2";
+            this.Minutes2.Size = new System.Drawing.Size(46, 17);
+            this.Minutes2.TabIndex = 23;
+            this.Minutes2.Text = "label8";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 155);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(95, 17);
+            this.label6.TabIndex = 21;
+            this.label6.Text = "Car 1 round 1";
+            // 
+            // Seconds
+            // 
+            this.Seconds.AutoSize = true;
+            this.Seconds.Location = new System.Drawing.Point(56, 172);
+            this.Seconds.Name = "Seconds";
+            this.Seconds.Size = new System.Drawing.Size(46, 17);
+            this.Seconds.TabIndex = 20;
+            this.Seconds.Text = "label7";
+            // 
+            // Minutes
+            // 
+            this.Minutes.AutoSize = true;
+            this.Minutes.Location = new System.Drawing.Point(12, 172);
+            this.Minutes.Name = "Minutes";
+            this.Minutes.Size = new System.Drawing.Size(46, 17);
+            this.Minutes.TabIndex = 19;
+            this.Minutes.Text = "label6";
             // 
             // Fuelbarcar2
             // 
@@ -280,6 +367,50 @@
             this.tmrMoving.Interval = 18;
             this.tmrMoving.Tick += new System.EventHandler(this.tmrMoving_Tick);
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timer2
+            // 
+            this.timer2.Interval = 1000;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick_1);
+            // 
+            // timer3
+            // 
+            this.timer3.Interval = 1000;
+            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(16, 364);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(46, 17);
+            this.label7.TabIndex = 28;
+            this.label7.Text = "label7";
+            this.label7.Visible = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(12, 211);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(95, 17);
+            this.label8.TabIndex = 29;
+            this.label8.Text = "Car 1 round 2";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(12, 269);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(95, 17);
+            this.label9.TabIndex = 30;
+            this.label9.Text = "Car 1 round 3";
+            // 
             // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -326,6 +457,19 @@
         private System.Windows.Forms.Label lblTest;
         private System.Windows.Forms.ProgressBar Fuelbarcar2;
         private System.Windows.Forms.ProgressBar Fuelbarcar1;
+        private System.Windows.Forms.Label Seconds;
+        private System.Windows.Forms.Label Minutes;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label Seconds3;
+        private System.Windows.Forms.Label Minutes3;
+        private System.Windows.Forms.Label Seconds2;
+        private System.Windows.Forms.Label Minutes2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Timer timer3;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
     }
 }
 

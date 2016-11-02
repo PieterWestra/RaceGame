@@ -34,6 +34,8 @@ namespace Engine
             {
                 return fuel = Convert.ToSingle(fuel - 0.05);
             }
+
+
             return fuel;
         }
     }

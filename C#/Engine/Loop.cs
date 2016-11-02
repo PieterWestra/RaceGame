@@ -101,7 +101,7 @@ namespace Engine
 
                 if ((car1.fuel <= 99.9) && (car1.force == 0))
                 {
-                    car1.fuel = Convert.ToSingle(car1.fuel + 0.5);
+                    car1.fuel = Convert.ToSingle(car1.fuel + 0.75);
                 }
                     if (car1.fuel > 100) { 
                         
