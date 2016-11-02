@@ -48,12 +48,12 @@ namespace Engine
 		{
             // Nieuwe versimpelde formule (Op het moment nog steeds hardcoded)
             collisionFront = new Rectangle(new Point(
-                (int)((x) + 12 * xMult - 12), (int)((y - 12) + 12 * yMult)),
-                new Size(24, 24));
+                (int)((x) + 6 * xMult - 6), (int)((y - 6) + 6 * yMult)),
+                new Size(12, 12));
 
             collisionBack = new Rectangle(new Point(
-                (int)((x) - 12 * xMult - 12), (int)((y - 12) - 12 * yMult)),
-                new Size(24, 24));
+                (int)((x) - 6 * xMult - 6), (int)((y - 6) - 6 * yMult)),
+                new Size(12, 12));
         }
 
         public void Transform()
