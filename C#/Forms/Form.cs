@@ -193,7 +193,7 @@ namespace Forms
                Minutes2.BackColor = Color.Gray;
                Minutes3.BackColor = Color.Gray;
 
-               car2minutes1.BackColor = Color.Gray;
+               car2minutes.BackColor = Color.Gray;
                car2minutes2.BackColor = Color.Gray;
                car2minutes3.BackColor = Color.Gray;
 
@@ -201,7 +201,7 @@ namespace Forms
                Seconds2.BackColor = Color.Gray;
                Seconds3.BackColor = Color.Gray;
                     
-               car2seconds1.BackColor = Color.Gray;
+               car2seconds.BackColor = Color.Gray;
                car2seconds2.BackColor = Color.Gray;
                car2seconds3.BackColor = Color.Gray;
 
@@ -267,7 +267,7 @@ namespace Forms
                 Minutes2.BackColor = Color.Black;
                 Minutes3.BackColor = Color.Black;
 
-                car2minutes1.BackColor = Color.Black;
+                car2minutes.BackColor = Color.Black;
                 car2minutes2.BackColor = Color.Black;
                 car2minutes3.BackColor = Color.Black;
 
@@ -277,7 +277,7 @@ namespace Forms
                 Minutes2.ForeColor = Color.White;
                 Minutes3.ForeColor = Color.White;
 
-                car2minutes1.ForeColor = Color.White;
+                car2minutes.ForeColor = Color.White;
                 car2minutes2.ForeColor = Color.White;
                 car2minutes3.ForeColor = Color.White;
                 
@@ -286,7 +286,7 @@ namespace Forms
                 Seconds2.BackColor = Color.Black;
                 Seconds3.BackColor = Color.Black;
 
-                car2seconds1.BackColor = Color.Black;
+                car2seconds.BackColor = Color.Black;
                 car2seconds2.BackColor = Color.Black;
                 car2seconds3.BackColor = Color.Black;
 
@@ -295,7 +295,7 @@ namespace Forms
                 Seconds2.ForeColor = Color.White;
                 Seconds3.ForeColor = Color.White;
 
-                car2seconds1.ForeColor = Color.Black;
+                car2seconds.ForeColor = Color.Black;
                 car2seconds2.ForeColor = Color.Black;
                 car2seconds3.ForeColor = Color.Black;
 
@@ -321,7 +321,6 @@ namespace Forms
 
 
             }
-
 
             #endregion
             #endregion
@@ -517,17 +516,17 @@ namespace Forms
         }
         private void calculatebest()
         {
-            if ((_seconds + _minutes) <= (_seconds2 + _minutes2) && (_seconds + _minutes) <= (_seconds3 + _minutes3))
+            if ((_seconds + (_minutes * 60)) <= (_seconds2 + (_minutes2 * 60)) && (_seconds + (_minutes * 60)) <= (_seconds3 + (_minutes3 * 60)))
             {
                 label7.Visible = true;
                 label7.Text = "Best lap : Lap 1";
             }
-            else if ((_seconds2 + _minutes2) <= (_seconds + _minutes) && (_seconds2 + _minutes2) <= (_seconds3 + _minutes3))
+            else if ((_seconds2 + (_minutes2 * 60)) <= (_seconds + (_minutes * 60)) && (_seconds2 + (_minutes2 * 60)) <= (_seconds3 + (_minutes3 * 60)))
             {
                 label7.Visible = true;
                 label7.Text = "Best lap : Lap 2";
             }
-            else if ((_seconds3 + _minutes3) <= (_seconds2 + _minutes2) && (_seconds3 + _minutes3) <= (_seconds + _minutes))
+            else if ((_seconds3 + (_minutes3 * 60)) <= (_seconds2 + (_minutes2 * 60)) && (_seconds3 + (_minutes3 * 60)) <= (_seconds + (_minutes * 60)))
             {
                 label7.Visible = true;
                 label7.Text = "Best lap: Lap 3";
@@ -561,7 +560,7 @@ namespace Forms
         #region car 2 round 1
         private void timer4_Tick(object sender, EventArgs e)
         {
-            if (Loop.LapCountCar2 == 1)
+            if (Loop.LapCountCar2 >= 0)
             {
                 _2increaseseconds();
                 _2ShowTime();
@@ -599,8 +598,8 @@ namespace Forms
 
         private void _2ShowTime()
         {
-            car2minutes1.Text = _2minutes.ToString("00");
-            car2seconds1.Text = _2seconds.ToString("00");
+            car2minutes.Text = _2minutes.ToString("00");
+            car2seconds.Text = _2seconds.ToString("00");
         }
         #endregion
         #region car 2 round 2
@@ -662,17 +661,17 @@ namespace Forms
         }
         private void _2calculatebest()
         {
-            if ((_2seconds + _2minutes) <= (_2seconds2 + _2minutes2) && (_2seconds + _2minutes) <= (_2seconds3 + _2minutes3))
+            if ((_2seconds + (_2minutes * 60)) <= (_2seconds2 + (_2minutes2 * 60)) && (_2seconds + (_2minutes * 60)) <= (_2seconds3 + (_2minutes3 * 60)))
             {
                 label7.Visible = true;
                 label7.Text = "Best lap : Lap 1";
             }
-            else if ((_2seconds2 + _2minutes2) <= (_2seconds + _2minutes) && (_2seconds2 + _2minutes2) <= (_2seconds3 + _2minutes3))
+            else if ((_2seconds2 + (_2minutes2 * 60)) <= (_2seconds + (_2minutes * 60)) && (_2seconds2 + (_2minutes2 * 60)) <= (_2seconds3 + (_2minutes3 * 60)))
             {
                 label7.Visible = true;
                 label7.Text = "Best lap : Lap 2";
             }
-            else if ((_2seconds3 + _2minutes3) <= (_2seconds2 + _2minutes2) && (_2seconds3 + _2minutes3) <= (_2seconds + _2minutes))
+            else if ((_2seconds3 + (_2minutes3 * 60)) <= (_2seconds2 + (_2minutes2 * 60)) && (_2seconds3 + (_2minutes3 * 60)) <= (_2seconds + (_2minutes * 60)))
             {
                 label7.Visible = true;
                 label7.Text = "Best lap: Lap 3";
