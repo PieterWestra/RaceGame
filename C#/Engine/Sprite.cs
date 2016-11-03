@@ -85,7 +85,7 @@ namespace Engine
 			if (Throttle && (Brake == false))
 			{
 				if (force < 5 && !boost)
-					force += 0.125f;
+					force += 0.25f;
 				else if (force < 8 && boost)
 					force += 0.25f;
 				else

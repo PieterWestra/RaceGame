@@ -633,7 +633,17 @@ namespace Forms
             }
         }
 
-		private void _2ShowTime2()
+        private void Seconds_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Seconds2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void _2ShowTime2()
         {
             car2minutes2.Text = _2minutes2.ToString("00");
             car2seconds2.Text = _seconds2.ToString("00");
