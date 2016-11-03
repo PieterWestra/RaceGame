@@ -129,6 +129,7 @@ namespace Engine
 
 			backBuffer.FillRectangle(grassBrush, 0, 0, 1024, 768);
 			backBuffer.DrawImage(track, 0, 0, 1024, 768);
+			Boost.Render(backBuffer);
 
 			////Checkpoints
 			//backBuffer.DrawRectangle(Pens.Red, Checkpoints.Checkpoint1);
@@ -163,7 +164,6 @@ namespace Engine
 			//colliders13.DebugRender(backBuffer);
 
 			//PitStop.DebugRender(backBuffer);
-			Boost.Render(backBuffer);
 
 			if (LapCountCar2 >= 4 || LapCountCar1 >= 4)
 				backBuffer.DrawImage(youWon, 0, 0, 1024, 768);
