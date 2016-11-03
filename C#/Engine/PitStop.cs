@@ -21,7 +21,7 @@ namespace Engine
 				if (car1.force > 1.2f)
 					car1.force = 1.2f;
 				if (car1.fuel < 100)
-					car1.fuel += 1.0f;
+					car1.fuel += 0.1f;
 				car1InPitstop = true;
 			}
 			else
@@ -39,7 +39,7 @@ namespace Engine
 				if (car2.force > 1.2f)
 					car2.force = 1.2f;
 				if (car2.fuel < 100)
-					car2.fuel += 1.0f;
+					car2.fuel += 0.1f;
 				car2InPitstop = true;
 			}
 			else
