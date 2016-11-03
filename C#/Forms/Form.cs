@@ -451,6 +451,49 @@ namespace Forms
             Minutes.Text = _minutes.ToString("00");
             Seconds.Text = _seconds.ToString("00");
         }
+        private void timer4_Tick(object sender, EventArgs e)
+        {
+            if (Loop.LapCountCar2 == 1)
+            {
+                _2increaseseconds();
+                _2ShowTime();
+            }
+            if (Loop.LapCountCar2 > 1)
+            {
+                _2starttimer2();
+                _2stoptimer();
+                _2ShowTime();
+
+            }
+        }
+        private void _2starttimer2()
+        {
+            timer5.Enabled = true;
+        }
+        private void _2stoptimer()
+        {
+            timer4.Enabled = false;
+
+        }
+        private void _2increaseseconds()
+        {
+
+            if (_2seconds == 59)
+            {
+                _2seconds = 0;
+                _2minutes++;
+            }
+            else
+            {
+                _2seconds++;
+            }
+        }
+
+        private void _2ShowTime()
+        {
+            car2minutes.Text = _2minutes.ToString("00");
+            car2seconds.Text = _2seconds.ToString("00");
+        }
         #endregion
         #region round 2
         private void timer2_Tick_1(object sender, EventArgs e)
@@ -492,6 +535,47 @@ namespace Forms
         {
             Minutes2.Text = _minutes2.ToString("00");
             Seconds2.Text = _seconds2.ToString("00");
+        }
+        private void timer5_Tick_1(object sender, EventArgs e)
+        {
+            if (Loop.LapCountCar2 == 2)
+            {
+                _2increaseseconds2();
+                _2ShowTime2();
+            }
+            else
+            {
+                _2stoptimer2();
+                _2starttimer3();
+            }
+        }
+        private void _2starttimer3()
+        {
+            timer6.Enabled = true;
+            timer5.Enabled = false;
+        }
+        private void _2stoptimer2()
+        {
+            timer5.Enabled = false;
+        }
+
+        private void _2increaseseconds2()
+        {
+            if (_seconds2 == 59)
+            {
+                _seconds2 = 0;
+                _2minutes2++;
+            }
+            else
+            {
+                _seconds2++;
+            }
+        }
+
+        private void _2ShowTime2()
+        {
+            car2minutes2.Text = _2minutes2.ToString("00");
+            car2seconds2.Text = _seconds2.ToString("00");
         }
         #endregion
         #region round 3 + lapcalc
@@ -547,99 +631,6 @@ namespace Forms
             Minutes3.Text = _minutes3.ToString("00");
             Seconds3.Text = _seconds3.ToString("00");
         }
-
-        #endregion
-        #endregion
-        #region timer car2
-        #region car 2 round 1
-        private void timer4_Tick(object sender, EventArgs e)
-        {
-            if (Loop.LapCountCar2 >= 0)
-            {
-                _2increaseseconds();
-                _2ShowTime();
-            }
-            if (Loop.LapCountCar2 > 1)
-            {
-                _2starttimer2();
-                _2stoptimer();
-                _2ShowTime();
-
-            }
-        }
-        private void _2starttimer2()
-        {
-            timer5.Enabled = true;
-        }
-        private void _2stoptimer()
-        {
-            timer4.Enabled = false;
-
-        }
-        private void _2increaseseconds()
-        {
-
-            if (_2seconds == 59)
-            {
-                _2seconds = 0;
-                _2minutes++;
-            }
-            else
-            {
-                _2seconds++;
-            }
-        }
-
-        private void _2ShowTime()
-        {
-            car2minutes.Text = _2minutes.ToString("00");
-            car2seconds.Text = _2seconds.ToString("00");
-        }
-        #endregion
-        #region car 2 round 2
-        private void timer5_Tick_1(object sender, EventArgs e)
-        {
-            if (Loop.LapCountCar2 == 2)
-            {
-                _2increaseseconds2();
-                _2ShowTime2();
-            }
-            else
-            {
-                _2stoptimer2();
-                _2starttimer3();
-            }
-        }
-        private void _2starttimer3()
-        {
-            timer6.Enabled = true;
-            timer5.Enabled = false;
-        }
-        private void _2stoptimer2()
-        {
-            timer5.Enabled = false;
-        }
-
-        private void _2increaseseconds2()
-        {
-            if (_seconds2 == 59)
-            {
-                _seconds2 = 0;
-                _2minutes2++;
-            }
-            else
-            {
-                _seconds2++;
-            }
-        }
-
-		private void _2ShowTime2()
-        {
-            car2minutes2.Text = _2minutes2.ToString("00");
-            car2seconds2.Text = _seconds2.ToString("00");
-        }
-        #endregion
-        #region car 2 round 3 + lapcalc
         private void timer6_Tick(object sender, EventArgs e)
         {
             if (Loop.LapCountCar2 == 3)
@@ -692,6 +683,18 @@ namespace Forms
             car2minutes3.Text = _2minutes3.ToString("00");
             car2seconds3.Text = _2seconds3.ToString("00");
         }
+
+        #endregion
+        #endregion
+        #region timer car2
+        #region car 2 round 1
+
+        #endregion
+        #region car 2 round 2
+
+        #endregion
+        #region car 2 round 3 + lapcalc
+       
         #endregion
         #endregion
 
