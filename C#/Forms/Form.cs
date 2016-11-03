@@ -109,9 +109,9 @@ namespace Forms
 
             //reset to loop values
             car1.x = 300;
-            car1.y = 50; //X and Y coordinates Car1
+            car1.y = 128; //X and Y coordinates Car1
             car2.x = 300;
-            car2.y = 100; //X and Y coordinates Car2
+            car2.y = 160; //X and Y coordinates Car2
 
 
 
@@ -193,7 +193,7 @@ namespace Forms
                Minutes2.BackColor = Color.Gray;
                Minutes3.BackColor = Color.Gray;
 
-               car2minutes.BackColor = Color.Gray;
+               test.BackColor = Color.Gray;
                car2minutes2.BackColor = Color.Gray;
                car2minutes3.BackColor = Color.Gray;
 
@@ -201,7 +201,7 @@ namespace Forms
                Seconds2.BackColor = Color.Gray;
                Seconds3.BackColor = Color.Gray;
                     
-               car2seconds.BackColor = Color.Gray;
+               test2.BackColor = Color.Gray;
                car2seconds2.BackColor = Color.Gray;
                car2seconds3.BackColor = Color.Gray;
 
@@ -267,7 +267,7 @@ namespace Forms
                 Minutes2.BackColor = Color.Black;
                 Minutes3.BackColor = Color.Black;
 
-                car2minutes.BackColor = Color.Black;
+                test.BackColor = Color.Black;
                 car2minutes2.BackColor = Color.Black;
                 car2minutes3.BackColor = Color.Black;
 
@@ -277,7 +277,7 @@ namespace Forms
                 Minutes2.ForeColor = Color.White;
                 Minutes3.ForeColor = Color.White;
 
-                car2minutes.ForeColor = Color.White;
+                test.ForeColor = Color.White;
                 car2minutes2.ForeColor = Color.White;
                 car2minutes3.ForeColor = Color.White;
                 
@@ -286,7 +286,7 @@ namespace Forms
                 Seconds2.BackColor = Color.Black;
                 Seconds3.BackColor = Color.Black;
 
-                car2seconds.BackColor = Color.Black;
+                test2.BackColor = Color.Black;
                 car2seconds2.BackColor = Color.Black;
                 car2seconds3.BackColor = Color.Black;
 
@@ -295,7 +295,7 @@ namespace Forms
                 Seconds2.ForeColor = Color.White;
                 Seconds3.ForeColor = Color.White;
 
-                car2seconds.ForeColor = Color.Black;
+                test2.ForeColor = Color.Black;
                 car2seconds2.ForeColor = Color.Black;
                 car2seconds3.ForeColor = Color.Black;
 
@@ -554,7 +554,7 @@ namespace Forms
         #region car 2 round 1
         private void timer4_Tick(object sender, EventArgs e)
         {
-            if (Loop.LapCountCar2 >= 0)
+            if (Loop.LapCountCar2 == 1)
             {
                 _2increaseseconds();
                 _2ShowTime();
@@ -563,7 +563,6 @@ namespace Forms
             {
                 _2starttimer2();
                 _2stoptimer();
-                _2ShowTime();
 
             }
         }
@@ -592,8 +591,8 @@ namespace Forms
 
         private void _2ShowTime()
         {
-            car2minutes.Text = _2minutes.ToString("00");
-            car2seconds.Text = _2seconds.ToString("00");
+            test.Text = _2minutes.ToString("00");
+            test2.Text = _2seconds.ToString("00");
         }
         #endregion
         #region car 2 round 2
