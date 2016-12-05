@@ -1,4 +1,4 @@
-# RaceGame
+# PretEiland
 
 ### How to run?
 
@@ -7,7 +7,7 @@ Open either the shortcut or navigate to [Wherever you downloaded is]\RaceGame\bi
 
 ### How to compile?
 
-RaceGame is compiled using either one of these 3 methods
+PretEiland is compiled using either one of these 3 methods
 
 * .Net Framework
 * Visual Studio
