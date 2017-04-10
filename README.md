@@ -1,4 +1,5 @@
 # PretEiland
+University group exercise.
 
 ### How to run?
 
